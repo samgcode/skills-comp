@@ -1,10 +1,15 @@
 <template>
   <div id="main-app" class="container">
-    <nav class="navbar navbar-expand-lg navbar-secondary" style="background-color: #E6E6E6">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Bio-spoons</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse collapse" id="mainNav" style="">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <router-link :to="{ name: 'Home' }" class="nav-link">Home <span class="sr-only">(current)</span></router-link>
+            <router-link :to="{ name: 'Home' }" class="nav-link">Home</router-link>
           </li>
           <li class="nav-item">
             <router-link :to="{ name: 'Store' }" class="nav-link">Store</router-link>
@@ -15,13 +20,15 @@
           <li class="nav-item">
             <router-link :to="{ name: 'About' }" class="nav-link">About us</router-link>
           </li>
+      
         </ul>
       </div>
     </nav>
+
     <router-view></router-view>
     <footer>
       <hr style="margin-top: 5em">
-      <div>
+      <div style="margin-bottom: 5em;">
         <span>
           If you would like to know more about 
           <router-link :to="{ name: 'About' }" ><u>our company,</u></router-link>
