@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="margin-top: 3em">
       <div class="title-card">
         <section class="jumbotron text-center" style="background-color: #5a5a5a; color: #fff">
           <div class="container">
@@ -37,7 +37,7 @@
         <div class="row">
           <div class="row featurette">
             <div class="col-md-7">
-              <h2 class="featurette-heading"><u>The history of bio-spoons</u></h2>
+              <h1 class="featurette-heading"><u>The history of bio-spoons</u></h1>
               <p class="lead">Bio-spoons, first opened its doors in late 2018, and the rest is history.</p>
             </div>
             <div class="col-md-5">
