@@ -5,6 +5,7 @@ import Home from '@/components/Home';
 import Store from '@/components/Store';
 import Contact from '@/components/Contact'
 import About from '@/components/About';
+import AddReview from '@/components/AddReview';
 
 Vue.use(Router);
 
@@ -19,6 +20,11 @@ export default new Router({
         path: '/Store',
         name: 'Store',
         component: Store
+    },
+    {
+      path: '/AddReview',
+      name: 'AddReview',
+      component: AddReview
     },
     {
         path: '/Contact',

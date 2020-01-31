@@ -4,6 +4,9 @@
         <div class="container">
           <h2>Bio-spoons</h2>
           <h4>Reviews</h4>
+          <div class="text-center">
+            <router-link :to="{ name: 'AddReview' }" class="lead btn btn-primary" style="color: white;">Write a review</router-link>
+          </div>
         </div>
       </div>
 
@@ -33,21 +36,7 @@
     name: 'Store',
     data: function() {
       return {
-        reviews: [
-            {
-                "username": "Jeff",
-                "review": "This is a review by a person that has a rating and this is a very good company yes yes.",
-                "rating": 4,
-                "id": 0
-            },
-
-            {
-                "username": "Stev",
-                "review": "Yes yes very good, very cool yes good would spoon again",
-                "rating": 5,
-                "id": 1
-            }
-        ],
+        reviews: [],
         reviewId: 0,
       }
     },
@@ -56,14 +45,14 @@
       ReviewList
     },
     mounted() {
-      // axios.get("file://./")
-      // .then( 
-      //   response => (this.reviews = response.data.map( item => {
-      //     item.Id = this.reviewId;
-      //     this.reviewId++;
-      //     return item;
-      //   }))
-      // );
+      axios.get("http://localhost:3000/reviews")
+      .then( 
+        response => (this.reviews = response.data.map( item => {
+          item.Id = this.reviewId;
+          this.reviewId++;
+          return item;
+        }))
+      );
 
     }
   }
