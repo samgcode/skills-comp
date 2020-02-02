@@ -10,6 +10,7 @@
                         name="username" 
                         id="usernameInput" 
                         class="form-control" 
+                        :class="{'border-danger': this.validationErrors[0] }"
                         placeholder="Jeff"
                         v-model="formdata.username"
                     >
@@ -19,6 +20,7 @@
                     <select 
                         id="ratingInput" 
                         class="form-control"
+                        :class="{'border-danger': this.validationErrors[1] }"
                         v-model="formdata.rating"
                         >
                         <option selected>5</option>
@@ -33,6 +35,7 @@
                 <label for="reviewInput">Review</label>
                 <textarea 
                     class="form-control" 
+                    :class="{'border-danger': this.validationErrors[2] }"
                     id="reviewInput" 
                     rows="5" 
                     placeholder="Write your review..."
@@ -56,28 +59,56 @@
         name: "AddReview",
         data() {
             return {
-                formdata: []
+                formdata: [],
+                validationErrors: []
             }
         } ,
 
         methods: {
             requestAdd: function() {
-                //create a new http request
-                let xhr = new XMLHttpRequest();
+                if(this.valid()) {
+                    //create a new http request
+                    let xhr = new XMLHttpRequest();
 
-                xhr.open('POST', 'http://localhost:3000/reviews');
+                    xhr.open('POST', 'http://localhost:3000/reviews');
 
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhr.send(`username=${this.formdata.username}&rating=${this.formdata.rating}&review=${this.formdata.review}`);
+                    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    xhr.send(`username=${this.formdata.username}&rating=${this.formdata.rating}&review=${this.formdata.review}`);
 
-                xhr.onload = () => {
-                    if(xhr.status != 201) {
-                        alert(`Error ${xhr.status}: ${xhr.statusText}`);
-                    } else {
-                        alert('*is dies*')
-                        window.location.replace('http://localhost:8080/#/Store');
-                    }
-                };
+                    xhr.onload = () => {
+                        if(xhr.status != 201) {
+                            alert(`Error ${xhr.status}: ${xhr.statusText}`);
+                        } else {
+                            window.location.replace('http://localhost:8080/#/Store');
+                        }
+                    };
+                }
+            },
+
+            valid: function() {
+                this.validationErrors = [
+                    false,
+                    false,
+                    false
+                ];
+                var valid = true;
+                
+                if(this.formdata.username == null) {
+                    this.validationErrors[0] = true;
+                    valid = false;
+                }
+
+                if(this.formdata.rating == null) {
+                    this.validationErrors[1] = true;
+                    valid = false;
+                }
+
+                if(this.formdata.review == null) {
+                    this.validationErrors[2] = true;
+                    valid = false;
+                }
+
+                return valid;
             }
         }
     }

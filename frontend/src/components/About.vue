@@ -46,6 +46,21 @@
             </div>
           </div>
         </div>
+
+        <hr style="margin-top: 5em; margin-bottom: 5em;" class="featurette-divider">
+        <div class="row">
+          <div class="row featurette">
+            <div class="col-md-5">
+              <img src="@/assets/rainbowSpoons.jpg" alt="Image of one of our spoons" 
+              class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+            </div>
+            <div class="col-md-7">
+              <h1 class="featurette-heading"><u>See some of our reviews</u></h1>
+              <p class="lead">"This is a very good company would recomend yes yes"</p>
+              <h6>-Jeff</h6>
+            </div>
+          </div>
+        </div>
       </div>      
     </div>
 </template>
