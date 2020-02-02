@@ -6,7 +6,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="navbar-collapse collapse" id="mainNav" style="">
+      <div class="navbar-collapse collapse" id="mainNav">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <router-link :to="{ name: 'Home' }" class="nav-link">Home</router-link>
@@ -27,8 +27,8 @@
 
     <router-view></router-view>
     <footer>
-      <hr style="margin-top: 5em">
-      <div style="margin-bottom: 5em;">
+      <hr class="top-spacer">
+      <div class="bottom-spacer">
         <span>
           If you would like to know more about 
           <router-link :to="{ name: 'About' }" ><u>our company,</u></router-link>

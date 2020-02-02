@@ -1,7 +1,7 @@
 <template>
-  <div class="container" style="margin-top:5em;">
+  <div class="container top-spacer">
     <h2>Contact us</h2>
-    <form class="text-center" style="margin-top: 3em;">
+    <form class="text-center top-spacer">
     <div class="form-row row">
       <div class="form-group col-md-6">
         <label for="nameInput">Name:</label>
@@ -36,7 +36,7 @@
     </div>
     <div class="container">
       <div class="col-md-6">
-          <router-link :to="{ name: 'Home' }" class="lead btn btn-primary" style="color: white;">Send</router-link>
+          <router-link :to="{ name: 'Home' }" class="lead btn btn-primary text-white">Send</router-link>
       </div>
     </div> 
     </form>

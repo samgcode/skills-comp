@@ -1,7 +1,7 @@
 <template>
     <div style="margin-top: 3em">
       <div class="title-card">
-        <section class="jumbotron text-center" style="background-color: #5a5a5a; color: #fff">
+        <section class="jumbotron text-center dark-jumbotron">
           <div class="container">
             <h1><u>Bio-spoons</u></h1>
             <p class="lead">Saveing the environment, one spoon at a time.</p>
@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <hr style="margin-top: 5em; margin-bottom: 5em;" class="featurette-divider">
+        <hr class="featurette-divider top-spacer bottom-spacer">
         <div class="row">
           <div class="row featurette">
             <div class="col-md-7">

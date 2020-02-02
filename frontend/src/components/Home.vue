@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 5em;">
+  <div class="top-spacer">
     
     <span>Zero-emission, energy efficient spoon's are the future of humanity.</span>
   </div>

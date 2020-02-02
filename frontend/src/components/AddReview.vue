@@ -1,5 +1,5 @@
 <template>
-    <div style="margin-top: 5em;">
+    <div class="top-spacer">
         <h2>Write a review</h2>
         <form @submit.prevent="requestAdd()">
             <div class="from-row row">
@@ -46,7 +46,7 @@
             <div class="form-row row">
                 <div class="container">
                     <div class="text-center">
-                        <button class="btn btn-primary" type="submit" style="color: white;">Submit</button>
+                        <button class="btn btn-primary text-white" type="submit">Submit</button>
                     </div>
                 </div>    
             </div>

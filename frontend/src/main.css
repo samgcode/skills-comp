@@ -1,0 +1,18 @@
+
+
+.dark-jumbotron {
+    background-color: #5a5a5a;
+    color: #fff;
+}
+
+.top-spacer {
+    margin-top: 5em;
+}
+
+.bottom-spacer {
+    margin-bottom: 5em;
+}
+
+.text-white {
+    color: white;
+}
