@@ -5,43 +5,52 @@
             <div class="from-row row">
                 <div class="from-group col-md-6">
                     <label for="usernameInput">Username</label>
-                    <input 
-                        type="text" 
-                        name="username" 
-                        id="usernameInput" 
-                        class="form-control" 
-                        :class="{'border-danger': this.validationErrors[0] }"
-                        placeholder="Jeff"
-                        v-model="formdata.username"
-                    >
+                    <validation-provider rules="required" data-vv-validate-on="submit" v-slot="{ errors }">
+                        <input 
+                            type="text" 
+                            name="username" 
+                            id="usernameInput" 
+                            class="form-control" 
+                            :class="{'border-danger': validationErrors[0] }"
+                            placeholder="Enter your name"
+                            v-model="formdata.username"
+                        >
+                        <span>{{ errors[0] }}</span>
+                    </validation-provider>
                 </div>
                 <div class="from-group col-md-6"> 
                     <label for="ratingInput">Rating</label>
-                    <select 
-                        id="ratingInput" 
-                        class="form-control"
-                        :class="{'border-danger': this.validationErrors[1] }"
-                        v-model="formdata.rating"
-                        >
-                        <option selected>5</option>
-                        <option>4</option>
-                        <option>3</option>
-                        <option>2</option>
-                        <option>1</option>
-                    </select>
+                    <validation-provider rules="required" data-vv-validate-on="submit" v-slot="{ errors }">
+                        <select 
+                            id="ratingInput" 
+                            class="form-control"
+                            :class="{'border-danger': validationErrors[1] }"
+                            v-model="formdata.rating"
+                            >
+                                <option selected>5</option>
+                                <option>4</option>
+                                <option>3</option>
+                                <option>2</option>
+                                <option>1</option>
+                        </select>
+                    <span>{{ errors[0] }}</span>
+                    </validation-provider>
                 </div>
             </div>
             <div class="form-group">
                 <label for="reviewInput">Review</label>
-                <textarea 
-                    class="form-control" 
-                    :class="{'border-danger': this.validationErrors[2] }"
-                    id="reviewInput" 
-                    rows="5" 
-                    placeholder="Write your review..."
-                    v-model="formdata.review"
-                    >
-                </textarea>
+                <validation-provider rules="required" data-vv-validate-on="submit" v-slot="{ errors }">
+                    <textarea 
+                        class="form-control" 
+                        :class="{'border-danger': validationErrors[2] }"
+                        id="reviewInput" 
+                        rows="5" 
+                        placeholder="Write your review..."
+                        v-model="formdata.review"
+                        >
+                    </textarea>
+                <span>{{ errors[0] }}</span>
+                </validation-provider>
             </div>
             <div class="form-row row">
                 <div class="container">
@@ -55,6 +64,15 @@
 </template>
 
 <script>
+    import { ValidationProvider, extend } from 'vee-validate';
+    
+    import { required } from 'vee-validate/dist/rules';
+
+    extend('required', {
+      ...required,
+      message: 'This field is required'
+    });
+
     export default {
         name: "AddReview",
         data() {
@@ -62,7 +80,11 @@
                 formdata: [],
                 validationErrors: []
             }
-        } ,
+        },
+
+        components: {
+            ValidationProvider
+        },
 
         methods: {
             requestAdd: function() {
