@@ -13,10 +13,8 @@ const getReviews = async () => {
 }
 
 const addReview = async (username, rating, review) => {
-    throw new Error();
     await pool.query('INSERT INTO reviews (username, rating, review) VALUES ($1, $2, $3)',
     [username, rating, review]);
-    
 }
 
 module.exports = {
