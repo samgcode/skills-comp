@@ -9,6 +9,10 @@
     margin-top: 5em;
 }
 
+.top-spacer > small {
+    margin-top: 3em;
+}
+
 .bottom-spacer {
     margin-bottom: 5em;
 }

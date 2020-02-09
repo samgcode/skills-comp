@@ -1,5 +1,5 @@
 <template>
-    <div class="container" style="margin-top: 3em">
+    <div class="container top-spacer small">
       <div class="jumbotron">
         <div class="container">
           <h2>Bio-spoons</h2>

@@ -19,29 +19,10 @@ app.get('/', function (req, res) {
 app.get('/reviews', queries.getReviews);
 app.post('/reviews', queries.addReview);
 
+app.get('/items', queries.getItems);
+
 app.listen(port, function () {
     console.log(`Node app is running on port ${port}`);
 });
  
 module.exports = app;
-
-// CREATE TABLE IF NOT EXISTS reviews (
-// 	username text,
-// 	review text,
-// 	rating int,
-// 	id SERIAL PRIMARY KEY
-// );
-
-// INSERT INTO reviews (username, review, rating)
-// VALUES (
-// 	'Jeff',
-// 	'This is a review by a person that has a rating and this is a very good company yes yes.',
-// 	4
-// ),
-// (
-// 	'Stev',
-// 	'Yes yes very good, very cool yes good would spoon again',
-// 	5
-// );
-
-// SELECT * FROM reviews;
