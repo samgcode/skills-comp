@@ -1,0 +1,29 @@
+const queries = require('./queries');
+ 
+async function getReviews(req, res, next) {
+    try {
+        const data = await queries.getReviews();
+        return res.status(200).json(data);
+    } catch(err) {
+        console.log(err);
+        next(new Error('Error occured'));
+    }
+}
+
+async function addReview(req, res, next) {
+    //
+    try {
+        const { username, rating, review } = req.body;
+        await queries.addReview(username, rating, review);
+        return res.status(201).send(`Review added for: ${username}`);
+    } catch(err) {
+        console.log(err);
+        next(new Error('Error occured'));
+    }
+    
+}
+
+module.exports = {
+    getReviews,
+    addReview
+};
