@@ -22,6 +22,10 @@
         </div>
       </div>
 
+      <div class="container">
+        <ItemList :items="this.items"/>
+      </div>
+
       <div class="row"> 
         <ReviewList :reviews="this.reviews"/>
       </div>
@@ -30,6 +34,7 @@
 
 <script>
   import ReviewList from './ReviewList';
+  import ItemList from './ItemList';
   import axios from 'axios';
 
   export default {
@@ -37,14 +42,18 @@
     data: function() {
       return {
         reviews: [],
+        items: [],
         reviewId: 0,
+        itemid: 0
       }
     },
     
     components: {
-      ReviewList
+      ReviewList,
+      ItemList
     },
     mounted() {
+
       axios.get("http://localhost:3000/reviews")
       .then( 
         response => (this.reviews = response.data.map( item => {
@@ -54,6 +63,18 @@
         }))
       );
 
+      axios.get("http://localhost:3000/items")
+      .then( 
+        response => (this.items = response.data.map( item => {
+          item.Id = this.itemid;
+          this.itemid++;
+          return item;
+        }))
+      );
+
+    },
+    methods: {
+      
     }
   }
 </script>

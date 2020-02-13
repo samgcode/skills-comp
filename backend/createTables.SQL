@@ -9,5 +9,6 @@ CREATE TABLE IF NOT EXISTS reviews (
 CREATE TABLE IF NOT EXISTS items (
 	name text,
 	description text,
+	imagename text,
 	id SERIAL PRIMARY KEY
 );
