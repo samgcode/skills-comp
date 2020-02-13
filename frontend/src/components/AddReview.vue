@@ -18,13 +18,30 @@
                         <span>{{ errors[0] }}</span>
                     </validation-provider>
                 </div>
-                <div class="from-group col-md-6"> 
+                <div class="from-group col-md-3"> 
+                    <label for="productInput">Product</label>
+                    <validation-provider rules="required" data-vv-validate-on="submit" v-slot="{ errors }">
+                        <select 
+                            id="productInput" 
+                            class="form-control"
+                            :class="{'border-danger': validationErrors[1] }"
+                            v-model="formdata.product"
+                            >
+                                <option selected>Bio degradable spoons pack</option>
+                                <option>Colored spoons pack</option>
+                                <option>Single spoon</option>
+                                <option>Colored spoon</option>
+                        </select>
+                    <span>{{ errors[0] }}</span>
+                    </validation-provider>
+                </div>
+                <div class="from-group col-md-3"> 
                     <label for="ratingInput">Rating</label>
                     <validation-provider rules="required" data-vv-validate-on="submit" v-slot="{ errors }">
                         <select 
                             id="ratingInput" 
                             class="form-control"
-                            :class="{'border-danger': validationErrors[1] }"
+                            :class="{'border-danger': validationErrors[2] }"
                             v-model="formdata.rating"
                             >
                                 <option selected>5</option>
@@ -42,7 +59,7 @@
                 <validation-provider rules="required" data-vv-validate-on="submit" v-slot="{ errors }">
                     <textarea 
                         class="form-control" 
-                        :class="{'border-danger': validationErrors[2] }"
+                        :class="{'border-danger': validationErrors[3] }"
                         id="reviewInput" 
                         rows="5" 
                         placeholder="Write your review..."
@@ -93,9 +110,16 @@
                     let xhr = new XMLHttpRequest();
 
                     xhr.open('POST', 'http://localhost:3000/reviews');
+                    
+                    this.formatData();
 
                     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                    xhr.send(`username=${this.formdata.username}&rating=${this.formdata.rating}&review=${this.formdata.review}`);
+                    xhr.send(
+                        `username=${this.formdata.username}
+                        &rating=${this.formdata.rating}
+                        &review=${this.formdata.review}
+                        &product=${this.formdata.product}`
+                    );
 
                     xhr.onload = () => {
                         if(xhr.status != 201) {
@@ -107,8 +131,26 @@
                 }
             },
 
+            formatData: function() {
+                switch(this.formdata.product) {
+                    case 'Bio degradable spoons pack': 
+                        this.formdata.product = 1;
+                        break;
+                    case 'Colored spoons pack': 
+                        this.formdata.product = 2;
+                        break;
+                    case 'Single spoon': 
+                        this.formdata.product = 3;
+                        break;
+                    case 'Colored spoon': 
+                        this.formdata.product = 4;
+                        break;
+                }
+            },
+
             valid: function() {
                 this.validationErrors = [
+                    false,
                     false,
                     false,
                     false
@@ -120,13 +162,20 @@
                     valid = false;
                 }
 
-                if(this.formdata.rating == null) {
+                if(this.formdata.product == null) {
                     this.validationErrors[1] = true;
+                    valid = false;
+                } else {
+
+                }
+
+                if(this.formdata.rating == null) {
+                    this.validationErrors[2] = true;
                     valid = false;
                 }
 
                 if(this.formdata.review == null) {
-                    this.validationErrors[2] = true;
+                    this.validationErrors[3] = true;
                     valid = false;
                 }
 

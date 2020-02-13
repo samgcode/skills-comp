@@ -24,8 +24,8 @@ async function getReviewsById(req, res, next) {
 async function addReview(req, res, next) {
     //
     try {
-        const { username, rating, review } = req.body;
-        await queries.addReview(username, rating, review);
+        const { username, rating, review, product } = req.body;
+        await queries.addReview(username, rating, review, product);
         return res.status(201).send(`Review added for: ${username}`);
     } catch(err) {
         console.log(err);

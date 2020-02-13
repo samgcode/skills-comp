@@ -17,9 +17,11 @@ const getReviewsById = async (id) => {
     return rows;
 }
 
-const addReview = async (username, rating, review) => {
-    await pool.query('INSERT INTO reviews (username, rating, review) VALUES ($1, $2, $3)',
-    [username, rating, review]);
+const addReview = async (username, rating, review, product) => {
+    await pool.query(
+        'INSERT INTO reviews (username, rating, review, item) VALUES ($1, $2, $3, $4)',
+        [username, rating, review, product]
+    );
 }
 
 module.exports = {
