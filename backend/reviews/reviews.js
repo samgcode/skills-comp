@@ -10,6 +10,17 @@ async function getReviews(req, res, next) {
     }
 }
 
+async function getReviewsById(req, res, next) {
+    try {
+        const id = req.params.id;
+        const data = await queries.getReviewsById(id);
+        return res.status(200).json(data);
+    } catch(err) {
+        console.log(err);
+        next(new Error('Error occured'));
+    }
+}
+
 async function addReview(req, res, next) {
     //
     try {
@@ -25,5 +36,6 @@ async function addReview(req, res, next) {
 
 module.exports = {
     getReviews,
+    getReviewsById,
     addReview
 };

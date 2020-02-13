@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <h4>{{ item.name }}</h4>
                     <p>{{ item.description }}</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" @click="activeId=item.id">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" @click="getReviews(item.id)">
                         See some reviews
                     </button>
 
@@ -14,13 +14,13 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="reviewModalLable">Reviews</h5>
+                            <h5 class="modal-title" id="reviewModalLable">Reviews for {{ items[activeId-1].name}}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            {{ items[activeId-1].name}}
+                            <ReviewList :reviews="reviewsList" />
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -35,20 +35,38 @@
 </template>
 
 <script>
+    import ReviewList from './ReviewList';
+    import axios from 'axios';
+
     export default {
         name: 'itemsList',
         props: ['items'],
         data: function() {
             return {
                 activeId: 1,
-
+                reviewsList: []
             }
+        },
+
+        components: {
+            ReviewList,
         },
 
         methods: {
             getImage: function(imageName) {
                 var images = require.context('@/assets/', false, /\.jpg$/);
                 return images('./' + imageName + ".jpg");
+            },
+            getReviews: function(itemId) {
+                this.activeId=itemId;
+                axios.get(`http://localhost:3000/reviews/${this.activeId}`)
+                .then( 
+                    response => (this.reviewsList = response.data.map( item => {
+                        item.Id = this.reviewId;
+                        this.reviewId++;
+                        return item;
+                    }))
+                );
             }
         }
     }

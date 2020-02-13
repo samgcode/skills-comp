@@ -20,6 +20,7 @@ app.get('/', function (req, res) {
 app.get('/reviews', reviews.getReviews);
 app.get('/items', items.getItems);
 app.get('/items/:id', items.getItem);
+app.get('/reviews/:id', reviews.getReviewsById);
 app.post('/reviews', reviews.addReview);
 
 app.listen(port, function () {

@@ -25,15 +25,10 @@
       <div class="container">
         <ItemList :items="this.items"/>
       </div>
-
-      <div class="row"> 
-        <ReviewList :reviews="this.reviews"/>
-      </div>
     </div>
 </template>
 
 <script>
-  import ReviewList from './ReviewList';
   import ItemList from './ItemList';
   import axios from 'axios';
 
@@ -41,28 +36,15 @@
     name: 'Store',
     data: function() {
       return {
-        reviews: [],
         items: [],
-        reviewId: 0,
         itemid: 0
       }
     },
     
     components: {
-      ReviewList,
       ItemList
     },
     mounted() {
-
-      axios.get("http://localhost:3000/reviews")
-      .then( 
-        response => (this.reviews = response.data.map( item => {
-          item.Id = this.reviewId;
-          this.reviewId++;
-          return item;
-        }))
-      );
-
       axios.get("http://localhost:3000/items")
       .then( 
         response => (this.items = response.data.map( item => {

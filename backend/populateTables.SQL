@@ -1,15 +1,24 @@
 INSERT INTO reviews (username, review, rating, item)
 VALUES (
 	'Jeff',
-	'This is a review by a person that has a rating and this is a very good company yes yes.',
+	'I love the colors of these spoons, they work very well would buy again.',
 	4,
     2
-),
-(
+), (
 	'Stev',
-	'Yes yes very good, very cool yes good would spoon again',
+	'Very good spoons, very bio-degradable would, very good curve yes yes very good.',
 	5,
     1
+), (
+	'Steve',
+	'Definately good spoon would spoon again.',
+	4,
+    3
+), (
+	'Kevin',
+	'This is a very good colorfull spoon I love I gave them to my kids, and my parents, and my friends, they are just the best spoons ever.',
+	5,
+    4
 );
 
 INSERT INTO items (name, description, imagename)
