@@ -3,7 +3,7 @@
       <div class="jumbotron">
         <div class="container">
           <h2>Bio-spoons</h2>
-          <h4>Reviews</h4>
+          <h4>Pruducts</h4>
           <div class="text-center">
             <router-link :to="{ name: 'AddReview' }" class="lead btn btn-primary" style="color: white;">Write a review</router-link>
           </div>
@@ -15,7 +15,7 @@
         <div class="col-md-7">
           <div class="card mb-4 shadow-sm">
             <div class="card-body">
-              <h4>Bio-spoons information</h4>
+              <h4>A little about us</h4>
               <p>We are dedicated to fast delivery, and high quality spoons</p>
             </div>
           </div>

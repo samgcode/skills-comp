@@ -63,7 +63,6 @@
                 .then( 
                     response => (this.reviewsList = response.data.map( item => {
                         item.Id = this.reviewId;
-                        this.reviewId++;
                         return item;
                     }))
                 );

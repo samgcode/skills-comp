@@ -1,14 +1,14 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
-import App from './App';
-import router from './router';
-
 import { ValidationProvider, extend } from 'vee-validate';
 import { required } from 'vee-validate/dist/rules';
-
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import StarRating from 'vue-star-rating';
+
+import App from './App';
+import router from './router';
 import mainCSS from './main.css';
 
 Vue.config.productionTip = false;
@@ -24,7 +24,8 @@ new Vue({
   router,
   components: { 
     App,
-    ValidationProvider 
+    ValidationProvider,
+    StarRating 
   },
   template: '<App/>'
 });

@@ -3,9 +3,9 @@
         <h2>Write a review</h2>
         <form @submit.prevent="requestAdd()">
             <div class="from-row row">
-                <div class="from-group col-md-6">
+                <div class="from-group col-md-5">
                     <label for="usernameInput">Username</label>
-                    <validation-provider rules="required" data-vv-validate-on="submit" v-slot="{ errors }">
+                    <validation-provider rules="required" v-slot="{ errors }">
                         <input 
                             type="text" 
                             name="username" 
@@ -18,48 +18,44 @@
                         <span>{{ errors[0] }}</span>
                     </validation-provider>
                 </div>
-                <div class="from-group col-md-3"> 
+                <div class="from-group col-md-4"> 
                     <label for="productInput">Product</label>
-                    <validation-provider rules="required" data-vv-validate-on="submit" v-slot="{ errors }">
+                    <validation-provider rules="required" v-slot="{ errors }">
                         <select 
                             id="productInput" 
                             class="form-control"
                             :class="{'border-danger': validationErrors[1] }"
                             v-model="formdata.product"
                             >
-                                <option selected>Bio degradable spoons pack</option>
-                                <option>Colored spoons pack</option>
-                                <option>Single spoon</option>
-                                <option>Colored spoon</option>
+                                <option value="1" selected>Bio degradable spoons pack</option>
+                                <option value="2">Colored spoons pack</option>
+                                <option value="3">Single spoon</option>
+                                <option value="4">Colored spoon</option>
                         </select>
                     <span>{{ errors[0] }}</span>
                     </validation-provider>
                 </div>
                 <div class="from-group col-md-3"> 
                     <label for="ratingInput">Rating</label>
-                    <validation-provider rules="required" data-vv-validate-on="submit" v-slot="{ errors }">
-                        <select 
-                            id="ratingInput" 
-                            class="form-control"
-                            :class="{'border-danger': validationErrors[2] }"
-                            v-model="formdata.rating"
-                            >
-                                <option selected>5</option>
-                                <option>4</option>
-                                <option>3</option>
-                                <option>2</option>
-                                <option>1</option>
-                        </select>
+                    <validation-provider rules="required" v-slot="{ errors }">
+                        <star-rating 
+                        v-model="formdata.rating"
+                        :star-size="30"
+                        :border-color="ratingBorderColor"
+                        :border-width="2"
+                        :show-rating="false"
+                        @rating-selected="ratingSelected"
+                        > </star-rating>
                     <span>{{ errors[0] }}</span>
                     </validation-provider>
                 </div>
             </div>
             <div class="form-group">
                 <label for="reviewInput">Review</label>
-                <validation-provider rules="required" data-vv-validate-on="submit" v-slot="{ errors }">
+                <validation-provider rules="required" v-slot="{ errors }">
                     <textarea 
                         class="form-control" 
-                        :class="{'border-danger': validationErrors[3] }"
+                        :class="{'border-danger': validationErrors[2] }"
                         id="reviewInput" 
                         rows="5" 
                         placeholder="Write your review..."
@@ -82,6 +78,7 @@
 
 <script>
     import { ValidationProvider, extend } from 'vee-validate';
+    import StarRating from 'vue-star-rating';
     
     import { required } from 'vee-validate/dist/rules';
 
@@ -94,13 +91,18 @@
         name: "AddReview",
         data() {
             return {
-                formdata: [],
-                validationErrors: []
+                formdata: {
+                    rating: 0,
+                    product: 1
+                },
+                validationErrors: [],
+                ratingBorderColor: ''
             }
         },
 
         components: {
-            ValidationProvider
+            ValidationProvider,
+            StarRating
         },
 
         methods: {
@@ -111,8 +113,6 @@
 
                     xhr.open('POST', 'http://localhost:3000/reviews');
                     
-                    this.formatData();
-
                     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                     xhr.send(
                         `username=${this.formdata.username}
@@ -131,30 +131,13 @@
                 }
             },
 
-            formatData: function() {
-                switch(this.formdata.product) {
-                    case 'Bio degradable spoons pack': 
-                        this.formdata.product = 1;
-                        break;
-                    case 'Colored spoons pack': 
-                        this.formdata.product = 2;
-                        break;
-                    case 'Single spoon': 
-                        this.formdata.product = 3;
-                        break;
-                    case 'Colored spoon': 
-                        this.formdata.product = 4;
-                        break;
-                }
-            },
-
             valid: function() {
                 this.validationErrors = [
                     false,
                     false,
-                    false,
                     false
                 ];
+
                 var valid = true;
                 
                 if(this.formdata.username == null) {
@@ -165,21 +148,23 @@
                 if(this.formdata.product == null) {
                     this.validationErrors[1] = true;
                     valid = false;
-                } else {
+                } 
 
-                }
-
-                if(this.formdata.rating == null) {
-                    this.validationErrors[2] = true;
+                if(this.formdata.rating === 0) {
+                    this.ratingBorderColor = '#DC3545';
                     valid = false;
                 }
 
                 if(this.formdata.review == null) {
-                    this.validationErrors[3] = true;
+                    this.validationErrors[2] = true;
                     valid = false;
                 }
 
                 return valid;
+            },
+
+            ratingSelected: function() {
+                this.ratingBorderColor = '';
             }
         }
     }

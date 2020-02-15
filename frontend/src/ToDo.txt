@@ -1,0 +1,6 @@
+- redo colors
+- form input monitoring
+- add star thing to reviews
+- add parent for add review to do database stuff
+    - pass in data to add reviews
+- add error component for database stuff
