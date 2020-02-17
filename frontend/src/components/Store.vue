@@ -1,6 +1,6 @@
 <template>
     <div class="container top-spacer small">
-      <div class="jumbotron">
+      <div class="jumbotron light-jumbotron">
         <div class="container">
           <h2>Bio-spoons</h2>
           <h4>Pruducts</h4>

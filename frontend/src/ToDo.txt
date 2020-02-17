@@ -1,6 +1,7 @@
-- redo colors
+- Xredo colors
 - form input monitoring
-- add star thing to reviews
-- add parent for add review to do database stuff
-    - pass in data to add reviews
+- Xadd star thing to reviews
+- Xadd parent for add review to do database stuff
+    - Xpass in data to add reviews
+    - use error component on error
 - add error component for database stuff

@@ -4,9 +4,13 @@
                 <div class="col-md-12">
                     <div class="card mb-4 shadow-sm">
                         <div class="card-body">
-                        <h4>{{ review.username }}</h4>
-                        <p class="card-text">{{ review.review }}</p>
-                        <span>Rating: {{ review.rating }}/5</span>
+                            <h4>{{ review.username }}</h4>
+                            <p class="card-text">{{ review.review }}</p>
+                            <star-rating 
+                                :star-size="20"
+                                :rating="review.rating"
+                                :read-only="true"
+                            />
                         </div>
                     </div>
                 </div>
@@ -15,13 +19,14 @@
 </template>
 
 <script>
-    import Review from './Review';
+    import StarRating from 'vue-star-rating';
 
     export default {
         name: 'reviewList',
         props: ['reviews'],
         components: {
-            Review
+            StarRating
         }
+
     }
 </script>

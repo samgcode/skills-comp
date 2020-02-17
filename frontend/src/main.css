@@ -1,6 +1,11 @@
 .dark-jumbotron {
-    background-color: #ACC66B;
+    background-color: #3CBF11;
     color: #fff;
+}
+
+.light-jumbotron {
+    background-color: #7DFF31;
+    color: #000;
 }
 
 .top-spacer {
