@@ -1,6 +1,6 @@
 <template>
     <div class="top-spacer">
-        <span>{{ error }}</span>
+        <span>Error occured: {{ error }}</span>
     </div>
 </template>
 

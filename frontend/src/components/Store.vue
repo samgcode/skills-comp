@@ -3,7 +3,7 @@
       <div class="jumbotron light-jumbotron">
         <div class="container">
           <h2>Bio-spoons</h2>
-          <h4>Pruducts</h4>
+          <h4>Products</h4>
           <div class="text-center">
             <router-link :to="{ name: 'AddReview' }" class="lead btn btn-primary" style="color: white;">Write a review</router-link>
           </div>

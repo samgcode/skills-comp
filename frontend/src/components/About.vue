@@ -6,7 +6,7 @@
             <h1><u>Bio-spoons</u></h1>
             <p class="lead">Saveing the environment, one spoon at a time.</p>
             <router-link :to="{ name: 'Store' }" class="btn btn-primary">Store page</router-link>
-            <router-link :to="{ name: 'Store' }" class="btn btn-secondary">Contact us</router-link>
+            <router-link :to="{ name: 'Contact' }" class="btn btn-secondary">Contact us</router-link>
           </div>
         </section>
       </div>

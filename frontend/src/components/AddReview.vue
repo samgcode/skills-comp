@@ -34,8 +34,8 @@ export default {
                 return item;
             }))
         ).catch((err) => {
-            this.databaseError = err;
             this.isError = true;
+            this.databaseError = err.message;
         });
 
     }
