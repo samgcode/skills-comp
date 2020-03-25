@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
-const reviews = require('./reviews/reviews.js');
-const items = require('./items/items.js');
+
 const bodyParser = require('body-parser');
 const cors = require('cors');
+
+const routes = require('./routes');
 
 const port = 3000;
 
@@ -17,11 +18,7 @@ app.get('/', function (req, res) {
     return res.send({ error: true, message: 'hello' })
 });
 
-app.get('/reviews', reviews.getReviews);
-app.get('/items', items.getItems);
-app.get('/items/:id', items.getItem);
-app.get('/reviews/:id', reviews.getReviewsById);
-app.post('/reviews', reviews.addReview);
+app.use('/', routes)
 
 app.listen(port, function () {
     console.log(`Node app is running on port ${port}`);
