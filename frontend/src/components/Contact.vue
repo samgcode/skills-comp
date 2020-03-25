@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="container">
-          <div class="col-md-6">
+          <div class="text-center">
               <router-link :to="{ name: 'Home' }" class="lead btn btn-primary text-white">Send</router-link>
           </div>
         </div> 

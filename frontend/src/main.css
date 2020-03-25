@@ -12,8 +12,12 @@
     margin-top: 5em;
 }
 
-.top-spacer > small {
+.top-spacer-md {
     margin-top: 3em;
+}
+
+.top-spacer-sm {
+    margin-top: 1.5em;
 }
 
 .bottom-spacer {
@@ -22,4 +26,8 @@
 
 .text-white {
     color: white;
+}
+
+.text-black {
+    color: black;
 }

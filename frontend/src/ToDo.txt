@@ -3,5 +3,17 @@
 - Xadd star thing to reviews
 - Xadd parent for add review to do database stuff
     - Xpass in data to add reviews
-    - use error component on error
+    - Xuse error component on error
 - add error component for database stuff
+
+
+
+
+- sperate the server into a routes file
+- rename queries to reviewsRepositorypg
+- add a reviewRepositoryMo
+- add model
+- database conect
+- require the right repository
+- create a database and collection
+- does it matter if the id is a number
