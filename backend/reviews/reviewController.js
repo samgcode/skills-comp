@@ -1,4 +1,4 @@
-const queries = require('./queries');
+const queries = require('./reviewsRepositoryPG');
  
 async function getReviews(req, res, next) {
     try {

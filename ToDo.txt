@@ -1,3 +1,4 @@
+frontend
 - Xredo colors
 - Xform input monitoring
 - Xadd star thing to reviews
@@ -8,8 +9,8 @@
 
 
 
-
-- sperate the server into a routes file
+backend
+- sperate the server into a routes file X
 - rename queries to reviewsRepositorypg
 - add a reviewRepositoryMo
 - add model
