@@ -13,8 +13,8 @@ backend
 - sperate the server into a routes file X
 - rename queries to reviewsRepositorypg
 - add a reviewRepositoryMo
-- add model
-- database conect
-- require the right repository
-- create a database and collection
-- does it matter if the id is a number
+- add model X
+- database conect X
+- require the right repository X
+- create a database and collection X
+- does it matter if the id is a number X?

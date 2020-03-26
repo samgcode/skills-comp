@@ -3,10 +3,10 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const routes = require('./routes');
-const dbService = require('./databseService');
+const dbService = require('./databaseService');
 
 const port = 3000;
-let dev_db_url = 'mongodb://admin:password@localhost:27017/productstutorial';
+let dev_db_url = 'mongodb://admin:123456789@localhost:27017/Reviews';
 
 dbService.connectMO(dev_db_url);
 
