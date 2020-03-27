@@ -4,7 +4,7 @@ const router = express.Router();
 const reviewController = require('./reviews/reviewController');
 const itemController = require('./items/itemController');
 
-router.get('/', function (req, res) {
+router.get('/', function (res) {
     return res.send({ error: true, message: 'The api seems to be up and running! go to /reviews or /items to see more.' })
 });
 

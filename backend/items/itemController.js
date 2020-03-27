@@ -1,4 +1,5 @@
-const queries = require('./queries.js');
+// const queries = require('./itemsRepositoryPG.js');
+const queries = require('./itemsRepositoryMO.js');
 
 async function getItems(req, res, next) {
     try {

@@ -2,7 +2,7 @@ var Review = require('./reviewModel');
 
 exports.test = function(res) {
     res.send('Test succesfull!');
-}
+};
 
 exports.getReviews = async () => {
     const reviews = await Review.find(function(reviews) {
@@ -16,7 +16,7 @@ exports.getReviewsByItem = async (itemId) => {
         return reviews;
     });
     return reviews;
-}
+};
 
 exports.addReview = async (username, rating, review, itemId) => {
     var newReview = new Review(
