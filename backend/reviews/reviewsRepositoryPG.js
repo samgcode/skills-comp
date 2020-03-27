@@ -12,7 +12,7 @@ const getReviews = async () => {
     return rows;
 }
 
-const getReviewsById = async (id) => {
+const getReviewsByItem = async (id) => {
     const { rows } = await pool.query('SELECT * FROM reviews WHERE item = $1', [id]);
     return rows;
 }
@@ -26,6 +26,6 @@ const addReview = async (username, rating, review, product) => {
 
 module.exports = {
     getReviews,
-    getReviewsById,
+    getReviewsByItem,
     addReview,
 }

@@ -120,9 +120,9 @@
                         `username=${this.formdata.username}
                         &rating=${this.formdata.rating}
                         &review=${this.formdata.review}
-                        &product=${this.formdata.product}`
+                        &item=${this.formdata.product}`
                     );
-
+                    console.log(this.formdata.product);
                     xhr.onload = () => {
                         if(xhr.status != 201) {
                             alert(`Error ${xhr.status}: ${xhr.statusText}`);

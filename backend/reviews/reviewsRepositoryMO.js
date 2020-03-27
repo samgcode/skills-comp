@@ -11,6 +11,13 @@ exports.getReviews = async () => {
     return reviews;
 };
 
+exports.getReviewsByItem = async (itemId) => {
+    const reviews = await Review.find({'item': itemId}, function (reviews) {
+        return reviews;
+    });
+    return reviews;
+}
+
 exports.addReview = async (username, rating, review, itemId) => {
     var newReview = new Review(
         {
@@ -20,8 +27,6 @@ exports.addReview = async (username, rating, review, itemId) => {
             item: itemId
         }
     );
-    const res = await newReview.save(function (err) {
-        return 'Review successfully added';
-    });
+    const res = await newReview.save();
     return res;
 };

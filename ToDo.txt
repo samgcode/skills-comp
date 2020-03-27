@@ -11,10 +11,11 @@ frontend
 
 backend
 - sperate the server into a routes file X
-- rename queries to reviewsRepositorypg
-- add a reviewRepositoryMo
+- rename queries to reviewsRepositorypg X
+- add a reviewRepositoryMo X
 - add model X
 - database conect X
 - require the right repository X
 - create a database and collection X
-- does it matter if the id is a number X?
+- does it matter if the id is a number X
+- do all of that for items
