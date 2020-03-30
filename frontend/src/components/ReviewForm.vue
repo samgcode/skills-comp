@@ -1,7 +1,7 @@
 <template>
     <div class="top-spacer">
         <h2>Write a review</h2>
-        <form @submit.prevent="requestAdd()">
+        <form @submit.prevent="requestAdd()" @change="valid">
             <div class="from-row row">
                 <div class="from-group col-md-5">
                     <label for="usernameInput">Username</label>
@@ -14,7 +14,7 @@
                             :class="{'border-danger': validationErrors[0] }"
                             placeholder="Enter your name"
                             v-model="formdata.username"
-                            @change="valid"
+                            
                         >
                         <span>{{ errors[0] }}</span>
                     </validation-provider>
@@ -27,7 +27,7 @@
                             class="form-control"
                             :class="{'border-danger': validationErrors[1] }"
                             v-model="formdata.product"
-                            @change="valid"
+                           
                             >
                                 <option v-for="product in products" :key="product.id" :value="product.id" >{{ product.name }}</option>
                                 
@@ -60,7 +60,7 @@
                         rows="5" 
                         placeholder="Write your review..."
                         v-model="formdata.review"
-                        @change="valid"
+                        
                         >
                     </textarea>
                 <span>{{ errors[0] }}</span>
@@ -95,7 +95,8 @@
             return {
                 formdata: {
                     rating: 0,
-                    product: '5e7e27373063d33329015b93'
+                    product: '5e7e27373063d33329015b93',
+                    hasSubmitted: false
                 },
                 validationErrors: [],
                 ratingBorderColor: ''
@@ -109,10 +110,12 @@
 
         methods: {
             requestAdd: function() {
+                this.hasSubmitted = true;
                 if(this.valid()) {
+
                     //create a new http request
                     let xhr = new XMLHttpRequest();
-
+                    
                     xhr.open('POST', 'http://localhost:3000/reviews');
                     
                     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -138,30 +141,31 @@
                     false,
                     false
                 ];
-
-                var valid = true;
+                if(this.hasSubmitted === true) {
+                    var valid = true;
                 
-                if(this.formdata.username == null) {
-                    this.validationErrors[0] = true;
-                    valid = false;
+                    if(this.formdata.username == null) {
+                        this.validationErrors[0] = true;
+                        valid = false;
+                    }
+
+                    if(this.formdata.product == null) {
+                        this.validationErrors[1] = true;
+                        valid = false;
+                    } 
+
+                    if(this.formdata.rating === 0) {
+                        this.ratingBorderColor = '#DC3545';
+                        valid = false;
+                    }
+
+                    if(this.formdata.review == null) {
+                        this.validationErrors[2] = true;
+                        valid = false;
+                    }
+
+                    return valid;
                 }
-
-                if(this.formdata.product == null) {
-                    this.validationErrors[1] = true;
-                    valid = false;
-                } 
-
-                if(this.formdata.rating === 0) {
-                    this.ratingBorderColor = '#DC3545';
-                    valid = false;
-                }
-
-                if(this.formdata.review == null) {
-                    this.validationErrors[2] = true;
-                    valid = false;
-                }
-
-                return valid;
             },
 
             ratingSelected: function() {

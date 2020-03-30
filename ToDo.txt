@@ -23,8 +23,8 @@ backend
 
 
 
-- change validation to not happen on field input
-- find out where the return is coming from in review when console log review in itemlist 65
+- change validation to not happen on field input X
+- find out where the return is coming from in review when console log review in itemlist 65 X
 - if there is no items say there is no reviews X
 - remove console logs X
 - test and commit
