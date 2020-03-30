@@ -2,6 +2,21 @@
 const queries = require('./itemsRepositoryMO.js');
 
 async function getItems(req, res, next) {
+    setTimeout(async() => {
+        try {
+            const data = await queries.getItems();
+            let convertedItems = data.map((item) => {
+                return convertItem(item);
+            });
+            return res.status(200).json(convertedItems);
+        } catch(err) {
+            console.log(err);
+            next(new Error('Error occured'));
+        }
+    }, 2000);
+}
+
+async function delayedGetItems() {
     try {
         const data = await queries.getItems();
         let convertedItems = data.map((item) => {

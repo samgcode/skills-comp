@@ -10,6 +10,7 @@
     "clear": "rm -rf node_modules package-lock.json"
   },
   "dependencies": {
+    "@bit/joshk.vue-spinners-css.orbitals-loader": "^1.1.3",
     "axios": "^0.19.2",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",

@@ -10,7 +10,6 @@
         </div>
       </div>
 
-
       <div class="row">
         <div class="col-md-7">
           <div class="card mb-4 shadow-sm">
@@ -21,6 +20,8 @@
           </div>
         </div>
       </div>
+      
+      <LoadingIndicator :loaded="loaded"/>
 
       <div class="container">
         <ItemList :items="this.items"/>
@@ -31,18 +32,21 @@
 <script>
   import ItemList from './ItemList';
   import axios from 'axios';
+  import LoadingIndicator from './LoadingIndicator';
 
   export default {
     name: 'Store',
     data: function() {
       return {
         items: [],
-        frontendId: 0
+        frontendId: 0,
+        loaded: false
       }
     },
     
     components: {
-      ItemList
+      ItemList,
+      LoadingIndicator
     },
     mounted() {
       axios.get("http://localhost:3000/items")
@@ -50,6 +54,7 @@
         response => (this.items = response.data.map( item => {
           item.Id = this.frontendId;
           this.frontendId++;
+          this.loaded = true;
           return item;
         }))
       );

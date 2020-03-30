@@ -1,30 +1,26 @@
 frontend
-- Xredo colors
-- Xform input monitoring
-- Xadd star thing to reviews
-- Xadd parent for add review to do database stuff
-    - Xpass in data to add reviews
-    - Xuse error component on error
-- add error component for database stuff
-
-
+- redo colors X
+- form input monitoring X
+- add star thing to reviews X
+- add parent for add review to do database stuff X
+    - pass in data to add reviews X
+    - use error component on error X
+- add error component for database stuff X
+- add loading icon to review form
 
 backend
 - sperate the server into a routes file X 
 - database conect X
 - does it matter if the id is a number X
-
 - rename queries to reviewsRepositorypg X
 - add a reviewRepositoryMo X 
 - add model X X
 - require the right repository X X
 - create a database and collection X
 - do all of that for items
-
-
-
 - change validation to not happen on field input X
 - find out where the return is coming from in review when console log review in itemlist 65 X
 - if there is no items say there is no reviews X
 - remove console logs X
-- test and commit
+- test and commit X
+

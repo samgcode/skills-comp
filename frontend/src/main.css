@@ -31,3 +31,8 @@
 .text-black {
     color: black;
 }
+
+.center-page {
+    margin-left: 45%;
+    margin-right: 55%;
+}

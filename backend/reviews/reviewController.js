@@ -12,14 +12,16 @@ async function getReviews(req, res, next) {
 }
 
 async function getReviewsByItem(req, res, next) {
-    try {
-        const id = req.params.id;
-        const data = await queries.getReviewsByItem(id);
-        return res.status(200).json(data);
-    } catch(err) {
-        console.log(err);
-        next(new Error('Error occured'));
-    }
+    setTimeout(async() => {
+        try {
+            const id = req.params.id;
+            const data = await queries.getReviewsByItem(id);
+            return res.status(200).json(data);
+        } catch(err) {
+            console.log(err);
+            next(new Error('Error occured'));
+        }
+    }, 2000);
 }
 
 async function addReview(req, res, next) {

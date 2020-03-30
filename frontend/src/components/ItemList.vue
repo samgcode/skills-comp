@@ -20,6 +20,9 @@
                             </button>
                         </div>
                         <div class="modal-body">
+                            <div class="loading col-lg-8">
+                                <LoadingIndicator :loaded="loaded"/>
+                            </div>
                             <ReviewList :reviews="reviewsList" />
                             <div class="col-md-12">
                                 <div class="card mb-4 shadow-sm" :class="{ 'collapse': reviewsList[0] }">
@@ -44,18 +47,23 @@
 <script>
     import ReviewList from './ReviewList';
     import axios from 'axios';
+    import LoadingIndicator from './LoadingIndicator';
+
+
     export default {
         name: 'itemList',
         props: ['items'],
         data: function() {
             return {
                 activeItem: 1,
-                reviewsList: []
+                reviewsList: [],
+                loaded: false,
             }
         },
 
         components: {
             ReviewList,
+            LoadingIndicator
         },
 
         methods: {
@@ -73,6 +81,7 @@
                 .then( 
                     response => (this.reviewsList = response.data.map( item => {
                         item.Id = this.reviewId;
+                        this.loaded = true;
                         return item;
                     }))
                 );
