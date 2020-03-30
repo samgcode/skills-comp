@@ -37,7 +37,7 @@
     data: function() {
       return {
         items: [],
-        itemid: 0
+        frontendId: 0
       }
     },
     
@@ -48,12 +48,11 @@
       axios.get("http://localhost:3000/items")
       .then( 
         response => (this.items = response.data.map( item => {
-          item.Id = this.itemid;
-          this.itemid++;
+          item.Id = this.frontendId;
+          this.frontendId++;
           return item;
         }))
       );
-
     },
     methods: {
       

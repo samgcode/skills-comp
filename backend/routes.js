@@ -14,5 +14,6 @@ router.post('/reviews', reviewController.addReview);
 
 router.get('/items', itemController.getItems);
 router.get('/items/:id', itemController.getItem);
+router.post('/items', itemController.addItem);
 
 module.exports = router;

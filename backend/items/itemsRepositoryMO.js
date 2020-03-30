@@ -13,3 +13,13 @@ exports.getItem = async (id) => {
     });
     return items;
 };
+
+exports.addItem = async (name, description, image) => {
+    const newItem = new Item({
+        name: name,
+        description: description,
+        imagename: image
+    });
+    const res = await newItem.save();
+    return res;
+}

@@ -14,13 +14,20 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="reviewModalLable">Reviews for {{ items[activeId-1].name}}</h5>
+                            <h5 class="modal-title" id="reviewModalLable">Reviews for {{ activeItem.name }}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <ReviewList :reviews="reviewsList" />
+                            <div class="col-md-12">
+                                <div class="card mb-4 shadow-sm" :class="{ 'collapse': reviewsList[0] }">
+                                    <div class="card-body">
+                                        <h6 class="card-text">No reviews were found for this item</h6>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -37,13 +44,12 @@
 <script>
     import ReviewList from './ReviewList';
     import axios from 'axios';
-
     export default {
-        name: 'itemsList',
+        name: 'itemList',
         props: ['items'],
         data: function() {
             return {
-                activeId: 1,
+                activeItem: 1,
                 reviewsList: []
             }
         },
@@ -58,8 +64,12 @@
                 return images('./' + imageName + ".jpg");
             },
             getReviews: function(itemId) {
-                this.activeId=itemId;
-                axios.get(`http://localhost:3000/reviews/${this.activeId}`)
+                this.items.forEach((item) => { 
+                    if(item.id === itemId) { 
+                        this.activeItem = item; 
+                    }
+                })
+                axios.get(`http://localhost:3000/reviews/${itemId}`)
                 .then( 
                     response => (this.reviewsList = response.data.map( item => {
                         item.Id = this.reviewId;

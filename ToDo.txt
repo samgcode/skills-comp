@@ -20,3 +20,11 @@ backend
 - require the right repository X X
 - create a database and collection X
 - do all of that for items
+
+
+
+- change validation to not happen on field input
+- find out where the return is coming from in review when console log review in itemlist 65
+- if there is no items say there is no reviews X
+- remove console logs X
+- test and commit

@@ -95,7 +95,7 @@
             return {
                 formdata: {
                     rating: 0,
-                    product: 1
+                    product: '5e7e27373063d33329015b93'
                 },
                 validationErrors: [],
                 ratingBorderColor: ''
@@ -122,7 +122,6 @@
                         &review=${this.formdata.review}
                         &item=${this.formdata.product}`
                     );
-                    console.log(this.formdata.product);
                     xhr.onload = () => {
                         if(xhr.status != 201) {
                             alert(`Error ${xhr.status}: ${xhr.statusText}`);
