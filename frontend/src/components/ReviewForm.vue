@@ -60,7 +60,6 @@
                         rows="5" 
                         placeholder="Write your review..."
                         v-model="formdata.review"
-                        
                         >
                     </textarea>
                 <span>{{ errors[0] }}</span>
@@ -70,6 +69,7 @@
                 <div class="container">
                     <div class="text-center">
                         <button class="btn btn-primary text-white" type="submit">Submit</button>
+                        <SyncLoader :loading="loading" class="top-spacer-sm"/>
                     </div>
                 </div>    
             </div>
@@ -80,7 +80,8 @@
 <script>
     import { ValidationProvider, extend } from 'vee-validate';
     import StarRating from 'vue-star-rating';
-    
+    import SyncLoader from'./SyncLoad';
+
     import { required } from 'vee-validate/dist/rules';
 
     extend('required', {
@@ -96,23 +97,25 @@
                 formdata: {
                     rating: 0,
                     product: '5e7e27373063d33329015b93',
-                    hasSubmitted: false,
+                    hasSubmitted: false
                 },
                 validationErrors: [],
-                ratingBorderColor: ''
+                ratingBorderColor: '',
+                loading: false,
             }
         },
 
         components: {
             ValidationProvider,
-            StarRating
+            StarRating,
+            SyncLoader
         },
 
         methods: {
             requestAdd: function() {
                 this.hasSubmitted = true;
                 if(this.valid()) {
-
+                    this.loading = true;
                     //create a new http request
                     let xhr = new XMLHttpRequest();
                     
@@ -129,6 +132,7 @@
                         if(xhr.status != 201) {
                             alert(`Error ${xhr.status}: ${xhr.statusText}`);
                         } else {
+                            this.loading = false;
                             window.location.replace('http://localhost:8080/#/Store');
                         }
                     };

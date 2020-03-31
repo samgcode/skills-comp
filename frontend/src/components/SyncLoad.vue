@@ -1,6 +1,6 @@
 <template>
     <div>
-        <sync-loader :size="'15px'" :class="{ 'd-none': !loading }"/>
+        <sync-loader :size="'13px'" :class="{ 'd-none': !loading }"/>
     </div>
 </template>
 
