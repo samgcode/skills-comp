@@ -21,11 +21,11 @@
                         </div>
                         <div class="modal-body">
                             <div class="loading col-lg-8">
-                                <LoadingIndicator :loaded="loaded"/>
+                                <LoadingIndicator :loading="loading"/>
                             </div>
-                            <ReviewList :reviews="reviewsList" />
+                            <ReviewList :reviews="reviewsList" :class="{ 'd-none': loading}"/>
                             <div class="col-md-12">
-                                <div class="card mb-4 shadow-sm" :class="{ 'collapse': reviewsList[0] }">
+                                <div class="card mb-4 shadow-sm" :class="{ 'collapse': !showNoReviws}">
                                     <div class="card-body">
                                         <h6 class="card-text">No reviews were found for this item</h6>
                                     </div>
@@ -45,47 +45,53 @@
 </template>
 
 <script>
-    import ReviewList from './ReviewList';
-    import axios from 'axios';
-    import LoadingIndicator from './LoadingIndicator';
+import ReviewList from './ReviewList';
+import axios from 'axios';
+import LoadingIndicator from './LoadingIndicator';
 
 
-    export default {
-        name: 'itemList',
-        props: ['items'],
-        data: function() {
-            return {
-                activeItem: 1,
-                reviewsList: [],
-                loaded: false,
-            }
+export default {
+    name: 'itemList',
+    props: ['items'],
+    data: function() {
+        return {
+            activeItem: 1,
+            reviewsList: [],
+            loading: true,
+            showNoReviws: false,
+        }
+    },
+
+    components: {
+        ReviewList,
+        LoadingIndicator
+    },
+
+    methods: {
+        getImage: function(imageName) {
+            var images = require.context('@/assets/', false, /\.jpg$/);
+            return images('./' + imageName + ".jpg");
         },
-
-        components: {
-            ReviewList,
-            LoadingIndicator
-        },
-
-        methods: {
-            getImage: function(imageName) {
-                var images = require.context('@/assets/', false, /\.jpg$/);
-                return images('./' + imageName + ".jpg");
-            },
-            getReviews: function(itemId) {
-                this.items.forEach((item) => { 
-                    if(item.id === itemId) { 
-                        this.activeItem = item; 
-                    }
-                })
-                axios.get(`http://localhost:3000/reviews/${itemId}`)
-                .then( 
-                    response => (this.reviewsList = response.data.map( item => {
-                        item.Id = this.reviewId;
-                        this.loaded = true;
-                        return item;
-                    }))
-                );
+        getReviews: async function(itemId) {
+            this.loading = true;
+            this.showNoReviws = false
+            this.items.forEach((item) => { 
+                if(item.id === itemId) { 
+                    this.activeItem = item; 
+                }
+            })
+            await axios.get(`http://localhost:3000/reviews/${itemId}`)
+            .then( 
+                response => (this.reviewsList = response.data.map(item => {
+                    item.Id = this.reviewId;
+                    return item;
+                }))
+            );
+            this.loading = false;
+            if(!this.reviewsList[0]) {
+                this.showNoReviws = true;
             }
         }
     }
+}
 </script>

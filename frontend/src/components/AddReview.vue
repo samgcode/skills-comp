@@ -1,6 +1,7 @@
 <template>
-    <div class="root">
-        <ReviewForm :products="products" :class="{ 'd-none': isError }"/>
+    <div class="root top-spacer">
+        <LoadingIndicator :loading="loading"/>
+        <ReviewForm :products="products" :class="{ 'd-none': loading }"/>
         <Error :error="databaseError" :class="{ 'd-none': !isError }"/>
     </div>      
 </template>
@@ -9,20 +10,23 @@
 import ReviewForm from './ReviewForm';
 import Error from './Error';
 import axios from 'axios';
+import LoadingIndicator from './LoadingIndicator';
 
 export default {
     name: 'AddReview',
     data: function() {
         return {
             products: [],
-            isError: true,
-            databaseError: {}
+            isError: false,
+            databaseError: {},
+            loading: true
         }
     },
 
     components: {
         ReviewForm,
-        Error
+        Error,
+        LoadingIndicator
     },
     mounted() {
         axios.get("http://localhost:3000/items")
@@ -30,7 +34,7 @@ export default {
             response => (this.products = response.data.map( item => {
                 item.Id = this.itemid;
                 this.itemid++;
-                this.isError = false;
+                this.loading = false;
                 return item;
             }))
         ).catch((err) => {

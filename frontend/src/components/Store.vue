@@ -21,7 +21,7 @@
         </div>
       </div>
       
-      <LoadingIndicator :loaded="loaded"/>
+      <LoadingIndicator :loading="loading"/>
 
       <div class="container">
         <ItemList :items="this.items"/>
@@ -40,7 +40,7 @@
       return {
         items: [],
         frontendId: 0,
-        loaded: false
+        loading: true
       }
     },
     
@@ -54,7 +54,7 @@
         response => (this.items = response.data.map( item => {
           item.Id = this.frontendId;
           this.frontendId++;
-          this.loaded = true;
+          this.loading = false;
           return item;
         }))
       );
