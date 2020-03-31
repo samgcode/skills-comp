@@ -21,7 +21,7 @@
         </div>
       </div>
       
-      <LoadingIndicator :loading="loading"/>
+      <OrbitLoader :loading="loading"/>
 
       <div class="container">
         <ItemList :items="this.items"/>
@@ -32,7 +32,7 @@
 <script>
   import ItemList from './ItemList';
   import axios from 'axios';
-  import LoadingIndicator from './LoadingIndicator';
+  import OrbitLoader from './OrbitLoader';
 
   export default {
     name: 'Store',
@@ -46,7 +46,7 @@
     
     components: {
       ItemList,
-      LoadingIndicator
+      OrbitLoader
     },
     mounted() {
       axios.get("http://localhost:3000/items")

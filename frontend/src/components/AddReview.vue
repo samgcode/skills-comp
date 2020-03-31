@@ -1,6 +1,6 @@
 <template>
     <div class="root top-spacer">
-        <LoadingIndicator :loading="loading"/>
+        <OrbitLoader :loading="loading"/>
         <ReviewForm :products="products" :class="{ 'd-none': loading }"/>
         <Error :error="databaseError" :class="{ 'd-none': !isError }"/>
     </div>      
@@ -10,7 +10,7 @@
 import ReviewForm from './ReviewForm';
 import Error from './Error';
 import axios from 'axios';
-import LoadingIndicator from './LoadingIndicator';
+import OrbitLoader from './OrbitLoader';
 
 export default {
     name: 'AddReview',
@@ -26,7 +26,7 @@ export default {
     components: {
         ReviewForm,
         Error,
-        LoadingIndicator
+        OrbitLoader
     },
     mounted() {
         axios.get("http://localhost:3000/items")

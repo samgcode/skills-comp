@@ -96,7 +96,7 @@
                 formdata: {
                     rating: 0,
                     product: '5e7e27373063d33329015b93',
-                    hasSubmitted: false
+                    hasSubmitted: false,
                 },
                 validationErrors: [],
                 ratingBorderColor: ''
@@ -132,6 +132,7 @@
                             window.location.replace('http://localhost:8080/#/Store');
                         }
                     };
+                    console.log('xhr:', xhr);
                 }
             },
 

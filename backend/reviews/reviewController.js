@@ -26,14 +26,27 @@ async function getReviewsByItem(req, res, next) {
 
 async function addReview(req, res, next) {
     //
-    try {
-        const { username, rating, review, item } = req.body;
-        await queries.addReview(username, rating, review, item, next);
-        return res.status(201).send(`Review added for: ${username}`);
-    } catch(err) {
-        console.log(err);
-        next(new Error('Error occured'));
-    }
+    setTimeout(async()=>{
+        try {
+            const { username, rating, review, item } = req.body;
+            await queries.addReview(username, rating, review, item, next);
+            return res.status(201).send({
+                    message: `Review added for: ${username}`,
+                    succesfull: true,
+                    error: null
+                }
+            );
+        } catch(err) {
+            console.log(err);
+            next(new Error('Error occured'));
+            return res.status(500).send({
+                    message: `problem adding review`,
+                    succesfull: false,
+                    error: err
+                }
+            );
+        }
+    },2000);
     
 }
 

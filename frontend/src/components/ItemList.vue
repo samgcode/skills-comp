@@ -21,7 +21,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="loading col-lg-8">
-                                <LoadingIndicator :loading="loading"/>
+                                <OrbitLoader :loading="loading"/>
                             </div>
                             <ReviewList :reviews="reviewsList" :class="{ 'd-none': loading}"/>
                             <div class="col-md-12">
@@ -47,7 +47,7 @@
 <script>
 import ReviewList from './ReviewList';
 import axios from 'axios';
-import LoadingIndicator from './LoadingIndicator';
+import OrbitLoader from './OrbitLoader';
 
 
 export default {
@@ -64,7 +64,7 @@ export default {
 
     components: {
         ReviewList,
-        LoadingIndicator
+        OrbitLoader
     },
 
     methods: {
