@@ -4,6 +4,7 @@ const queries = require('./itemsRepositoryMO.js');
 async function getItems(req, res, next) {
     setTimeout(async() => {
         try {
+            throw new Error('Test error');
             const data = await queries.getItems();
             let convertedItems = data.map((item) => {
                 return convertItem(item);

@@ -1,13 +1,15 @@
 <template>
     <div class="root top-spacer">
         <OrbitLoader :loading="loading"/>
-        <ReviewForm :products="products" :class="{ 'd-none': loading }"/>
+        <ReviewForm :products="products" :class="{ 'd-none': !displayForm }"/>
+        <ErrorDisplay :errorData="errorData" :class="{ 'd-none' : !errorOccured }"/>
     </div>      
 </template>
 
 <script>
 import ReviewForm from './ReviewForm';
 import axios from 'axios';
+import ErrorDisplay from './ErrorDisplay';
 import OrbitLoader from './OrbitLoader';
 
 export default {
@@ -15,16 +17,20 @@ export default {
     data: function() {
         return {
             products: [],
-            loading: true
+            loading: true,
+            displayForm: false,
+            errorOccured: false,
+            errorData: {}
         }
     },
 
     components: {
         ReviewForm,
-        Error,
+        ErrorDisplay,
         OrbitLoader
     },
     mounted() {
+        this.errorOccured = false;
         axios.get("http://localhost:3000/items")
         .then( 
             response => (this.products = response.data.map( item => {
@@ -33,8 +39,16 @@ export default {
                 this.loading = false;
                 return item;
             }))
-        );
-
+        ).catch((err) => {
+            this.loading = false;
+            this.errorOccured = true;
+            this.errorData = {
+                message: 'Error occured while trying to fetch review form'
+            }
+        });
+        if(!errorOccured && !loading) {
+            displayForm = true;
+        }
     }
 }
 </script>
