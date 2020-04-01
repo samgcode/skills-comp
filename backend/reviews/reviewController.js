@@ -30,7 +30,6 @@ async function addReview(req, res, next) {
         try {
             const { username, rating, review, item } = req.body;
             await queries.addReview(username, rating, review, item, next);
-            throw new Error('Test error');
             return res.status(201).send(`Review added for: ${username}`);
         } catch(err) {
             console.log(err);

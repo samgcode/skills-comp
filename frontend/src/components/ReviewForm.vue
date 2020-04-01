@@ -68,12 +68,13 @@
             <div class="form-row row">
                 <div class="container">
                     <div class="text-center">
-                        <button class="btn btn-primary text-white" type="submit">Submit</button>
+                        <button class="btn btn-primary text-white" type="submit">{{ submitText }}</button>
                         <SyncLoader :loading="loading" class="top-spacer-sm"/>
                     </div>
                 </div>    
             </div>
         </form>
+        <ErrorDisplay :errorData="errorData" :class="{ 'd-none' : !errorOccured }"/>
     </div>
 </template>
 
@@ -81,6 +82,7 @@
     import { ValidationProvider, extend } from 'vee-validate';
     import StarRating from 'vue-star-rating';
     import SyncLoader from'./SyncLoad';
+    import ErrorDisplay from './ErrorDisplay';
 
     import { required } from 'vee-validate/dist/rules';
 
@@ -102,18 +104,23 @@
                 validationErrors: [],
                 ratingBorderColor: '',
                 loading: false,
+                errorOccured: false,
+                errorData: {},
+                submitText: 'Submit'
             }
         },
 
         components: {
             ValidationProvider,
             StarRating,
-            SyncLoader
+            SyncLoader,
+            ErrorDisplay
         },
 
         methods: {
             requestAdd: function() {
                 this.hasSubmitted = true;
+                this.errorOccured = false;
                 if(this.valid()) {
                     this.loading = true;
                     //create a new http request
@@ -130,7 +137,12 @@
                     );
                     xhr.onload = () => {
                         if(xhr.status != 201) {
-                            alert(`Error ${xhr.status}: ${xhr.statusText}`);
+                            this.loading = false;
+                            this.errorOccured = true;
+                            this.submitText = 'Try again';
+                            this.errorData = {
+                                message: 'Error occured while trying send the review to the server',
+                            }
                         } else {
                             this.loading = false;
                             window.location.replace('http://localhost:8080/#/Store');

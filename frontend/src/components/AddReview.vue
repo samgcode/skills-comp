@@ -29,9 +29,9 @@ export default {
         ErrorDisplay,
         OrbitLoader
     },
-    mounted() {
+    async mounted() {
         this.errorOccured = false;
-        axios.get("http://localhost:3000/items")
+        await axios.get("http://localhost:3000/items")
         .then( 
             response => (this.products = response.data.map( item => {
                 item.Id = this.itemid;
@@ -46,8 +46,8 @@ export default {
                 message: 'Error occured while trying to fetch review form'
             }
         });
-        if(!errorOccured && !loading) {
-            displayForm = true;
+        if(!this.errorOccured && !this.loading) {
+            this.displayForm = true;
         }
     }
 }

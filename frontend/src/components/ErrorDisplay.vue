@@ -9,6 +9,15 @@
 <script>
 
     export default {
-        props: ['errorData'],
+        props: {
+            errorData: {
+                type: Object,
+                required: true
+            },
+            dissmisable: { 
+                type: Boolean,
+                default: false 
+            }
+        }
     }
 </script>
