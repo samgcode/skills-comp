@@ -21,6 +21,8 @@
         </div>
       </div>
       
+      <ErrorDisplay :errorData="errorData" :class="{ 'd-none' : !errorOccured }"/>
+
       <OrbitLoader :loading="loading"/>
 
       <div class="container">
@@ -32,6 +34,7 @@
 <script>
   import ItemList from './ItemList';
   import axios from 'axios';
+  import ErrorDisplay from './ErrorDisplay';
   import OrbitLoader from './OrbitLoader';
 
   export default {
@@ -40,12 +43,15 @@
       return {
         items: [],
         frontendId: 0,
-        loading: true
+        loading: true,
+        errorOccured: false,
+        errorData: {}
       }
     },
     
     components: {
       ItemList,
+      ErrorDisplay,
       OrbitLoader
     },
     mounted() {
@@ -57,7 +63,14 @@
           this.loading = false;
           return item;
         }))
-      );
+      ).catch((err) => {
+        this.loading = false;
+        this.errorOccured = true;
+        this.errorData = {
+          message: 'Error occured while trying to fetch items',
+        }
+        console.log(this.errorData);
+      });
     },
     methods: {
       

@@ -2,13 +2,11 @@
     <div class="root top-spacer">
         <OrbitLoader :loading="loading"/>
         <ReviewForm :products="products" :class="{ 'd-none': loading }"/>
-        <Error :error="databaseError" :class="{ 'd-none': !isError }"/>
     </div>      
 </template>
 
 <script>
 import ReviewForm from './ReviewForm';
-import Error from './Error';
 import axios from 'axios';
 import OrbitLoader from './OrbitLoader';
 
@@ -17,8 +15,6 @@ export default {
     data: function() {
         return {
             products: [],
-            isError: false,
-            databaseError: {},
             loading: true
         }
     },
@@ -37,10 +33,7 @@ export default {
                 this.loading = false;
                 return item;
             }))
-        ).catch((err) => {
-            this.isError = true;
-            this.databaseError = err.message;
-        });
+        );
 
     }
 }

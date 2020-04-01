@@ -4,6 +4,7 @@ const queries = require('./itemsRepositoryMO.js');
 async function getItems(req, res, next) {
     setTimeout(async() => {
         try {
+            throw new Error('Test error');
             const data = await queries.getItems();
             let convertedItems = data.map((item) => {
                 return convertItem(item);
@@ -12,21 +13,9 @@ async function getItems(req, res, next) {
         } catch(err) {
             console.log(err);
             next(new Error('Error occured'));
+            // return res.status(500);
         }
     }, 2000);
-}
-
-async function delayedGetItems() {
-    try {
-        const data = await queries.getItems();
-        let convertedItems = data.map((item) => {
-            return convertItem(item);
-        });
-        return res.status(200).json(convertedItems);
-    } catch(err) {
-        console.log(err);
-        next(new Error('Error occured'));
-    }
 }
 
 async function getItem(req, res, next) {
