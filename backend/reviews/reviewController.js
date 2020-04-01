@@ -14,7 +14,6 @@ async function getReviews(req, res, next) {
 async function getReviewsByItem(req, res, next) {
     setTimeout(async() => {
         try {
-            throw new Error('Test error');
             const id = req.params.id;
             const data = await queries.getReviewsByItem(id);
             return res.status(200).json(data);

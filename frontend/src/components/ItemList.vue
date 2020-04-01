@@ -23,6 +23,7 @@
                             <div class="loading col-lg-8">
                                 <OrbitLoader :loading="loading"/>
                             </div>
+                            <ErrorDisplay :errorData="errorData" :class="{ 'd-none' : !errorOccured }"/>
                             <ReviewList :reviews="reviewsList" :class="{ 'd-none': loading}"/>
                             <div class="col-md-12">
                                 <div class="card mb-4 shadow-sm" :class="{ 'collapse': !showNoReviws}">
@@ -46,6 +47,7 @@
 
 <script>
 import ReviewList from './ReviewList';
+import ErrorDisplay from './ErrorDisplay';
 import axios from 'axios';
 import OrbitLoader from './OrbitLoader';
 
@@ -59,12 +61,15 @@ export default {
             reviewsList: [],
             loading: true,
             showNoReviws: false,
+            errorOccured: false,
+            errorData: {}
         }
     },
 
     components: {
         ReviewList,
-        OrbitLoader
+        OrbitLoader,
+        ErrorDisplay
     },
 
     methods: {
@@ -74,7 +79,8 @@ export default {
         },
         getReviews: async function(itemId) {
             this.loading = true;
-            this.showNoReviws = false
+            this.showNoReviws = false;
+            this.errorOccured = false;
             this.items.forEach((item) => { 
                 if(item.id === itemId) { 
                     this.activeItem = item; 
@@ -86,9 +92,16 @@ export default {
                     item.Id = this.reviewId;
                     return item;
                 }))
-            );
+            ).catch((err) => {
+                this.loading = false;
+                this.errorOccured = true;
+                this.errorData = {
+                    message: 'Error occured while trying to fetch reviews',
+                }
+            });
+
             this.loading = false;
-            if(!this.reviewsList[0]) {
+            if(!this.reviewsList[0] && !errorOccured) {
                 this.showNoReviws = true;
             }
         }
