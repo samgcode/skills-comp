@@ -13,7 +13,7 @@ services:
     #         - /var/lib/postgresql/data
     #     image: postgres:11
     backend:
-        build: .
+        build: ./backend
         ports:
             - "3000:3000"
         environment: 
