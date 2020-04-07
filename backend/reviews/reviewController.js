@@ -1,5 +1,7 @@
 // const queries = require('./reviewsRepositoryPG');
-const queries = require('./reviewsRepositoryMO');
+// const queries = require('./reviewsRepositoryMO');
+const queries = (process.env.DB_HOST === 'mongo') ? 
+require('./itemsRepositoryMO.js') : require('./itemsRepositoryPG.js');
 
 async function getReviews(req, res, next) {
     try {

@@ -1,5 +1,7 @@
 // const queries = require('./itemsRepositoryPG.js');
-const queries = require('./itemsRepositoryMO.js');
+// const queries = require('./itemsRepositoryMO.js');
+const queries = (process.env.DB_HOST === 'mongo') ? 
+require('./itemsRepositoryMO.js') : require('./itemsRepositoryPG.js');
 
 async function getItems(req, res, next) {
     setTimeout(async() => {
