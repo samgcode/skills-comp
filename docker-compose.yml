@@ -6,21 +6,17 @@ services:
         volumes: 
             - /var/lib/docker/volumes/mongoData/_data:/data/db
         image: mongo
-    # postgres:
-    #     ports:
-    #         - "54320:54320"
-    #     volumes:
-    #         - /var/lib/postgresql/data
-    #     image: postgres:11
     backend:
         build: ./backend
         ports:
             - "3000:3000"
         environment: 
             DB_HOST: mongo
+        image: samgcode/skills-comp_backend:1.0
     frontend:
         build: ./frontend
         ports:
             - "8080:80"
         environment: 
             HOST_NAME: backend
+        image: samgcode/skills-comp_frontend:1.0
