@@ -13,14 +13,8 @@ services:
     #         - /var/lib/postgresql/data
     #     image: postgres:11
     backend:
-        build: ./backend
+        build: .
         ports:
             - "3000:3000"
         environment: 
             DB_HOST: mongo
-    frontend:
-        build: ./frontend
-        ports:
-            - "8080:80"
-        environment: 
-            HOST_NAME: backend

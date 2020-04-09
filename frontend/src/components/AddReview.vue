@@ -31,7 +31,7 @@ export default {
     },
     async mounted() {
         this.errorOccured = false;
-        await axios.get("http://localhost:3000/items")
+        await axios.get(`http://localhost:3000/items`)
         .then( 
             response => (this.products = response.data.map( item => {
                 item.Id = this.itemid;

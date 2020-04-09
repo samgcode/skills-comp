@@ -126,7 +126,7 @@
                     //create a new http request
                     let xhr = new XMLHttpRequest();
                     
-                    xhr.open('POST', 'http://localhost:3000/reviews');
+                    xhr.open('POST', `http://localhost:3000/reviews`);
                     
                     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                     xhr.send(

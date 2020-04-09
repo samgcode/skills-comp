@@ -55,7 +55,7 @@
       OrbitLoader
     },
     mounted() {
-      axios.get("http://localhost:3000/items")
+      axios.get(`http://localhost:3000/items`)
       .then( 
         response => (this.items = response.data.map( item => {
           item.Id = this.frontendId;

@@ -1,16 +1,16 @@
 <template>
     <div>
-        <OrbitalsLoader :size="150" :color="'#6ee02b'" class="center-page" :class="{ 'd-none': !loading }"/>
+        <clip-loader :size="'50px'" :class="{ 'd-none': !loading }"/>
     </div>
 </template>
 
 <script>
-import OrbitalsLoader from '@bit/joshk.vue-spinners-css.orbitals-loader';
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue';
 
 export default {
     props: ['loading'],
     components: {
-        OrbitalsLoader
+        ClipLoader
     },
 }
 </script>
