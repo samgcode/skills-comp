@@ -101,7 +101,7 @@ export default {
             });
 
             this.loading = false;
-            if(!this.reviewsList[0] && !errorOccured) {
+            if(!this.reviewsList[0] && !this.errorOccured) {
                 this.showNoReviws = true;
             }
         }
