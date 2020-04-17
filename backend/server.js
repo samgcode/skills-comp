@@ -13,8 +13,8 @@ const port = 3000;
 let dev_db_url = '';
 
 if(host != 'pg') {
-    // dev_db_url = `mongodb://${host}:27017/Reviews`;
-    dev_db_url = `mongodb://localhost:27017/Reviews`;
+    dev_db_url = `mongodb://${host}:27017/Reviews`;
+    // dev_db_url = `mongodb://localhost:27017/Reviews`;
 
     dbService.connectMO(dev_db_url);
     itemController.populate();
