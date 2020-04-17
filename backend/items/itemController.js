@@ -1,7 +1,12 @@
 // const queries = require('./itemsRepositoryPG.js');
 // const queries = require('./itemsRepositoryMO.js');
-const queries = (process.env.DB_HOST === 'mongo') ? 
-require('./itemsRepositoryMO.js') : require('./itemsRepositoryPG.js');
+let queries = '';
+if(process.env.DB_HOST === 'mongo') {
+    queries = require('./itemsRepositoryMO.js');
+} else {
+    queries = require('./itemsRepositoryPG.js');
+}
+
 
 async function getItems(req, res, next) {
     setTimeout(async() => {
@@ -51,8 +56,44 @@ function convertItem(item) {
     };
 }
 
+async function populate() {
+    // const item = {
+    //     name: 'Colored spoon',
+    //     desc: 'A packadge containing one bio degradable spoon of any different color.',
+    //     image: 'rainbowSpoons'
+    // }
+    const data = [
+        {
+            name: 'Bio degradable spoons pack',
+            desc: 'A pack of ten spoons, that are all high quality and energy efficient.',
+            image: 'manySpoons'
+        }, {
+            name: 'Colored spoons pack',
+            desc: 'A packadge containing ten bio degradable spoons of all different colors.',
+            image: 'rainbowSpoons'
+        }, {
+            name: 'Single spoon',
+            desc: 'Uno spoon',
+            image: 'SPOON'
+        }, {
+            name: 'Colored spoon',
+            desc: 'A packadge containing one bio degradable spoon of any different color.',
+            image: 'rainbowSpoons'
+        }
+
+    ]
+    const databaseItems = await queries.getItems();
+    if(!databaseItems || databaseItems.length <= 0) {
+        console.log('populating');
+        data.forEach((item) => {
+            queries.addItem(item.name, item.desc, item.image);
+        });   
+    }
+}
+
 module.exports = {
     getItems,
     getItem,
-    addItem
+    addItem,
+    populate
 }
