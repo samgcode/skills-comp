@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 
-exports.connectMO = function(dbURL) {
+exports.intializeDatabase = function(dbURL, serviceLocator) {
     const mongoDB = process.env.MONGODB_URI || dbURL;
     console.log('mongo db: ', mongoDB);
     mongoose.Promise = global.Promise;
     const db = mongoose.connection;
 
     connectWithAutoRetry(mongoDB, db);
+
+    const itemController = serviceLocator.controllers.itemController;
+    itemController.populate();
 }
 
 function connectWithAutoRetry(uri, connection) {
@@ -15,4 +18,5 @@ function connectWithAutoRetry(uri, connection) {
         console.error('Mongo failed to connect - trying again in 5 secounds - error: ', err);
         setTimeout(connectWithAutoRetry, 10000, uri, connection);
     });
+
 }
