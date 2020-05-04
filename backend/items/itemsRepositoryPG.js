@@ -7,17 +7,16 @@ const pool = new Pool({
     port: 54320,
 });
 
-const getItems = async () => {
-    const { rows } = await pool.query('SELECT * FROM items');
-    return rows;
+class ItemsRepositoryPG {
+    async getItems() {
+        const { rows } = await pool.query('SELECT * FROM items');
+        return rows;
+    }
+
+    async getItem(id) {
+        const { rows } = await pool.query('SELECT * FROM items WHERE id = $1', [id]);
+        return rows;
+    }
 }
 
-const getItem = async (id) => {
-    const { rows } = await pool.query('SELECT * FROM items WHERE id = $1', [id]);
-    return rows;
-}
-
-module.exports = {
-    getItems,
-    getItem
-}
+module.exports = ItemsRepositoryPG;

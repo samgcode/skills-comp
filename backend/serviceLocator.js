@@ -1,32 +1,31 @@
 
 const ItemController = require('./items/itemController');
 const ItemsRepositoryMO = require('./items/itemsRepositoryMO');
+const ReviewController = require('./reviews/reviewController');
+const ReviewsRepositoryMO = require('./reviews/reviewsRepositoryMO');
 const dbService = require('./databaseService');
-
-// const ItemsRepositoryPG = require('./items/itemsRepositoryPG');
 
 const serviceLocator = {
     repositories: { },
     controllers: { }
 }
 
-const host = process.env.DB_HOST;
-
-let itemsRepository;
-if(host !== 'pg') {
-    itemsRepository = new ItemsRepositoryMO();
-} else {
-    itemsRepository = require('./items/itemsRepositoryPG');
-}
+let itemsRepository = new ItemsRepositoryMO();
+let reviewsRepository = new ReviewsRepositoryMO();
 
 serviceLocator.repositories['itemsRepo'] = itemsRepository;
+serviceLocator.repositories['reviewsRepo'] = reviewsRepository;
 
 serviceLocator.controllers['itemController'] = new ItemController(serviceLocator);
+serviceLocator.controllers['reviewController'] = new ReviewController(serviceLocator);
 
-if(host !== 'pg') {
-    //const dev_db_url = `mongodb://${host}:27017/Reviews`;
-    const dev_db_url = `mongodb://localhost:27017/Reviews`;
-
-    dbService.intializeDatabase(dev_db_url, serviceLocator);
+let dev_db_url = '/';
+if(process.env.IN_CONTAINER === true) {
+    dev_db_url = `mongodb://mongo:27017/Reviews`;
+} else {
+    dev_db_url = `mongodb://localhost:27017/Reviews`;
 }
+
+dbService.intializeDatabase(dev_db_url, serviceLocator);
+
 module.exports = serviceLocator;

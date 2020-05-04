@@ -1,54 +1,47 @@
-// const queries = require('./reviewsRepositoryPG');
-// const queries = require('./reviewsRepositoryMO');
-let queries = '';
-if(process.env.DB_HOST !== 'pg') {
-    queries = require('./reviewsRepositoryMO.js');
-} else {
-    queries = require('./reviewsRepositoryPG.js');
-}
-
-async function getReviews(req, res, next) {
-    try {
-        const data = await queries.getReviews();
-        return res.status(200).json(data);
-    } catch(err) {
-        console.log(err);
-        next(new Error('Error occured'));
+class ReviewController {
+    constructor(serviceLocator) {
+        this._reviewsRepository = serviceLocator.repositories.reviewsRepo;
     }
-}
 
-async function getReviewsByItem(req, res, next) {
-    setTimeout(async() => {
+
+    async getReviews(req, res, next) {
         try {
-            const id = req.params.id;
-            const data = await queries.getReviewsByItem(id);
+            const data = await this._reviewsRepository.getReviews();
             return res.status(200).json(data);
         } catch(err) {
             console.log(err);
             next(new Error('Error occured'));
         }
-    }, 2000);
+    }
+
+    async getReviewsByItem(req, res, next) {
+        setTimeout(async() => {
+            try {
+                const id = req.params.id;
+                const data = await this._reviewsRepository.getReviewsByItem(id);
+                return res.status(200).json(data);
+            } catch(err) {
+                console.log(err);
+                next(new Error('Error occured'));
+            }
+        }, 2000);
+    }
+
+    async addReview(req, res, next) {
+        setTimeout(async()=>{
+            try {
+                const { username, rating, review, item } = req.body;
+                await this._reviewsRepository.addReview(username, rating, review, item, next);
+                return res.status(201).send(`Review added for: ${username}`);
+            } catch(err) {
+                console.log(err);
+                next(new Error('Error occured'));
+            }
+        }, 2000);
+        
+    }
 }
 
-async function addReview(req, res, next) {
-    //
-    setTimeout(async()=>{
-        try {
-            const { username, rating, review, item } = req.body;
-            await queries.addReview(username, rating, review, item, next);
-            return res.status(201).send(`Review added for: ${username}`);
-        } catch(err) {
-            console.log(err);
-            next(new Error('Error occured'));
-        }
-    }, 2000);
-    
-}
-
-module.exports = {
-    getReviews,
-    getReviewsByItem,
-    addReview
-};
+module.exports = ReviewController;
 
 

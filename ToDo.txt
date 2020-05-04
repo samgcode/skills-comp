@@ -1,3 +1,26 @@
 backend
 - rename queries to repository
 - convert to classes
+
+- after I find out if I can use mongo get rid of postgres stuff
+- go thriugh and clean up everything
+- get rid of every console.log
+- find how to know if in a container
+- add instructions for running with npm
+
+
+- remove build folder from git
+- find out if folder and files sare needed *
+    - knwo what every file is for
+- see wha happens if you create  a new project with vue cli
+- remove inports that are not used
+- fix contact page
+    - look at other contact pages
+    - use company color son every page
+- make all input froms the same
+- put home carousel into its own component
+- change right here on homepage
+- put components in their own sorted folders
+- make all product cards the same size
+- find a way to have the backend url configurable
+    - make a config file with a url stored, and import it
