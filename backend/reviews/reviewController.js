@@ -8,7 +8,6 @@ class ReviewController {
             const data = await this._reviewsRepository.getReviews();
             return res.status(200).json(data);
         } catch(err) {
-            console.log(err);
             next(new Error('Error occured'));
         }
     }
@@ -20,7 +19,6 @@ class ReviewController {
                 const data = await this._reviewsRepository.getReviewsByItem(id);
                 return res.status(200).json(data);
             } catch(err) {
-                console.log(err);
                 next(new Error('Error occured'));
             }
         }, 2000);
@@ -33,7 +31,6 @@ class ReviewController {
                 await this._reviewsRepository.addReview(username, rating, review, item, next);
                 return res.status(201).send(`Review added for: ${username}`);
             } catch(err) {
-                console.log(err);
                 next(new Error('Error occured'));
             }
         }, 2000);

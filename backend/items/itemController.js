@@ -12,7 +12,6 @@ class ItemController {
                 });
                 return res.status(200).json(convertedItems);
             } catch(err) {
-                console.log(err);
                 next(new Error('Error occured'));
             }
         }, 2000);
@@ -25,7 +24,6 @@ class ItemController {
             const convertedItem = this._convertItem(data);
             return res.status(200).json(convertedItem);
         } catch(err) {
-            console.log(err);
             next(new Error('Error occured'));
         }
     }
@@ -36,7 +34,6 @@ class ItemController {
             await this._itemsRepository.addItem(name, description, image);
             return res.status(201).send(`Item added with name: ${name}`);
         } catch(err) {
-            console.log(err);
             next(new Error('Error occured'));
         }
     }
@@ -63,7 +60,6 @@ class ItemController {
         ]
         const databaseItems = await this._itemsRepository.getItems();
         if(!databaseItems || databaseItems.length <= 0) {
-            console.log('populating');
             data.forEach((item) => {
                 this._itemsRepository.addItem(item.name, item.desc, item.image);
             });   
