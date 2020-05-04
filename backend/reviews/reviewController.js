@@ -3,7 +3,6 @@ class ReviewController {
         this._reviewsRepository = serviceLocator.repositories.reviewsRepo;
     }
 
-
     async getReviews(req, res, next) {
         try {
             const data = await this._reviewsRepository.getReviews();
@@ -28,7 +27,7 @@ class ReviewController {
     }
 
     async addReview(req, res, next) {
-        setTimeout(async()=>{
+        setTimeout(async() => {
             try {
                 const { username, rating, review, item } = req.body;
                 await this._reviewsRepository.addReview(username, rating, review, item, next);
@@ -38,7 +37,6 @@ class ReviewController {
                 next(new Error('Error occured'));
             }
         }, 2000);
-        
     }
 }
 

@@ -14,7 +14,6 @@ class ItemController {
             } catch(err) {
                 console.log(err);
                 next(new Error('Error occured'));
-                // return res.status(500);
             }
         }, 2000);
     }
@@ -43,7 +42,6 @@ class ItemController {
     }
 
     async populate() {
-
         const data = [
             {
                 name: 'Bio degradable spoons pack',
@@ -62,7 +60,6 @@ class ItemController {
                 desc: 'A packadge containing one bio degradable spoon of any different color.',
                 image: 'rainbowSpoons'
             }
-    
         ]
         const databaseItems = await this._itemsRepository.getItems();
         if(!databaseItems || databaseItems.length <= 0) {

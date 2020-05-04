@@ -18,5 +18,4 @@ function connectWithAutoRetry(uri, connection) {
         console.error('Mongo failed to connect - trying again in 5 secounds - error: ', err);
         setTimeout(connectWithAutoRetry, 10000, uri, connection);
     });
-
 }
