@@ -27,6 +27,5 @@
         components: {
             StarRating
         }
-
     }
 </script>

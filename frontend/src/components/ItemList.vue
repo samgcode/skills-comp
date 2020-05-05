@@ -51,7 +51,6 @@ import ErrorDisplay from './ErrorDisplay';
 import axios from 'axios';
 import OrbitLoader from './OrbitLoader';
 
-
 export default {
     name: 'itemList',
     props: ['items'],
@@ -65,13 +64,11 @@ export default {
             errorData: {}
         }
     },
-
     components: {
         ReviewList,
         OrbitLoader,
         ErrorDisplay
     },
-
     methods: {
         getImage: function(imageName) {
             var images = require.context('@/assets/', false, /\.jpg$/);
@@ -99,7 +96,6 @@ export default {
                     message: 'Error occured while trying to fetch reviews',
                 }
             });
-
             this.loading = false;
             if(!this.reviewsList[0] && !this.errorOccured) {
                 this.showNoReviws = true;

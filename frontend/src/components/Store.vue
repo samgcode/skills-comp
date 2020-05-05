@@ -48,7 +48,6 @@
         errorData: {}
       }
     },
-    
     components: {
       ItemList,
       ErrorDisplay,
@@ -72,8 +71,6 @@
         console.log(this.errorData);
       });
     },
-    methods: {
-      
-    }
+
   }
 </script>

@@ -13,8 +13,7 @@
                             class="form-control" 
                             :class="{'border-danger': validationErrors[0] }"
                             placeholder="Enter your name"
-                            v-model="formdata.username"
-                            
+                            v-model="formdata.username" 
                         >
                         <span>{{ errors[0] }}</span>
                     </validation-provider>
@@ -27,7 +26,6 @@
                             class="form-control"
                             :class="{'border-danger': validationErrors[1] }"
                             v-model="formdata.product"
-                           
                             >
                                 <option v-for="product in products" :key="product.id" :value="product.id" >{{ product.name }}</option>
                                 
@@ -109,14 +107,12 @@
                 submitText: 'Submit'
             }
         },
-
         components: {
             ValidationProvider,
             StarRating,
             SyncLoader,
             ErrorDisplay
         },
-
         methods: {
             requestAdd: function() {
                 this.hasSubmitted = true;
@@ -151,7 +147,6 @@
                     console.log('xhr:', xhr);
                 }
             },
-
             valid: function() {
                 this.validationErrors = [
                     false,
@@ -184,7 +179,6 @@
                     return valid;
                 }
             },
-
             ratingSelected: function() {
                 this.ratingBorderColor = '';
             }

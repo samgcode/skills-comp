@@ -20,7 +20,6 @@
           <li class="nav-item">
             <router-link :to="{ name: 'About' }" class="nav-link">About us</router-link>
           </li>
-      
         </ul>
       </div>
     </nav>
@@ -43,10 +42,5 @@
 <script>
   export default {
     name: 'MainApp',
-    data: function() {
-      return {
-
-      }
-    }
   }
 </script>
