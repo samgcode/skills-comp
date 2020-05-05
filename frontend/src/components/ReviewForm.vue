@@ -1,6 +1,11 @@
 <template>
     <div class="top-spacer">
-        <h2>Write a review</h2>
+        <div class="jumbotron light-jumbotron">
+            <div class="container">
+            <h2><u>Write a review</u></h2>
+            <h5>Review one of Bio-spoons products</h5>
+            </div>
+        </div>
         <form @submit.prevent="requestAdd()" @change="valid">
             <div class="from-row row">
                 <div class="from-group col-md-5">
@@ -42,6 +47,7 @@
                         :border-color="ratingBorderColor"
                         :border-width="2"
                         :show-rating="false"
+                        :active-color="'#7DFF31'"
                         @rating-selected="ratingSelected"
                         > </star-rating>
                     <span>{{ errors[0] }}</span>

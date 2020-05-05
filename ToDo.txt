@@ -14,9 +14,6 @@ backend
     - knwo what every file is for
 - see wha happens if you create  a new project with vue cli
 - remove inports that are not used
-- fix contact page
-    - look at other contact pages
-    - use company color son every page
 - make all input froms the same
 - put home carousel into its own component
 - change right here on homepage
@@ -24,3 +21,6 @@ backend
 - make all product cards the same size
 - find a way to have the backend url configurable
     - make a config file with a url stored, and import it
+- Use in component stylings
+- Use slot with default value to display content
+- Use .router-link-active and exact to style links based on page
