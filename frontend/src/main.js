@@ -9,7 +9,6 @@ import StarRating from 'vue-star-rating';
 
 import App from './App';
 import router from './router';
-import mainCSS from './main.css'; //this is required untill styles are added in their own components
 
 Vue.config.productionTip = false;
 
