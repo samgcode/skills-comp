@@ -46,7 +46,7 @@
             </div>
             <div class="container">
               <div class="text-center">
-                  <router-link :to="{ name: 'Home' }" class="lead btn btn-primary text-white">Send</router-link>
+                  <router-link :to="{ name: 'Home' }" class="lead btn btn-primary">Send</router-link>
               </div>
             </div> 
           </form>

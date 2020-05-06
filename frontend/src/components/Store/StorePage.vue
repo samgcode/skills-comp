@@ -5,7 +5,7 @@
           <h2>Bio-spoons</h2>
           <h4>Products</h4>
           <div class="text-center">
-            <router-link :to="{ name: 'AddReview' }" class="lead btn btn-primary" style="color: white;">Write a review</router-link>
+            <router-link :to="{ name: 'AddReview' }" class="lead btn btn-primary">Write a review</router-link>
           </div>
         </div>
       </div>
