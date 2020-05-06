@@ -34,8 +34,8 @@
 <script>
   import ItemList from './ItemList';
   import axios from 'axios';
-  import ErrorDisplay from './ErrorDisplay';
-  import OrbitLoader from './OrbitLoader';
+  import ErrorDisplay from '../Error/ErrorDisplay';
+  import OrbitLoader from '../Loading/OrbitLoader';
 
   export default {
     name: 'Store',

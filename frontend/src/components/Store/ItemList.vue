@@ -46,10 +46,10 @@
 </template>
 
 <script>
-import ReviewList from './ReviewList';
-import ErrorDisplay from './ErrorDisplay';
+import ReviewList from './Reviews/ReviewList';
+import ErrorDisplay from '../Error/ErrorDisplay';
 import axios from 'axios';
-import OrbitLoader from './OrbitLoader';
+import OrbitLoader from '../Loading/OrbitLoader';
 
 export default {
     name: 'itemList',

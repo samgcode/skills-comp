@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Home from '@/components/Home';
-import Store from '@/components/Store';
-import Contact from '@/components/Contact'
-import About from '@/components/About';
-import AddReview from '@/components/AddReview';
+import Home from '@/components/Home/HomePage';
+import Store from '@/components/Store/StorePage';
+import Contact from '@/components/Contact/ContactPage'
+import About from '@/components/About/AboutPage';
+import AddReview from '@/components/Add review/AddReview';
 
 Vue.use(Router);
 

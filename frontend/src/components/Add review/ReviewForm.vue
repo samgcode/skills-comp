@@ -85,8 +85,8 @@
 <script>
     import { ValidationProvider, extend } from 'vee-validate';
     import StarRating from 'vue-star-rating';
-    import SyncLoader from'./SyncLoad';
-    import ErrorDisplay from './ErrorDisplay';
+    import SyncLoader from'../Loading/SyncLoad';
+    import ErrorDisplay from '../Error/ErrorDisplay';
 
     import { required } from 'vee-validate/dist/rules';
 
