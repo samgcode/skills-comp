@@ -49,7 +49,6 @@
 router-link {
   color: white;
 }
-
 .dark-jumbotron {
     background-color: #3CBF11;
     color: #fff;

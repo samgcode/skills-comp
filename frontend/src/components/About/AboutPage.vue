@@ -1,5 +1,5 @@
 <template>
-    <div style="margin-top: 3em">
+    <div class="top-spacer-md">
       <div class="title-card">
         <section class="jumbotron text-center dark-jumbotron">
           <div class="container">
@@ -47,7 +47,7 @@
           </div>
         </div>
 
-        <hr style="margin-top: 5em; margin-bottom: 5em;" class="featurette-divider">
+        <hr class="featurette-divider">
         <div class="row">
           <div class="row featurette">
             <div class="col-md-5">
@@ -70,3 +70,10 @@
     name: 'About',  
   }
 </script>
+
+<style scoped>
+.featurette-divider {
+  margin-top: 5em; 
+  margin-bottom: 5em;
+}
+</style>
