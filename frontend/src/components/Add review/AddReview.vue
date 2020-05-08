@@ -11,6 +11,7 @@ import ReviewForm from './ReviewForm';
 import axios from 'axios';
 import ErrorDisplay from '../Error/ErrorDisplay';
 import OrbitLoader from '../Loading/OrbitLoader';
+import baseURL from '../../urlConfig';
 
 export default {
     name: 'AddReview',
@@ -30,7 +31,7 @@ export default {
     },
     async mounted() {
         this.errorOccured = false;
-        await axios.get(`http://localhost:3000/items`)
+        await axios.get(`http://${baseURL}/items`)
         .then( 
             response => (this.products = response.data.map( item => {
                 item.Id = this.itemid;

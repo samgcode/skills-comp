@@ -84,11 +84,12 @@
 
 <script>
     import { ValidationProvider, extend } from 'vee-validate';
+    import { required } from 'vee-validate/dist/rules';
+
     import StarRating from 'vue-star-rating';
     import SyncLoader from'../Loading/SyncLoad';
     import ErrorDisplay from '../Error/ErrorDisplay';
-
-    import { required } from 'vee-validate/dist/rules';
+    import baseURL from '../../urlConfig';
 
     extend('required', {
       ...required,
@@ -128,7 +129,7 @@
                     //create a new http request
                     let xhr = new XMLHttpRequest();
                     
-                    xhr.open('POST', `http://localhost:3000/reviews`);
+                    xhr.open('POST', `http://${baseURL}/reviews`);
                     
                     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                     xhr.send(

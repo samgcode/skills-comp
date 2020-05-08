@@ -50,6 +50,7 @@ import ReviewList from './Reviews/ReviewList';
 import ErrorDisplay from '../Error/ErrorDisplay';
 import axios from 'axios';
 import OrbitLoader from '../Loading/OrbitLoader';
+import baseURL from '../../urlConfig';
 
 export default {
     name: 'itemList',
@@ -83,7 +84,7 @@ export default {
                     this.activeItem = item; 
                 }
             })
-            await axios.get(`http://localhost:3000/reviews/${itemId}`)
+            await axios.get(`http://${baseURL}/reviews/${itemId}`)
             .then( 
                 response => (this.reviewsList = response.data.map(item => {
                     item.Id = this.reviewId;

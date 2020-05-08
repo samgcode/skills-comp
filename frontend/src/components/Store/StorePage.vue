@@ -36,6 +36,7 @@
   import axios from 'axios';
   import ErrorDisplay from '../Error/ErrorDisplay';
   import OrbitLoader from '../Loading/OrbitLoader';
+  import baseURL from '../../urlConfig';
 
   export default {
     name: 'Store',
@@ -54,7 +55,7 @@
       OrbitLoader
     },
     mounted() {
-      axios.get(`http://localhost:3000/items`)
+      axios.get(`http://${baseURL}/items`)
       .then( 
         response => (this.items = response.data.map( item => {
           item.Id = this.frontendId;
