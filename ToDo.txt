@@ -1,4 +1,3 @@
-- remove all .thens and replace with try catch
 - move API calls into service files
 - create another mongodb user called skills-user-rw
 - use light grey instead of white on home page
@@ -8,3 +7,4 @@
 - Use .router-link-active and exact to style links based on page
 - change docker file
 - make star rating use css colors
+- replace iframe in contact

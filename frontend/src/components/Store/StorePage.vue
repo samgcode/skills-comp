@@ -33,10 +33,12 @@
 
 <script>
   import ItemList from './ItemList';
-  import axios from 'axios';
   import ErrorDisplay from '../Error/ErrorDisplay';
   import OrbitLoader from '../Loading/OrbitLoader';
-  import baseURL from '../../urlConfig';
+
+  // const ItemService = require('../../services/itemService.js');
+  import ItemService from '../../services/itemService.js';
+  const itemService = new ItemService();
 
   export default {
     name: 'Store',
@@ -56,10 +58,8 @@
     },
     async mounted() {
       try {
-        const response = await axios.get(`http://${baseURL}/items`);
-        this.items = response.data;
+        this.items = await itemService.getItems();
         this.loading = false;
-        console.log(response.data);
       } catch(err) {
         this.loading = false;
         this.errorOccured = true;
@@ -68,15 +68,6 @@
         }
         console.log(err);
       }
-      // .then( 
-      //   response => (this.items = response.data.map( item => {
-      //     item.Id = this.frontendId;
-      //     this.frontendId++;
-      //     this.loading = false;
-      //     return item;
-      //   }))
-      // ).catch((err) => {
-      // });
     },
 
   }
