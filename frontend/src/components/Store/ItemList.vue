@@ -48,9 +48,11 @@
 <script>
 import ReviewList from './Reviews/ReviewList';
 import ErrorDisplay from '../Error/ErrorDisplay';
-import axios from 'axios';
 import OrbitLoader from '../Loading/OrbitLoader';
 import baseURL from '../../urlConfig';
+import ReviewService from '../../services/reviewService'
+
+const reviewService = new ReviewService();
 
 export default {
     name: 'itemList',
@@ -85,8 +87,8 @@ export default {
                 }
             })
             try {
-                const response = await axios.get(`http://${baseURL}/reviews/${itemId}`);
-                this.reviewsList = response.data;
+
+                this.reviewsList = await reviewService.getReviewByItemId(itemId);
             } catch(err) {
                 this.loading = false;
                 this.errorOccured = true;

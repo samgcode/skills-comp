@@ -9,5 +9,4 @@ class ItemService {
     }
 }
 
-// module.exports = ItemService;
 export default ItemService;

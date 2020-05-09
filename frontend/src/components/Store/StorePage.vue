@@ -35,9 +35,8 @@
   import ItemList from './ItemList';
   import ErrorDisplay from '../Error/ErrorDisplay';
   import OrbitLoader from '../Loading/OrbitLoader';
-
-  // const ItemService = require('../../services/itemService.js');
-  import ItemService from '../../services/itemService.js';
+  import ItemService from '../../services/itemService';
+  
   const itemService = new ItemService();
 
   export default {

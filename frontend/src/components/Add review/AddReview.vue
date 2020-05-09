@@ -8,10 +8,11 @@
 
 <script>
 import ReviewForm from './ReviewForm';
-import axios from 'axios';
 import ErrorDisplay from '../Error/ErrorDisplay';
 import OrbitLoader from '../Loading/OrbitLoader';
-import baseURL from '../../urlConfig';
+import ItemService from '../../services/itemService';
+
+const itemService = new ItemService();
 
 export default {
     name: 'AddReview',
@@ -32,8 +33,7 @@ export default {
     async mounted() {
         this.errorOccured = false;
         try {
-            const response = await axios.get(`http://${baseURL}/items`);
-            this.products = response.data;
+            this.products = await itemService.getItems();
             this.loading = false;
         } catch(err) {
             this.loading = false;
