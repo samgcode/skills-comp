@@ -56,11 +56,10 @@
         <div class="card-body">
           <h3><u>Operating hours</u></h3>
           <h5><u>mon-fri</u> 5am-10pm</h5>
-          <br>
           <h5><u>sat-sun</u> 7am-8pm</h5>
           <br>
           <h3><u>Address</u></h3>
-          <h5>420 Spoons road</h5>
+          <h5>112 Spoons road</h5>
           <h5>Spoon town Canada</h5>
         </div>
       </div>
@@ -69,8 +68,13 @@
 </template>
 
 <script>
+// import { gmapsMap, gmapsMarker } from 'x5-gmaps'
+
   export default {
     name: 'Contact',
+    components: {
+      // gmapsMap, gmapsMarker
+    }
   }
 </script>
 

@@ -1,8 +1,9 @@
 - see wha happens if you create  a new project with vue cli
 - make all product cards the same size
-- find a way to have the backend url configurable
-    - make a config file with a url stored, and import it
 - Use slot with default value to display content
 - Use .router-link-active and exact to style links based on page
 - use light grey instead of white on home page
 - Use atlas to host mongo
+- remove all .thens and replace with try catch
+- move API calls into service files
+- create another mongodb user called skills-user-rw

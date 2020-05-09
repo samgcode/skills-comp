@@ -24,7 +24,8 @@ let dev_db_url = '/';
 if(isDocker()) {
     dev_db_url = `mongodb://mongo:27017/Reviews`;
 } else {
-    dev_db_url = `mongodb://localhost:27017/Reviews`;
+    // dev_db_url = `mongodb://localhost:27017/Reviews`;
+    dev_db_url = `mongodb+srv://user-ro:ENyt64pIf4R4SV1X@cluster01-hibox.mongodb.net/test?retryWrites=true&w=majority`;
 }
 
 dbService.intializeDatabase(dev_db_url, serviceLocator);

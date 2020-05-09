@@ -84,19 +84,15 @@ export default {
                     this.activeItem = item; 
                 }
             })
-            await axios.get(`http://${baseURL}/reviews/${itemId}`)
-            .then( 
-                response => (this.reviewsList = response.data.map(item => {
-                    item.Id = this.reviewId;
-                    return item;
-                }))
-            ).catch((err) => {
+            try {
+                const response = await axios.get(`http://${baseURL}/reviews/${itemId}`);
+            } catch(err) {
                 this.loading = false;
                 this.errorOccured = true;
                 this.errorData = {
                     message: 'Error occured while trying to fetch reviews',
                 }
-            });
+            }
             this.loading = false;
             if(!this.reviewsList[0] && !this.errorOccured) {
                 this.showNoReviws = true;
