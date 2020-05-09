@@ -31,21 +31,17 @@ export default {
     },
     async mounted() {
         this.errorOccured = false;
-        await axios.get(`http://${baseURL}/items`)
-        .then( 
-            response => (this.products = response.data.map( item => {
-                item.Id = this.itemid;
-                this.itemid++;
-                this.loading = false;
-                return item;
-            }))
-        ).catch((err) => {
+        try {
+            const response = await axios.get(`http://${baseURL}/items`);
+            this.products = response.data;
+            this.loading = false;
+        } catch(err) {
             this.loading = false;
             this.errorOccured = true;
             this.errorData = {
                 message: 'Error occured while trying to fetch review form'
             }
-        });
+        }
         if(!this.errorOccured && !this.loading) {
             this.displayForm = true;
         }

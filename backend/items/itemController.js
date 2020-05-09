@@ -13,6 +13,7 @@ class ItemController {
                 return res.status(200).json(convertedItems);
             } catch(err) {
                 next(new Error('Error occured'));
+                console.log(err);
             }
         }, 2000);
     }
@@ -25,6 +26,7 @@ class ItemController {
             return res.status(200).json(convertedItem);
         } catch(err) {
             next(new Error('Error occured'));
+            console.log(err);
         }
     }
 
@@ -35,6 +37,7 @@ class ItemController {
             return res.status(201).send(`Item added with name: ${name}`);
         } catch(err) {
             next(new Error('Error occured'));
+            console.log(err);
         }
     }
 

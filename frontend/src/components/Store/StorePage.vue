@@ -54,23 +54,29 @@
       ErrorDisplay,
       OrbitLoader
     },
-    mounted() {
-      axios.get(`http://${baseURL}/items`)
-      .then( 
-        response => (this.items = response.data.map( item => {
-          item.Id = this.frontendId;
-          this.frontendId++;
-          this.loading = false;
-          return item;
-        }))
-      ).catch((err) => {
+    async mounted() {
+      try {
+        const response = await axios.get(`http://${baseURL}/items`);
+        this.items = response.data;
+        this.loading = false;
+        console.log(response.data);
+      } catch(err) {
         this.loading = false;
         this.errorOccured = true;
         this.errorData = {
           message: 'Error occured while trying to fetch items',
         }
-        console.log(this.errorData);
-      });
+        console.log(err);
+      }
+      // .then( 
+      //   response => (this.items = response.data.map( item => {
+      //     item.Id = this.frontendId;
+      //     this.frontendId++;
+      //     this.loading = false;
+      //     return item;
+      //   }))
+      // ).catch((err) => {
+      // });
     },
 
   }

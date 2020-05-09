@@ -86,6 +86,7 @@ export default {
             })
             try {
                 const response = await axios.get(`http://${baseURL}/reviews/${itemId}`);
+                this.reviewsList = response.data;
             } catch(err) {
                 this.loading = false;
                 this.errorOccured = true;
