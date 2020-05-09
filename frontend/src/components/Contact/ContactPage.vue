@@ -59,8 +59,17 @@
           <h5><u>sat-sun</u> 7am-8pm</h5>
           <br>
           <h3><u>Address</u></h3>
-          <h5>112 Spoons road</h5>
-          <h5>Spoon town Canada</h5>
+          <h5>19480 45 St SE</h5>
+          <h5>Calgary, AB T3M 2P9</h5>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.8654037497017!2d-113.94623734358488!3d50.87780320483478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53719d6934f5b179%3A0xf2018c8cb1331291!2sJoane%20Cardinal-Schubert%20High%20School%20%7C%20Calgary%20Board%20of%20Education!5e0!3m2!1sen!2sca!4v1589044397110!5m2!1sen!2sca" 
+            id="map"
+            frameborder="0"
+            allowfullscreen="" 
+            aria-hidden="false" 
+            tabindex="0"
+            >
+          </iframe>
         </div>
       </div>
     </div>
@@ -68,12 +77,13 @@
 </template>
 
 <script>
-// import { gmapsMap, gmapsMarker } from 'x5-gmaps'
-
   export default {
     name: 'Contact',
-    components: {
-      // gmapsMap, gmapsMarker
+    methods: {
+      getImage: function(imageName) {
+          var images = require.context('@/assets/', false, /\.png$/);
+          return images('./' + imageName + ".png");
+      },
     }
   }
 </script>
@@ -82,5 +92,10 @@
 .form-card {
   margin-right: 2em;
   margin-left: 1.9em;
+}
+#map {
+  width: 80%; 
+  height: 18rem;
+  border: 0;
 }
 </style>
