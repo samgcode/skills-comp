@@ -1,4 +1,3 @@
-- move API calls into service files
 - create another mongodb user called skills-user-rw
 - use light grey instead of white on home page
 - see wha happens if you create  a new project with vue cli
