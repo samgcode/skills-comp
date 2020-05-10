@@ -1,7 +1,7 @@
 <template>
     <div class="top-spacer-md">
       <div class="title-card">
-        <section class="jumbotron text-center dark-jumbotron">
+        <section class="jumbotron text-center light-jumbotron">
           <div class="container">
             <h1><u>Bio-spoons</u></h1>
             <p class="lead">Saveing the environment, one spoon at a time.</p>
@@ -29,7 +29,6 @@
             <img src="@/assets/rainbowSpoons.jpg" alt="Image of one of our spoons" class="bd-placeholder-img rounded-circle" width="140" height="140">
             <h2>They come in many colors</h2>
             <p>Some stuff about the many colors</p>
-            <router-link :to="{ name: 'Store' }" class="btn btn-primary">Store page</router-link>
           </div>
         </div>
 

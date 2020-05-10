@@ -1,30 +1,31 @@
 <template>
   <div id="main-app" class="container">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Bio-spoons</a>
+      <router-link :to="{ name: 'Home' }" class="navbar-brand">Bio-spoons</router-link>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      
       <div class="navbar-collapse collapse" id="mainNav">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <router-link :to="{ name: 'Home' }" class="nav-link">Home</router-link>
+          <li class="nav-item">
+            <router-link :to="{ name: 'Home' }" class="router-nav-link link-small">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link :to="{ name: 'Store' }" class="nav-link">Store</router-link>
+            <router-link :to="{ name: 'Store' }" class="router-nav-link link-small">Store</router-link>
           </li>
           <li class="nav-item">
-            <router-link :to="{ name: 'Contact' }" class="nav-link">Contact us</router-link>
+            <router-link :to="{ name: 'Contact' }" class="router-nav-link link-small">Contact us</router-link>
           </li>
           <li class="nav-item">
-            <router-link :to="{ name: 'About' }" class="nav-link">About us</router-link>
+            <router-link :to="{ name: 'About' }" class="router-nav-link link-small">About us</router-link>
           </li>
         </ul>
       </div>
     </nav>
 
     <router-view></router-view>
+    
     <footer>
       <hr class="top-spacer">
       <div class="bottom-spacer">
@@ -45,8 +46,39 @@
   }
 </script>
 
+<style scoped>
+.navbar {
+  height: 6%;
+  font-size: 150%;
+}
+.navbar-brand {
+  color: #7DFF31;
+  font-size: 160%;
+  padding-bottom: 0.4em;
+}
+.navbar-brand:focus {
+  color: #7DFF31;
+}
+.router-nav-link {
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  color: #3CBF11;
+}
+.router-link-exact-active.link-small {
+  color: #7DFF31;
+  font-size: 105%;
+  text-decoration: underline;
+  border-left: 1px grey;
+  border-left-style: dotted;
+  border-right: 1px grey;
+  border-right-style: dotted;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+}
+</style>
+
 <style>
-router-link {
+.router-link {
   color: white;
 }
 .dark-jumbotron {
@@ -58,13 +90,13 @@ router-link {
     color: #000;
 }
 .top-spacer {
-    margin-top: 5em;
+    margin-top: 6em;
 }
 .top-spacer-md {
-    margin-top: 3em;
+    margin-top: 4em;
 }
 .top-spacer-sm {
-    margin-top: 1.5em;
+    margin-top: 2em;
 }
 .bottom-spacer {
     margin-bottom: 5em;
