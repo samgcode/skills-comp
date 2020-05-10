@@ -63,6 +63,7 @@ class ItemController {
         ]
         const databaseItems = await this._itemsRepository.getItems();
         if(!databaseItems || databaseItems.length <= 0) {
+            console.log('populating items');
             data.forEach((item) => {
                 this._itemsRepository.addItem(item.name, item.desc, item.image);
             });   
