@@ -1,9 +1,7 @@
 - create another mongodb user called skills-user-rw
-- use light grey instead of white on home page
 - see wha happens if you create  a new project with vue cli
-- make all product cards the same size
 - Use slot with default value to display content
 - Use .router-link-active and exact to style links based on page
 - change docker file
+- make all product cards the same size
 - make star rating use css colors
-- replace iframe in contact

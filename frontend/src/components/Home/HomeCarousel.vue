@@ -9,7 +9,7 @@
         <div class="carousel-item active">
           <img src="@/assets/horizontalColored.jpeg" class="d-block w-100" height="350" alt="...">
           <div class="carousel-caption text-black">
-            <h1 class="text-white"><u>Learn about our company</u></h1>
+            <h1 class="light-text"><u>Learn about our company</u></h1>
             <h4>See what our comapany is about on our about page</h4>
             <router-link :to="{ name: 'About' }" class="lead btn btn-primary top-spacer-sm">About us</router-link>
           </div>
@@ -49,3 +49,9 @@ export default {
     name: "HomeCarousel"
 }
 </script>
+
+<style scoped>
+.light-text {
+  color: black;
+}
+</style>
