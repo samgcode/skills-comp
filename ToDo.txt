@@ -1,4 +1,3 @@
 - see wha happens if you create  a new project with vue cli
 - change docker file
-- make all product cards the same size
 - make star rating use css colors

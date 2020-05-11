@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-md-4" v-for="item in items" :key="item.id">
-           <div class="card mb-4 shadow-sm" :id="item.id">
+           <div class="card mb-4 shadow-sm product-card" :id="item.id">
                 <img id="product-image" :src="''+getImage(item.imagename)" alt="Image of one of our spoons" class="bd-placeholder-img" width="100%" height="300">
                 <div class="card-body">
                     <h4>{{ item.name }}</h4>
@@ -87,7 +87,6 @@ export default {
                 }
             })
             try {
-
                 this.reviewsList = await reviewService.getReviewByItemId(itemId);
             } catch(err) {
                 this.loading = false;
@@ -100,7 +99,16 @@ export default {
             if(!this.reviewsList[0] && !this.errorOccured) {
                 this.showNoReviws = true;
             }
-        }
+        },
     }
 }
 </script>
+
+<style scoped>
+.product-card {
+    margin-left: -1em;
+    margin-bottom: 1em;
+    width: 105%;
+    height: 97%;
+}
+</style>
