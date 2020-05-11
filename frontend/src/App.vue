@@ -52,20 +52,20 @@
   font-size: 150%;
 }
 .navbar-brand {
-  color: #7DFF31;
+  color: #00bbff;
   font-size: 160%;
   padding-bottom: 0.4em;
 }
 .navbar-brand:focus {
-  color: #7DFF31;
+  color: #00bbff;
 }
 .router-nav-link {
   padding-left: 0.2em;
   padding-right: 0.2em;
-  color: #3CBF11;
+  color: #008cff;
 }
 .router-link-exact-active.link-small {
-  color: #7DFF31;
+  color: #00bbff;
   font-size: 105%;
   text-decoration: underline;
   border-left: 1px grey;
@@ -82,11 +82,11 @@
   color: white;
 }
 .dark-jumbotron {
-    background-color: #3CBF11;
+    background-color: #008cff;
     color: #fff;
 }
 .light-jumbotron {
-    background-color: #7DFF31;
+    background-color: #00bbff;
     color: #000;
 }
 .top-spacer {

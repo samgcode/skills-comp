@@ -1,7 +1,10 @@
-- remove backend and use atlas' API
+style
+- replace text
 - Replace imgs
 - change all text content
 - get the new imgs for the company
-- populate database with new items
 - replace map abd address on contact page
-- 
+
+functionality
+- remove backend and use atlas' API
+- populate database with new items
