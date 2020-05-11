@@ -1,2 +1,8 @@
-- change docker file
-- make star rating use css colors
+- remove backend and use atlas' API
+- Replace imgs
+- change all text content
+- get the new imgs for the company
+- rename all imgs
+- populate database with new items
+- replace map abd address on contact page
+- 
