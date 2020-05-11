@@ -1,3 +1,2 @@
-- see wha happens if you create  a new project with vue cli
 - change docker file
 - make star rating use css colors
