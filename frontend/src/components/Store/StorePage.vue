@@ -2,8 +2,8 @@
     <div class="container top-spacer small">
       <div class="jumbotron light-jumbotron">
         <div class="container">
-          <h2>Bio-spoons</h2>
-          <h4>Products</h4>
+          <h2>Rappid Air</h2>
+          <h5>Products</h5>
           <div class="text-center">
             <router-link :to="{ name: 'AddReview' }" class="lead btn btn-primary">Write a review</router-link>
           </div>

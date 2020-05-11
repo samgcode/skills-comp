@@ -3,7 +3,7 @@
         <div class="jumbotron light-jumbotron">
             <div class="container">
             <h2><u>Write a review</u></h2>
-            <h5>Review one of Bio-spoons products</h5>
+            <h5>Review one of Rapid Air products</h5>
             </div>
         </div>
         <form @submit.prevent="requestAdd()" @change="valid">

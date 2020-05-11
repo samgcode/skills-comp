@@ -1,10 +1,19 @@
 style
-- replace text
-- Replace imgs
 - change all text content
+    - home
+    - store
+    - contact
+    - about
+- Replace imgs
+    - home
+    - store
+    - contact
+    - about
 - get the new imgs for the company
 - replace map abd address on contact page
 
 functionality
 - remove backend and use atlas' API
 - populate database with new items
+- have indication and store if an item is on sale
+- display price and sale price

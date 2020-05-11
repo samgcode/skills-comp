@@ -1,7 +1,7 @@
 <template>
   <div id="main-app" class="container">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-      <router-link :to="{ name: 'Home' }" class="navbar-brand">Bio-spoons</router-link>
+      <router-link :to="{ name: 'Home' }" class="navbar-brand">Rapid Air</router-link>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -20,6 +20,11 @@
           <li class="nav-item">
             <router-link :to="{ name: 'About' }" class="router-nav-link link-small">About us</router-link>
           </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <div class="logo">
+            <img src="@/assets/logo.png" class="d-block logo" height="40" alt="logo">
+          </div>
         </ul>
       </div>
     </nav>
@@ -74,6 +79,11 @@
   border-right-style: dotted;
   padding-left: 0.3em;
   padding-right: 0.3em;
+}
+.logo {
+  border: 5px solid rgb(135, 135, 136);
+  background-color: rgb(135, 135, 136);
+  /* margin-right: 1em; */
 }
 </style>
 

@@ -3,7 +3,7 @@
       <div class="title-card">
         <section class="jumbotron text-center light-jumbotron">
           <div class="container">
-            <h1><u>Bio-spoons</u></h1>
+            <h1><u>Rapid Air</u></h1>
             <p class="lead">Saveing the environment, one spoon at a time.</p>
             <router-link :to="{ name: 'Store' }" class="btn btn-primary">Store page</router-link>
             <router-link :to="{ name: 'Contact' }" class="btn btn-secondary">Contact us</router-link>
@@ -36,7 +36,7 @@
         <div class="row">
           <div class="row featurette">
             <div class="col-md-7">
-              <h1 class="featurette-heading"><u>The history of bio-spoons</u></h1>
+              <h1 class="featurette-heading"><u>The history of Rappid Air</u></h1>
               <p class="lead">Bio-spoons, first opened its doors in late 2018, and the rest is history.</p>
             </div>
             <div class="col-md-5">
