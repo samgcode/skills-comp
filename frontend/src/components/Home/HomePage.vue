@@ -24,7 +24,7 @@
           <img src="@/assets/manySpoons.jpg" alt="Image of one of our spoons" 
           class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 right-align">
           <h2 class="featurette-heading"><u>See some of our reviews</u></h2>
           <p class="lead">See what people are saying about our company</p>
           <router-link :to="{ name: 'Store' }" class="lead btn btn-primary">Reviews</router-link>
@@ -44,3 +44,9 @@ import HomeCarousel from './HomeCarousel';
     }
   }
 </script>
+
+<style scoped>
+.right-align {
+  text-align: right;
+}
+</style>
