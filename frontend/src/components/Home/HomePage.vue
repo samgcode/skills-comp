@@ -31,12 +31,12 @@
     <div class="row">
       <div class="row featurette">
         <div class="col-md-5">
-          <img src="@/assets/manySpoons.jpg" alt="Image of one of our spoons" 
+          <img src="@/assets/two_people_skiing.jpg" alt="Image of one of our spoons" 
           class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
         </div>
         <div class="col-md-7 right-align">
           <h2 class="featurette-heading"><u>Read our customers reviews</u></h2>
-          <p class="lead">See what people are saying about our company</p>
+          <p class="lead">Find out what people are saying about our products</p>
           <router-link :to="{ name: 'Store' }" class="lead btn btn-primary">Reviews</router-link>
         </div>
       </div>

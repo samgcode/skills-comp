@@ -20,14 +20,5 @@ functionality
 - get the highest reated review or jsut random and displa iy on the home page
 
 
-
-
-
-- use logo colors
-- ask about the city data
-ptcmembers@skillsalbertawebsdesign.com
+- add buttons on the contact page to chose which city you see on the map
 - finish the story board
-- make the navbar blue
-- make the jumbotron green
-- make nav links green
-- 

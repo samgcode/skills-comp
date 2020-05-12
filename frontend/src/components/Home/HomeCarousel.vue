@@ -26,8 +26,8 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img src="@/assets/calgary_skyline_carousel.jpg" class="d-block w-100" height="400" alt="...">
-          <div class="carousel-caption text-black">
+          <img src="@/assets/calgary_skyline_carousel_2.jpg" class="d-block w-100" height="400" alt="...">
+          <div class="carousel-caption text-white">
             <h1><u>Get in contact</u></h1>
             <h4>See our operating hours or send us an email</h4>
             <router-link :to="{ name: 'Contact' }" class="lead btn btn-primary top-spacer-md">Contact page</router-link>
