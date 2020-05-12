@@ -1,8 +1,8 @@
 <template>
-    <div class="container top-spacer small">
+    <div class="container top-spacer-md">
       <div class="jumbotron light-jumbotron">
         <div class="container">
-          <h2>Rappid Air</h2>
+          <h2>Rapid Air</h2>
           <h5>Products</h5>
           <div class="text-center">
             <router-link :to="{ name: 'AddReview' }" class="lead btn btn-primary">Write a review</router-link>

@@ -1,6 +1,6 @@
 <template>
   <div id="main-app" class="container">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
       <router-link :to="{ name: 'Home' }" class="navbar-brand">Rapid Air</router-link>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -55,22 +55,23 @@
 .navbar {
   height: 6%;
   font-size: 150%;
+  background-color: #00bbff;
 }
 .navbar-brand {
-  color: #00bbff;
+  color: #7DFF31;
   font-size: 160%;
   padding-bottom: 0.4em;
 }
 .navbar-brand:focus {
-  color: #00bbff;
+  color: #7DFF31;
 }
 .router-nav-link {
   padding-left: 0.2em;
   padding-right: 0.2em;
-  color: #008cff;
+  color: #0074f0;
 }
 .router-link-exact-active.link-small {
-  color: #00bbff;
+  color: #7DFF31;
   font-size: 105%;
   text-decoration: underline;
   border-left: 1px grey;
@@ -79,11 +80,6 @@
   border-right-style: dotted;
   padding-left: 0.3em;
   padding-right: 0.3em;
-}
-.logo {
-  border: 5px solid rgb(135, 135, 136);
-  background-color: rgb(135, 135, 136);
-  /* margin-right: 1em; */
 }
 </style>
 
@@ -96,14 +92,14 @@
     color: #fff;
 }
 .light-jumbotron {
-    background-color: #00bbff;
+    background-color: #7DFF31;
     color: #000;
 }
 .top-spacer {
     margin-top: 6em;
 }
 .top-spacer-md {
-    margin-top: 4em;
+    margin-top: 3.8em;
 }
 .top-spacer-sm {
     margin-top: 2em;
