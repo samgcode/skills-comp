@@ -36,7 +36,7 @@
             </div>
 
             <div class="col-lg-4 text-center">
-                <img src="@/assets/rainbowSpoons.jpg" alt="Image of one of our spoons" class="bd-placeholder-img rounded-circle" width="140" height="140">
+                <img src="@/assets/child.jpg" alt="Image of one of our spoons" class="bd-placeholder-img rounded-circle" width="140" height="140">
                 <h2>Rapid for children</h2>
                 <p>
                     Developing bodies need ideal ingredients to 

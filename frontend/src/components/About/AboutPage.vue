@@ -3,8 +3,7 @@
       <div class="title-card">
         <section class="jumbotron text-center light-jumbotron">
           <div class="container">
-            <h1><u>RapidAir</u></h1>
-            <p class="lead"><b>A better way to breathe</b></p>
+            <h1><u>About RapidAir</u></h1>
             <router-link :to="{ name: 'Store' }" class="btn btn-primary">Store page</router-link>
             <router-link :to="{ name: 'Contact' }" class="btn btn-secondary">Contact us</router-link>
           </div>

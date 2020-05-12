@@ -95,6 +95,9 @@
     background-color: #7DFF31;
     color: #000;
 }
+.light-bg {
+  background-color: #7DFF31;
+}
 .top-spacer {
     margin-top: 6em;
 }
@@ -106,6 +109,12 @@
 }
 .bottom-spacer {
     margin-bottom: 5em;
+}
+.bottom-spacer-md {
+    margin-bottom: 3.5em;
+}
+.bottom-spacer-sm {
+    margin-bottom: 2em;
 }
 .text-white {
     color: white;

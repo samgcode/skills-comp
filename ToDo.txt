@@ -17,6 +17,7 @@ functionality
 - populate database with new items
 - have indication and store if an item is on sale
 - display price and sale price
+- get the highest reated review or jsut random and displa iy on the home page
 
 
 
