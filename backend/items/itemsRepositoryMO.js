@@ -15,11 +15,14 @@ class ItemsRepositoryMO {
         return items;
     }
 
-    async addItem (name, description, image) {
+    async addItem (name, description, image, onsale, price, saleprice) {
         const newItem = new Item({
             name: name,
             description: description,
-            imagename: image
+            imagename: image,
+            onsale: onsale,
+            price: price,
+            saleprice: saleprice,
         });
         const res = await newItem.save();
         return res;

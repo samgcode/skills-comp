@@ -32,8 +32,8 @@ class ItemController {
 
     async addItem(req, res, next) {
         try {
-            const { name, description, image } = req.body;
-            await this._itemsRepository.addItem(name, description, image);
+            const { name, description, image, onsale, price, saleprice } = req.body;
+            await this._itemsRepository.addItem(name, description, image, onsale, price, saleprice);
             return res.status(201).send(`Item added with name: ${name}`);
         } catch(err) {
             next(new Error('Error occured'));
@@ -46,26 +46,38 @@ class ItemController {
             {
                 name: 'Bio degradable spoons pack',
                 desc: 'A pack of ten spoons, that are all high quality and energy efficient.',
-                image: 'manySpoons'
+                image: 'manySpoons',
+                onsale: true,
+                price: 25.00,
+                saleprice: 20.00
             }, {
                 name: 'Colored spoons pack',
                 desc: 'A packadge containing ten bio degradable spoons of all different colors.',
-                image: 'rainbowSpoons'
+                image: 'rainbowSpoons',
+                onsale: true,
+                price: 30.00,
+                saleprice: 20.00
             }, {
                 name: 'Single spoon',
                 desc: 'Uno spoon',
-                image: 'SPOON'
+                image: 'SPOON',
+                onsale: false,
+                price: 15.00,
+                saleprice: 15.00
             }, {
                 name: 'Colored spoon',
                 desc: 'A packadge containing one bio degradable spoon of any different color.',
-                image: 'rainbowSpoons'
+                image: 'rainbowSpoons',
+                onsale: false,
+                price: 20.00,
+                saleprice: 20.00
             }
         ]
         const databaseItems = await this._itemsRepository.getItems();
         if(!databaseItems || databaseItems.length <= 0) {
             console.log('populating items');
             data.forEach((item) => {
-                this._itemsRepository.addItem(item.name, item.desc, item.image);
+                this._itemsRepository.addItem(item.name, item.desc, item.image, item.onsale, item.price, item.saleprice);
             });   
         }
     }
@@ -75,6 +87,9 @@ class ItemController {
             name: item.name,
             description: item.description,
             imagename: item.imagename,
+            onsale: item.onsale,
+            price: item.price,
+            saleprice: item.saleprice,
             id: item._id
         };
     }
