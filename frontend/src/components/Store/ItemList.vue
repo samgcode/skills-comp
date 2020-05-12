@@ -1,15 +1,19 @@
 <template>
     <div class="row">
         <div class="col-md-4" v-for="item in items" :key="item.id">
-           <div class="card mb-4 shadow-sm product-card" :id="item.id">
+           <div class="card mb-4 shadow-sm product-card" :class="{'sale' : item.onsale}" :id="item.id">
                 <img id="product-image" :src="''+getImage(item.imagename)" alt="Image of one of our spoons" class="bd-placeholder-img" width="100%" height="300">
                 <div class="card-body">
                     <h4>{{ item.name }}</h4>
                     <p>{{ item.description }}</p>
+                    <div class="row">
+                        <p class="lead price" v-if="item.onsale"><s>${{ item.price }}</s></p>
+                        <p class="lead price">${{ item.saleprice }}</p>
+                    </div>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" @click="getReviews(item.id)">
-                        See some reviews
+                        Reviews
                     </button>
-
+                    <h5 class="sale-text" v-if="item.onsale">On sale!</h5>
                     <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLable" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -110,5 +114,14 @@ export default {
     margin-bottom: 1em;
     width: 105%;
     height: 97%;
+}
+.price {
+    margin-left: 0.6em;
+}
+.sale {
+    border: solid 2px red;
+}
+.sale-text {
+    color: red;
 }
 </style>
