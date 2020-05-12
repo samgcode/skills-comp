@@ -5,7 +5,6 @@
                 <img id="product-image" :src="''+getImage(item.imagename)" alt="Image of one of our spoons" class="bd-placeholder-img" width="100%" height="300">
                 <div class="card-body">
                     <h4>{{ item.name }}</h4>
-                    <p>{{ item.description }}</p>
                     <div class="row">
                         <p class="lead price" v-if="item.onsale"><s>${{ item.price }}</s></p>
                         <p class="lead price">${{ item.saleprice }}</p>
@@ -119,9 +118,9 @@ export default {
     margin-left: 0.6em;
 }
 .sale {
-    border: solid 2px red;
+    border: solid 2px #7DFF31;
 }
 .sale-text {
-    color: red;
+    color: #7DFF31;
 }
 </style>

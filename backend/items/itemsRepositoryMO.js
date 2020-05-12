@@ -15,10 +15,9 @@ class ItemsRepositoryMO {
         return items;
     }
 
-    async addItem (name, description, image, onsale, price, saleprice) {
+    async addItem (name, image, onsale, price, saleprice) {
         const newItem = new Item({
             name: name,
-            description: description,
             imagename: image,
             onsale: onsale,
             price: price,

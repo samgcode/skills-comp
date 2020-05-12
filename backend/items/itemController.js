@@ -32,8 +32,8 @@ class ItemController {
 
     async addItem(req, res, next) {
         try {
-            const { name, description, image, onsale, price, saleprice } = req.body;
-            await this._itemsRepository.addItem(name, description, image, onsale, price, saleprice);
+            const { name, image, onsale, price, saleprice } = req.body;
+            await this._itemsRepository.addItem(name, image, onsale, price, saleprice);
             return res.status(201).send(`Item added with name: ${name}`);
         } catch(err) {
             next(new Error('Error occured'));
@@ -43,41 +43,85 @@ class ItemController {
 
     async populate() {
         const data = [
-            {
-                name: 'Bio degradable spoons pack',
-                desc: 'A pack of ten spoons, that are all high quality and energy efficient.',
-                image: 'manySpoons',
+           {
+                name: '10L Premium Oxygen - Single',
+                image: 'plastic_bottle',
                 onsale: true,
-                price: 25.00,
-                saleprice: 20.00
+                price: 29.00,
+                saleprice: 24.99
             }, {
-                name: 'Colored spoons pack',
-                desc: 'A packadge containing ten bio degradable spoons of all different colors.',
-                image: 'rainbowSpoons',
+                name: 'Twin Pack of Premium Oxygen 10L',
+                image: 'plastic_bottles_2',
                 onsale: true,
+                price: 240.00,
+                saleprice: 180.00
+            }, {
+                name: 'Five Pack of Premium Oxygen 10L',
+                image: 'glass_bottles_line_5',
+                onsale: true,
+                price: 125.00,
+                saleprice: 100.00
+            }, {
+                name: 'Ten Pack of Premium Oxygen 10L',
+                image: 'glass_bottles_line',
+                onsale: true,
+                price: 125.00,
+                saleprice: 100.00
+            }, {
+                name: '4.5L Oxygen - Twin Pack',
+                image: 'two_bottles_2',
+                onsale: false,
                 price: 30.00,
-                saleprice: 20.00
+                saleprice: 30.00
             }, {
-                name: 'Single spoon',
-                desc: 'Uno spoon',
-                image: 'SPOON',
-                onsale: false,
-                price: 15.00,
-                saleprice: 15.00
+                name: 'Tri Pack - 4.5L Premium Oxygen',
+                image: 'three_glass_bottles',
+                onsale: true,
+                price: 55.00,
+                saleprice: 45.00
             }, {
-                name: 'Colored spoon',
-                desc: 'A packadge containing one bio degradable spoon of any different color.',
-                image: 'rainbowSpoons',
+                name: 'Five Pack - 4.5L Premium Oxygen',
+                image: 'five_plastic_bottles',
                 onsale: false,
-                price: 20.00,
-                saleprice: 20.00
-            }
+                price: 64.99,
+                saleprice: 64.99
+            }, {
+                name: 'Six Pack - 4.5L Premium Oxygen',
+                image: 'glass_bottles_line_2',
+                onsale: true,
+                price: 110.00,
+                saleprice: 80.00
+            }, {
+                name: 'Tri Pack - 3L Premium Flavored Oxygen',
+                image: 'three_glass_bottles_2',
+                onsale: false,
+                price: 64.00,
+                saleprice: 64.00
+            }, {
+                name: '3L Premium Strawberry Flavored Oxygen',
+                image: 'red_bottle',
+                onsale: false,
+                price: 32.00,
+                saleprice: 32.00
+            }, {
+                name: 'Tri Pack - 3L Premium Flavored Oxygen',
+                image: 'red_bottles_3',
+                onsale: false,
+                price: 45.00,
+                saleprice: 45.00
+            }, {
+                name: 'Twin Pack - 10L Premium Strawberry Flavoured Oxygen',
+                image: 'red_bottles_2',
+                onsale: false,
+                price: 55.00,
+                saleprice: 55.00
+            },
         ]
         const databaseItems = await this._itemsRepository.getItems();
         if(!databaseItems || databaseItems.length <= 0) {
             console.log('populating items');
             data.forEach((item) => {
-                this._itemsRepository.addItem(item.name, item.desc, item.image, item.onsale, item.price, item.saleprice);
+                this._itemsRepository.addItem(item.name, item.image, item.onsale, item.price, item.saleprice);
             });   
         }
     }
@@ -85,7 +129,6 @@ class ItemController {
     _convertItem(item) {
         return {
             name: item.name,
-            description: item.description,
             imagename: item.imagename,
             onsale: item.onsale,
             price: item.price,
