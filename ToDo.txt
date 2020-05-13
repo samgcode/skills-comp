@@ -2,7 +2,5 @@
 - get the highest reated review or jsut random and displa iy on the home page
 - finish the story board
 - page location hash/ scroll location / url
-- add validation to contact page
-
 
 - add review average

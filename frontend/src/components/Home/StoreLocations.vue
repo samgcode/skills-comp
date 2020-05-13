@@ -1,7 +1,7 @@
 <template>
     <div class="main">
          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#LocationModal">
-            Locations
+            {{ btnText }}
         </button>
 
         <div class="modal fade" id="LocationModal" tabindex="-1" role="dialog" aria-labelledby="LocationModalLable" aria-hidden="true">
@@ -39,6 +39,7 @@ import EmbedMap from './EmbedMap';
 
 export default {
     name: 'StoreLocations',
+    props: ['btnText'],
     components: {
         EmbedMap,
     },

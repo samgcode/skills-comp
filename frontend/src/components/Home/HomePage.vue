@@ -51,7 +51,7 @@
           </div>
         </div>
       </div>
-    <StoreLocations />
+    <StoreLocations :btnText="'Locations'"/>
 
   </div>
 </template>
