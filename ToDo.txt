@@ -1,10 +1,6 @@
 - remove backend and use atlas' API
 - get the highest reated review or jsut random and displa iy on the home page
 - finish the story board
-
-- center loading on reviews
-- reposition the on sale text
-- change Five Pack - 4.5L Premium Oxygen image 
 - page location hash/ scroll location / url
 - add validation to contact page
 

@@ -2,7 +2,10 @@
     <div class="row">
         <div class="col-md-4" v-for="item in items" :key="item.id">
            <div class="card mb-4 shadow-sm product-card" :class="{'sale' : item.onsale}" :id="item.id">
-                <img id="product-image" :src="''+getImage(item.imagename)" alt="Image of one of our spoons" class="bd-placeholder-img" width="100%" height="300">
+                <div class="containter">
+                    <img id="product-image" :src="''+getImage(item.imagename)" alt="Image of one of our spoons" class="bd-placeholder-img" width="100%" height="300">
+                    <h5 class="sale-text top-left col-sm-12" v-if="item.onsale">On sale!</h5>
+                </div>
                 <div class="card-body">
                     <h4>{{ item.name }}</h4>
                     <div class="row">
@@ -12,7 +15,6 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" @click="getReviews(item.id)">
                         Reviews
                     </button>
-                    <h5 class="sale-text" v-if="item.onsale">On sale!</h5>
                     <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLable" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -23,7 +25,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <div class="loading col-lg-8">
+                            <div class="loading col-sm-12">
                                 <OrbitLoader :loading="loading"/>
                             </div>
                             <ErrorDisplay :errorData="errorData" :class="{ 'd-none' : !errorOccured }"/>
@@ -118,9 +120,17 @@ export default {
     margin-left: 0.6em;
 }
 .sale {
-    border: solid 2px #7DFF31;
+    border: solid 3px #7DFF31;
 }
 .sale-text {
     color: #7DFF31;
+    background-color: rgba(125, 125, 125, 0.7);
+    padding-top: 0.5em;
+    padding-bottom: 0.4em;
+}
+.top-left {
+    position: relative;
+    bottom: 86%;
+    /* left: 3%; */
 }
 </style>
