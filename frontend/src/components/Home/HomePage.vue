@@ -41,18 +41,32 @@
         </div>
       </div>
     </div>
+    <hr class="featurette-divider top-spacer-md bottom-spacer-md">
+      <div class="row">
+        <div class="row featurette">
+          <div class="col-md-8 left-align">
+            <h2 class="featurette-heading"><u>Check out one of our locations</u></h2>
+            <p class="lead">Rapid Air has 4 locations with full-service stores in Calgary, Edmonton, Lethbridge and Fort McMurray.</p>
+            
+          </div>
+        </div>
+      </div>
+    <StoreLocations />
+
   </div>
 </template>
 
 <script>
 import HomeCarousel from './HomeCarousel';
-import BottlingLocations from './BottlingLocations'
+import BottlingLocations from './BottlingLocations';
+import StoreLocations from './StoreLocations';
 
   export default {
     name: 'Home',
     components: {
       HomeCarousel,
       BottlingLocations,
+      StoreLocations
     }
   }
 </script>
