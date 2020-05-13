@@ -15,7 +15,7 @@
           <div class="card mb-4 shadow-sm">
             <div class="card-body">
               <h4>A little about us</h4>
-              <p>We are dedicated to fast delivery, and high quality spoons</p>
+              <p>We are dedicated to fast delivery, and high quality air</p>
             </div>
           </div>
         </div>

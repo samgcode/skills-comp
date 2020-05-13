@@ -47,7 +47,11 @@
 
 <script>
 export default {
-    name: "HomeCarousel"
+    name: "HomeCarousel",
+    mounted() {
+      this.$forceUpdate();
+      console.log('updated');
+    }
 }
 </script>
 
