@@ -36,7 +36,7 @@
       <div class="bottom-spacer">
         <span>
           If you would like to know more about 
-          <router-link :to="{ name: 'About' }" ><u>our company,</u></router-link>
+          <router-link :to="{ name: 'About' }"><u>our company,</u></router-link>
              or want to recive aditional information, email us at
           <router-link :to="{ name: 'Contact' }" ><u>the contact page.</u></router-link>
         </span>

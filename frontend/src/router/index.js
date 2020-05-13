@@ -36,5 +36,8 @@ export default new Router({
         name: 'About',
         component: About
     }
-  ]
+  ],
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  }
 });
