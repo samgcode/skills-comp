@@ -21,7 +21,7 @@
             <h1><u>our products are good for the environment</u></h1>
             <h4>All RapidAir products are recycleable!</h4>
             <div class="text-center">
-              <router-link :to="{ name: 'Store' }" class="lead btn btn-primary top-spacer">Store page</router-link>
+              <router-link :to="{ name: 'Store' }" class="lead btn btn-primary top-spacer-sm">Store page</router-link>
             </div>
           </div>
         </div>
@@ -30,7 +30,7 @@
           <div class="carousel-caption text-white">
             <h1><u>Get in contact</u></h1>
             <h4>See our operating hours or send us an email</h4>
-            <router-link :to="{ name: 'Contact' }" class="lead btn btn-primary top-spacer-md">Contact page</router-link>
+            <router-link :to="{ name: 'Contact' }" class="lead btn btn-primary top-spacer-sm">Contact page</router-link>
           </div>
         </div>
       </div>
