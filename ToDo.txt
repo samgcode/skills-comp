@@ -1,3 +1,9 @@
+- ask about the other errors and the presentation
 - add populate functions
+- hide submit button whil loading
 - get the highest reated review or jsut random and displa iy on the home page
 - add review average
+- use media tags foe smaller screens
+- look into bootstrap nav text height
+- expand the message box to the full height
+- fix sizing on contact page for smaller screens

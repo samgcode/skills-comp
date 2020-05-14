@@ -6,13 +6,6 @@ services:
         volumes: 
             - mongoData:/data/db
         image: mongo
-    backend:
-        build: ./backend
-        ports:
-            - "3000:3000"
-        # environment: 
-            # IN_CONTAINER: true
-        image: samgcode/skills-comp_backend:1.0
     frontend:
         build: ./frontend
         ports:

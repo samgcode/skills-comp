@@ -53,12 +53,11 @@
 
 <style scoped>
 .navbar {
-  font-size: 140%;
+  font-size: 120%;
 }
 .navbar-brand {
   color: #7DFF31;
   font-size: 160%;
-  padding-bottom: 0.4em;
 }
 .navbar-brand:focus {
   color: #7DFF31;

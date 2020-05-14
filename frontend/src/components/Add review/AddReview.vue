@@ -10,9 +10,9 @@
 import ReviewForm from './ReviewForm';
 import ErrorDisplay from '../Error/ErrorDisplay';
 import OrbitLoader from '../Loading/OrbitLoader';
-import ItemService from '../../services/itemService';
+import serviceLocator from '../../services/serviceLocator';
 
-const itemService = new ItemService();
+const itemService = serviceLocator.services.itemService;
 
 export default {
     name: 'AddReview',
