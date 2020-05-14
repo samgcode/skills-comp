@@ -1,14 +1,15 @@
-const baseURL = require('../urlConfig');
+const db = require('./setupStitchDB');
 
-const db = require('./createClient');
+const itemsCollection = 'items';
 
 class ItemService {
     async getItems() {
-        const response = await db.collection('items').find({}, { limit: 100}).asArray();
+        const response = await db.collection(itemsCollection).find().asArray();
         return response.map((item) => {
             return this._convertItem(item);
         });
     }
+
     _convertItem(item) {
         const convertedItem = {
             imagename: item.imagename,

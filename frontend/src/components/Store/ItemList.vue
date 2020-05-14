@@ -54,7 +54,6 @@
 import ReviewList from './Reviews/ReviewList';
 import ErrorDisplay from '../Error/ErrorDisplay';
 import OrbitLoader from '../Loading/OrbitLoader';
-import baseURL from '../../urlConfig';
 import ReviewService from '../../services/reviewService'
 
 const reviewService = new ReviewService();
@@ -92,7 +91,7 @@ export default {
                 }
             })
             try {
-                this.reviewsList = await reviewService.getReviewByItemId(itemId);
+                this.reviewsList = await reviewService.getReviewsByItemId(itemId);
             } catch(err) {
                 this.loading = false;
                 this.errorOccured = true;

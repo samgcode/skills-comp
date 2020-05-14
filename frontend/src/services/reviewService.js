@@ -1,24 +1,20 @@
-const mongoose = require('mongoose');
+const db = require('./setupStitchDB');
 
-const baseURL = require('../urlConfig');
-const db = require('./createClient');
+const reviewsCollection = 'reviews';
 
 class ReviewService {
-    async getReviewByItemId(itemId) {
-        const response = await db.collection('reviews').find({product: itemId}, { limit: 100}).asArray();
-        console.log(itemId);
-        console.log(response);
+    async getReviewsByItemId(itemId) {
+        const response = await db.collection(reviewsCollection).find({product: itemId}).asArray();
         return response;
     }
 
     async addReview(username, rating, review, product) {
         const newReview = {
-            "username": username,
-            "rating": rating,
-            "review": review,
-            "product": product
+            username,
+            rating,
+            review,
+            product
         }
-        console.log(newReview);
         await db.collection('reviews').insertOne(newReview);
     }
 }

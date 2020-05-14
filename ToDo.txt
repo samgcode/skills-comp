@@ -1,9 +1,7 @@
-- remove backend and use atlas' API
+- go through the doc and get everything that is required
 - get the highest reated review or jsut random and displa iy on the home page
-- page location hash/ scroll location / url
 - find where the story boards are supposed to go
 - add review average
-- go through the doc and get everything that is required
 - make sure it looks good on a phone
 - validate html and css
-- fix general info on store page
+- remove the urlCOnfig
