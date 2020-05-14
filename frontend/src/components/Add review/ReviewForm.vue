@@ -89,8 +89,9 @@
     import StarRating from 'vue-star-rating';
     import SyncLoader from'../Loading/SyncLoad';
     import ErrorDisplay from '../Error/ErrorDisplay';
-    import ReviewService from '../../services/reviewService';
-    const reviewService = new ReviewService();
+    import serviceLocator from '../../services/serviceLocator';
+    
+    const reviewService = serviceLocator.services.reviewService;
 
     extend('required', {
       ...required,
@@ -104,7 +105,7 @@
             return {
                 formdata: {
                     rating: 0,
-                    product: '5ebb2d30e8c99544d932193b',
+                    product: '5ebdad9a342c408e45ac53c3',
                     hasSubmitted: false
                 },
                 validationErrors: [],

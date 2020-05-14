@@ -1,4 +1,3 @@
-const db = require('./setupStitchDB');
 
 
 class ItemService {
