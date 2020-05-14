@@ -89,7 +89,8 @@
     import StarRating from 'vue-star-rating';
     import SyncLoader from'../Loading/SyncLoad';
     import ErrorDisplay from '../Error/ErrorDisplay';
-    import baseURL from '../../urlConfig';
+    import ReviewService from '../../services/reviewService';
+    const reviewService = new ReviewService();
 
     extend('required', {
       ...required,
@@ -121,37 +122,30 @@
             ErrorDisplay
         },
         methods: {
-            requestAdd: function() {
+            requestAdd: async function() {
                 this.hasSubmitted = true;
                 this.errorOccured = false;
                 if(this.valid()) {
                     this.loading = true;
-                    //create a new http request
-                    let xhr = new XMLHttpRequest();
-                    
-                    xhr.open('POST', `http://${baseURL}/reviews`);
-                    
-                    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                    xhr.send(
-                        `username=${this.formdata.username}
-                        &rating=${this.formdata.rating}
-                        &review=${this.formdata.review}
-                        &item=${this.formdata.product}`
-                    );
-                    xhr.onload = () => {
-                        if(xhr.status != 201) {
-                            this.loading = false;
-                            this.errorOccured = true;
-                            this.submitText = 'Try again';
-                            this.errorData = {
-                                message: 'Error occured while trying send the review to the server',
-                            }
-                        } else {
-                            this.loading = false;
-                            window.location.replace('http://localhost:8080/#/Store');
+                    try {
+                        await reviewService.addReview(
+                            this.formdata.username, 
+                            this.formdata.rating, 
+                            this.formdata.review, 
+                            this.formdata.product
+                        );
+                        this.loading = false;
+                        this.$router.push({
+                            name: 'Store'
+                        });
+                    } catch(err) {
+                        this.loading = false;
+                        this.errorOccured = true;
+                        this.submitText = 'Try again';
+                        this.errorData = {
+                            message: 'Error occured while trying send the review to the server',
                         }
-                    };
-                    console.log('xhr:', xhr);
+                    }
                 }
             },
             valid: function() {

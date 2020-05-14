@@ -99,6 +99,7 @@ export default {
                 this.errorData = {
                     message: 'Error occured while trying to fetch reviews',
                 }
+                console.log(err);
             }
             this.loading = false;
             if(!this.reviewsList[0] && !this.errorOccured) {
