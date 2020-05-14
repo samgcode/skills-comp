@@ -18,10 +18,10 @@
         <div class="carousel-item">
           <img src="@/assets/guy_running_forest_carousel.jpg" class="d-block w-100" height="400" alt="...">
           <div class="carousel-caption text-white">
-            <h1><u>our products are good for the environment</u></h1>
+            <h2><u>our products are good for the environment</u></h2>
             <h4>All RapidAir products are recycleable!</h4>
             <div class="text-center">
-              <router-link :to="{ name: 'Store' }" class="lead btn btn-primary top-spacer-sm">Store page</router-link>
+              <router-link :to="{ name: 'Store' }" class="lead btn btn-primary top-spacer-xsm">Store page</router-link>
             </div>
           </div>
         </div>
@@ -58,5 +58,8 @@ export default {
 <style scoped>
 .light-text {
   color: black;
+}
+.top-spacer-xsm {
+  margin-top: 1em
 }
 </style>

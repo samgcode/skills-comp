@@ -1,7 +1,3 @@
-- go through the doc and get everything that is required
+- add populate functions
 - get the highest reated review or jsut random and displa iy on the home page
-- find where the story boards are supposed to go
 - add review average
-- make sure it looks good on a phone
-- validate html and css
-- remove the urlCOnfig
