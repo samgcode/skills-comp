@@ -12,9 +12,20 @@
                         <p class="lead price" v-if="item.onsale"><s>${{ item.price }}</s></p>
                         <p class="lead price">${{ item.saleprice }}</p>
                     </div>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" @click="getReviews(item.id)">
-                        Reviews
-                    </button>
+                    <div class="row">
+                        <StarRating 
+                            class="left-spacer"
+                            :increment="0.5"
+                            :rating="item.average"
+                            :show-rating="true"
+                            :round-start-rating="true"
+                            :read-only="true"
+                            :star-size="20"
+                        />
+                        <button type="button" class="btn btn-primary left-spacer" data-toggle="modal" data-target="#reviewModal" @click="getReviews(item.id)">
+                            Reviews
+                        </button>
+                    </div>
                     <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLable" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -55,6 +66,7 @@ import ReviewList from './Reviews/ReviewList';
 import ErrorDisplay from '../Error/ErrorDisplay';
 import OrbitLoader from '../Loading/OrbitLoader';
 import serviceLocator from '../../services/serviceLocator';
+import StarRating from 'vue-star-rating';
 // import ReviewService from '../../services/reviewService';
 
 const reviewService = serviceLocator.services.reviewService;
@@ -76,7 +88,8 @@ export default {
     components: {
         ReviewList,
         OrbitLoader,
-        ErrorDisplay
+        ErrorDisplay,
+        StarRating
     },
     methods: {
         getImage: function(imageName) {
@@ -135,5 +148,8 @@ export default {
     position: relative;
     bottom: 86%;
     /* left: 3%; */
+}
+.left-spacer {
+    margin-left: 0.8em;
 }
 </style>

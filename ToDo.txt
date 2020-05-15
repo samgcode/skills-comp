@@ -1,10 +1,13 @@
-- add review average
-- get the highest reated review or jsut random and displa iy on the home page
+- accesibility
+- browser compatability
 - use media tags foe smaller screens
-- look into bootstrap nav text height
-- expand the message box to the full height
 - fix sizing on contact page for smaller screens
-
-- put populate json into its own file
+- get the highest reated review or jsut random and displa iy on the home page
+- expand the message box to the full height
 - change all requires to imports
-- accesibility Tri Pack - 4.5L Premium Oxygen
+
+
+AT THE END IMPORTANT
+- UPOAD BY 3PM
+- MAKE SURE THE CORRECT VERSION IS UPLOADED
+- UPLOAD CODE
