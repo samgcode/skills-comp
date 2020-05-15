@@ -2,7 +2,7 @@
 
 A project for the Alberta skills web design competition.
 Built with vue.js and compiled using webpack.
-It is a simple 5 page web app that coonnects to a mongo atlas database using the stitch API.
+It is a simple 5 page web app that connects to a mongo atlas database using the stitch API.
 
 # To run
 without downloading the code:
