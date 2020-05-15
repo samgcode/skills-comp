@@ -25,7 +25,7 @@
                   id="name-input"
                   v-model="formdata.name"
                 >
-                <p v-if="validation[0]">Tell us your name so we can know whos emailing us</p>
+                <p v-if="validation[0]">Please specify your name</p>
               </div>
             </div>
             <div class="form-row row">
@@ -56,7 +56,7 @@
             </div>
             <div class="container">
               <div class="text-center">
-                  <button class="btn btn-blue text-white" type="submit">Send</button>
+                  <button class="btn btn-blue" type="submit">Send</button>
               </div>
             </div> 
           </form>
@@ -146,9 +146,11 @@
 </script>
 
 <style scoped>
-.form-card {
-  margin-right: 2em;
-  margin-left: 1.9em;
+@media screen and (min-width: 990px){
+  .form-card {
+    margin-right: 2em;
+    margin-left: 1.9em;
+  } 
 }
 .map {
   width: 80%; 

@@ -3,8 +3,8 @@
         <div class="col-md-4" v-for="item in items" :key="item.id">
            <div class="card mb-4 shadow-sm product-card" :class="{'sale' : item.onsale}" :id="item.id">
                 <div class="containter">
+                    <h5 class="sale-text col-sm-12" v-if="item.onsale">On sale!</h5>
                     <img id="product-image" :src="''+getImage(item.imagename)" :alt="'Image of our ' + item.name" class="bd-placeholder-img" width="100%" height="300">
-                    <h5 class="sale-text top-left col-sm-12" v-if="item.onsale">On sale!</h5>
                 </div>
                 <div class="card-body">
                     <h4>{{ item.name }}</h4>
@@ -143,11 +143,6 @@ export default {
     background-color: rgba(125, 125, 125, 0.7);
     padding-top: 0.5em;
     padding-bottom: 0.4em;
-}
-.top-left {
-    position: relative;
-    bottom: 86%;
-    /* left: 3%; */
 }
 .left-spacer {
     margin-left: 0.8em;

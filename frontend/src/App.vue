@@ -65,7 +65,7 @@
 .router-nav-link {
   padding-left: 0.2em;
   padding-right: 0.2em;
-  color: #0044ff;
+  color: black;
 }
 .router-link-exact-active.link-small {
   color: #7DFF31;
@@ -124,7 +124,10 @@
     margin-right: 55%;
 }
 .btn-blue {
-  color: black;
-  background-color: #007bff;
+  color: white;
+  background-color: #006ce0;
+}
+.btn:hover {
+  color: #7DFF31;
 }
 </style>

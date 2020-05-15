@@ -1,4 +1,3 @@
-- browser compatability
 - use media tags foe smaller screens
 - fix sizing on contact page for smaller screens
 - get the highest reated review or jsut random and displa iy on the home page
