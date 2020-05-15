@@ -5,13 +5,14 @@ Built with vue.js and compiled using webpack.
 It is a simple 5 page web app that connects to a mongo atlas database using the stitch API.
 
 # To run
-without downloading the code:
-1: download index.html and the static folder from /dist
-2: run the index.html
+Build with webpack:
+1: download the code from: https://github.com/samgcode/skills-comp/tree/skills-branch
+2: run npm install in /frontend
+3: run npm run build to setup localy 
+4: take the files form /dist and serve them on an http server
 
-Build with webpack and npm
+run localy with npm
 1: download the code from: https://github.com/samgcode/skills-comp/tree/skills-branch
 2: run npm install in /frontend
 3: run npm run dev to setup localy 
-(npm run build builds the static files into /frontend/dist)
 4: go to localhost:8080
