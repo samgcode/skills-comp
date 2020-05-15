@@ -1,7 +1,10 @@
-- hide submit button whil loading
-- get the highest reated review or jsut random and displa iy on the home page
 - add review average
+- get the highest reated review or jsut random and displa iy on the home page
 - use media tags foe smaller screens
 - look into bootstrap nav text height
 - expand the message box to the full height
 - fix sizing on contact page for smaller screens
+
+- put populate json into its own file
+- change all requires to imports
+- 

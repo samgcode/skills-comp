@@ -1,14 +1,22 @@
 class ItemService {
     constructor(serviceLocator) {
         this._collection = serviceLocator.collections.itemsCollection;
-        // this._reviewService = serviceLocator.services.reviewService;
+        this._reviewService = serviceLocator.services.reviewService;
     }
 
     async getItems() {
-        const response = await this._collection.find().asArray();
-        return response.map((item) => {
-            return this._convertItem(item);
+        const items = await this._collection.find().asArray();
+        const itemsRatingAverage = await this._reviewService._getItemsRatingAverage(items);
+
+        const convertedItems = items.map((item) => {
+            const itemId = item._id.toString();
+            const ratingAverage = itemsRatingAverage.find((itemRatingAverage) => {
+                return itemRatingAverage.id === itemId;
+            });
+            const convertedItem = this._convertItem(item, ratingAverage);
+            return convertedItem;
         });
+        return convertedItems;
     }
 
     async populate() {
@@ -96,24 +104,15 @@ class ItemService {
         }
     }
 
-    _convertItem(item) {
-        const newId = item._id.toString();
-        // const reviews = this._reviewService.getReviewsByItemId(newId);
-        // let reviewAverage = 0;
-        // if(reviews.length >= 1) {
-        //     reviews.forEach((review) => {
-        //         reviewAverage += review.rating;
-        //     })
-        //     reviewAverage / reviews.length;
-        // }
+    _convertItem(item, average) {
         const convertedItem = {
             imagename: item.image,
             name: item.name,
             onsale: item.onsale,
             price: item.price,
             saleprice: item.saleprice,
-            // average: reviewAverage,
-            id: newId,
+            average: average.average,
+            id: item._id.toString(),
         };
         return convertedItem;
     }

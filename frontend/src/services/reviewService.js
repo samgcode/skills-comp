@@ -1,5 +1,3 @@
-const db = require('./setupStitchDB');
-
 class ReviewService {
     constructor(serviceLocator) {
         this._collection = serviceLocator.collections.reviewCollection;
@@ -12,6 +10,7 @@ class ReviewService {
 
     async getReviewsByItemId(itemId) {
         const response = await this._collection.find({product: itemId}).asArray();
+        console.log(response);
         return response;
     }
 
@@ -78,6 +77,25 @@ class ReviewService {
                 this._collection.insertOne(review); 
             });
         }
+    }
+
+    async _getItemsRatingAverage(items) {
+        const itemsRatingAverage = await Promise.all(items.map(async (item) => {
+            const itemId = item._id.toString()
+            const reviews = await this.getReviewsByItemId(itemId);
+            let reviewAverage = 0;
+            if(reviews.length >= 1) {
+                reviews.forEach((review) => {
+                    reviewAverage += review.rating;
+                })
+                reviewAverage = reviewAverage / reviews.length;
+            }
+            return {
+                id: itemId,
+                average: reviewAverage,
+            }
+        }));
+        return itemsRatingAverage;
     }
 }
 

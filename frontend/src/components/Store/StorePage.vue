@@ -58,7 +58,6 @@
     async mounted() {
       try {
         this.items = await itemService.getItems();
-        console.log(this.items);
         this.loading = false;
       } catch(err) {
         this.loading = false;

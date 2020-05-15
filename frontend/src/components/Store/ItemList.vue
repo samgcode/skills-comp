@@ -94,6 +94,7 @@ export default {
             })
             try {
                 this.reviewsList = await reviewService.getReviewsByItemId(itemId);
+                this.loading = false;
             } catch(err) {
                 this.loading = false;
                 this.errorOccured = true;
