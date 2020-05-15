@@ -48,7 +48,7 @@
                   class="form-control" 
                   :class="{'border-danger' : validation[2]}"
                   id="message-input"
-                  rows="5"
+                  rows="11"
                   v-model="formdata.message"
                 ></textarea>
                 <p v-if="validation[2]">Give us a suggestion or just say hi!</p>
