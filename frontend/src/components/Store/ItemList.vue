@@ -67,10 +67,8 @@ import ErrorDisplay from '../Error/ErrorDisplay';
 import OrbitLoader from '../Loading/OrbitLoader';
 import serviceLocator from '../../services/serviceLocator';
 import StarRating from 'vue-star-rating';
-// import ReviewService from '../../services/reviewService';
 
 const reviewService = serviceLocator.services.reviewService;
-// const reviewService = new ReviewService();
 
 export default {
     name: 'itemList',

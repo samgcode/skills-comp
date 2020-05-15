@@ -90,10 +90,8 @@
     import SyncLoader from'../Loading/SyncLoad';
     import ErrorDisplay from '../Error/ErrorDisplay';
     import serviceLocator from '../../services/serviceLocator';
-    // import ReviewService from '../../services/reviewService';
     
     const reviewService = serviceLocator.services.reviewService;
-    // const reviewService = new ReviewService;
 
     extend('required', {
       ...required,
@@ -107,7 +105,7 @@
             return {
                 formdata: {
                     rating: 0,
-                    product: '5ebdad9a342c408e45ac53c3',
+                    product: '5ebe185e3a273b12f6c742b5',
                     hasSubmitted: false
                 },
                 validationErrors: [],

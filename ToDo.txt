@@ -1,5 +1,5 @@
 - use media tags for smaller screens
-- get the highest reated review or jsut random and displa iy on the home page
+- get the highest reated review or just random and display on the home page
 - change all requires to imports
 - carousel not cycling
 

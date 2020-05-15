@@ -11,7 +11,7 @@ Build with webpack:
 3: run npm run build to setup localy 
 4: take the files form /dist and serve them on an http server
 
-run localy with npm
+run locally with npm
 1: download the code from: https://github.com/samgcode/skills-comp/tree/skills-branch
 2: run npm install in /frontend
 3: run npm run dev to setup localy 

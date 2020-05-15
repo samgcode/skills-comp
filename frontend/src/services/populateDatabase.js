@@ -30,12 +30,9 @@ class PopulateDatabase {
         data.forEach((review) => {
             const itemIndex = Math.floor(Math.random() * items.length);
             review.product = items[itemIndex]._id.toString();
-            console.log(items[itemIndex]._id.toString());
             this._reviewCollection.insertOne(review); 
         });
     }
 }
 
 export default PopulateDatabase;
-//5ebe16bf0c1b4a728bd8af12 
-//5ebe16bf0c1b4a728bd8af12
