@@ -72,7 +72,7 @@
             <div class="form-row row">
                 <div class="container">
                     <div class="text-center">
-                        <button class="btn btn-primary text-white" type="submit">{{ submitText }}</button>
+                        <button class="btn btn-primary text-white" type="submit" v-if="!loading">{{ submitText }}</button>
                         <SyncLoader :loading="loading" class="top-spacer-sm"/>
                     </div>
                 </div>    
@@ -90,8 +90,10 @@
     import SyncLoader from'../Loading/SyncLoad';
     import ErrorDisplay from '../Error/ErrorDisplay';
     import serviceLocator from '../../services/serviceLocator';
+    // import ReviewService from '../../services/reviewService';
     
     const reviewService = serviceLocator.services.reviewService;
+    // const reviewService = new ReviewService;
 
     extend('required', {
       ...required,

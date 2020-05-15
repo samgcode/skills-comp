@@ -8,11 +8,11 @@ const serviceLocator = {
     services: { },
 }
 
-serviceLocator.collections['itemsCollection'] = db.collection('items');
 serviceLocator.collections['reviewCollection'] = db.collection('reviews');
+serviceLocator.collections['itemsCollection'] = db.collection('items');
 
-serviceLocator.services['itemService'] = new ItemService(serviceLocator);
 serviceLocator.services['reviewService'] = new ReviewService(serviceLocator);
+serviceLocator.services['itemService'] = new ItemService(serviceLocator);
 
 
 serviceLocator.services.itemService.populate();

@@ -1,8 +1,7 @@
-
-
 class ItemService {
     constructor(serviceLocator) {
         this._collection = serviceLocator.collections.itemsCollection;
+        // this._reviewService = serviceLocator.services.reviewService;
     }
 
     async getItems() {
@@ -98,13 +97,23 @@ class ItemService {
     }
 
     _convertItem(item) {
+        const newId = item._id.toString();
+        // const reviews = this._reviewService.getReviewsByItemId(newId);
+        // let reviewAverage = 0;
+        // if(reviews.length >= 1) {
+        //     reviews.forEach((review) => {
+        //         reviewAverage += review.rating;
+        //     })
+        //     reviewAverage / reviews.length;
+        // }
         const convertedItem = {
             imagename: item.image,
             name: item.name,
             onsale: item.onsale,
             price: item.price,
             saleprice: item.saleprice,
-            id: item._id.toString(),
+            // average: reviewAverage,
+            id: newId,
         };
         return convertedItem;
     }

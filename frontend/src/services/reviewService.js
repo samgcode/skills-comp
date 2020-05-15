@@ -1,4 +1,4 @@
-
+const db = require('./setupStitchDB');
 
 class ReviewService {
     constructor(serviceLocator) {
@@ -16,12 +16,14 @@ class ReviewService {
     }
 
     async addReview(username, rating, review, product) {
+        // throw new Error('test');
         const newReview = {
             username,
             rating,
             review,
             product
         }
+        console.log(newReview);
         await this._collection.insertOne(newReview);
     }
 

@@ -54,9 +54,11 @@
 import ReviewList from './Reviews/ReviewList';
 import ErrorDisplay from '../Error/ErrorDisplay';
 import OrbitLoader from '../Loading/OrbitLoader';
-import serviceLocator from '../../services/serviceLocator'
+import serviceLocator from '../../services/serviceLocator';
+// import ReviewService from '../../services/reviewService';
 
 const reviewService = serviceLocator.services.reviewService;
+// const reviewService = new ReviewService();
 
 export default {
     name: 'itemList',

@@ -1,5 +1,3 @@
-- ask about the other errors and the presentation
-- add populate functions
 - hide submit button whil loading
 - get the highest reated review or jsut random and displa iy on the home page
 - add review average
