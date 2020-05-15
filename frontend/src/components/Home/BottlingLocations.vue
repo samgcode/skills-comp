@@ -18,7 +18,7 @@
                     fragrances and waste; our Banff and Lake Louise lines of clean air are unmatchable in 
                     quality.
                 </p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#BanffModal">
+                <button type="button" class="btn btn-blue" data-toggle="modal" data-target="#BanffModal">
                     Banff Air
                 </button>
 
@@ -55,7 +55,7 @@
                     </div>
                 </div>   
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#LakeModal">
+                <button type="button" class="btn btn-blue" data-toggle="modal" data-target="#LakeModal">
                     Lake Louise Air
                 </button>
 
@@ -101,7 +101,7 @@
             <div class="col-md-5">
             <img 
                 src="@/assets/mountain.jpg" 
-                alt="Image of one of a mountain" 
+                alt="Image a moutain" 
                 class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" 
                 width="800" height="800">
             </div>

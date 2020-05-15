@@ -25,7 +25,7 @@
               </p>
             </div>
             <div class="col-md-5">
-              <img src="@/assets/glass_bottles_line.jpg"
+              <img src="@/assets/glass_bottles_line.jpg" alt="Image of glass bottles in a line"
               class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="550" height="550">
             </div>
           </div>
@@ -37,7 +37,7 @@
         <div class="row">
           <div class="row featurette">
             <div class="col-md-5">
-              <img src="@/assets/guy_standing_mountain.jpg"
+              <img src="@/assets/guy_standing_mountain.jpg" alt="image of a person standing on mountain"
               class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="550" height="550">
             </div>
             <div class="col-md-7">

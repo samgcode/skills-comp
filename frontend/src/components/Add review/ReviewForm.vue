@@ -72,7 +72,7 @@
             <div class="form-row row">
                 <div class="container">
                     <div class="text-center">
-                        <button class="btn btn-primary text-white" type="submit" v-if="!loading">{{ submitText }}</button>
+                        <button class="btn btn-blue text-white" type="submit" v-if="!loading">{{ submitText }}</button>
                         <SyncLoader :loading="loading" class="top-spacer-sm"/>
                     </div>
                 </div>    
@@ -122,7 +122,7 @@
             ValidationProvider,
             StarRating,
             SyncLoader,
-            ErrorDisplay
+            ErrorDisplay,
         },
         methods: {
             requestAdd: async function() {

@@ -31,13 +31,13 @@
     <div class="row">
       <div class="row featurette">
         <div class="col-md-5">
-          <img src="@/assets/two_people_skiing.jpg" alt="Image of one of our spoons" 
+          <img src="@/assets/two_people_skiing.jpg" alt="Image of two people skiing" 
           class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
         </div>
         <div class="col-md-7 right-align">
           <h2 class="featurette-heading"><u>Read our customers reviews</u></h2>
           <p class="lead">Find out what people are saying about our products</p>
-          <router-link :to="{ name: 'Store' }" class="lead btn btn-primary">Reviews</router-link>
+          <router-link :to="{ name: 'Store' }" class="lead btn btn-blue">Reviews</router-link>
         </div>
       </div>
     </div>
@@ -47,7 +47,6 @@
           <div class="col-md-8 left-align">
             <h2 class="featurette-heading"><u>Check out one of our locations</u></h2>
             <p class="lead">Rapid Air has 4 locations with full-service stores in Calgary, Edmonton, Lethbridge and Fort McMurray.</p>
-            
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
         <hr class="featurette-divider top-spacer bottom-spacer">
         <div class="row">
             <div class="col-lg-4 text-center">
-                <img src="@/assets/oil_drill_field_lg.jpg" alt="Image of one of our spoons" class="bd-placeholder-img rounded-circle" width="140" height="140">
+                <img src="@/assets/oil_drill_field_lg.jpg" alt="Image of an oil drill in a field" class="bd-placeholder-img rounded-circle" width="140" height="140">
                 <h2>Rapid for work</h2>
                 <p>
                     There’s no vacation from being a leader and
@@ -19,7 +19,7 @@
             </div>
 
             <div class="col-lg-4 text-center">
-                <img src="@/assets/person_writing.jpg" alt="Image of one of our spoons" class="bd-placeholder-img rounded-circle" width="140" height="140">
+                <img src="@/assets/person_writing.jpg" alt="Image of someone writing on a paper" class="bd-placeholder-img rounded-circle" width="140" height="140">
                 <h2>Rapid for students</h2>
                 <p>
                     Excelling at studies requires a focused mind 
@@ -36,7 +36,7 @@
             </div>
 
             <div class="col-lg-4 text-center">
-                <img src="@/assets/child.jpg" alt="Image of one of our spoons" class="bd-placeholder-img rounded-circle" width="140" height="140">
+                <img src="@/assets/child.jpg" alt="Image of a child in a field" class="bd-placeholder-img rounded-circle" width="140" height="140">
                 <h2>Rapid for children</h2>
                 <p>
                     Developing bodies need ideal ingredients to 

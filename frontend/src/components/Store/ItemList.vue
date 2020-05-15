@@ -3,7 +3,7 @@
         <div class="col-md-4" v-for="item in items" :key="item.id">
            <div class="card mb-4 shadow-sm product-card" :class="{'sale' : item.onsale}" :id="item.id">
                 <div class="containter">
-                    <img id="product-image" :src="''+getImage(item.imagename)" alt="Image of one of our spoons" class="bd-placeholder-img" width="100%" height="300">
+                    <img id="product-image" :src="''+getImage(item.imagename)" :alt="'Image of our ' + item.name" class="bd-placeholder-img" width="100%" height="300">
                     <h5 class="sale-text top-left col-sm-12" v-if="item.onsale">On sale!</h5>
                 </div>
                 <div class="card-body">
@@ -22,7 +22,7 @@
                             :read-only="true"
                             :star-size="20"
                         />
-                        <button type="button" class="btn btn-primary left-spacer" data-toggle="modal" data-target="#reviewModal" @click="getReviews(item.id)">
+                        <button type="button" class="btn btn-blue left-spacer" data-toggle="modal" data-target="#reviewModal" @click="getReviews(item.id)">
                             Reviews
                         </button>
                     </div>

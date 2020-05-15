@@ -5,7 +5,7 @@
           <h2>Rapid Air</h2>
           <h5>Products</h5>
           <div class="text-center">
-            <router-link :to="{ name: 'AddReview' }" class="lead btn btn-primary">Write a review</router-link>
+            <router-link :to="{ name: 'AddReview' }" class="lead btn btn-blue">Write a review</router-link>
           </div>
         </div>
       </div>

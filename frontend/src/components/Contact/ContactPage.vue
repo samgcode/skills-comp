@@ -56,7 +56,7 @@
             </div>
             <div class="container">
               <div class="text-center">
-                  <button class="btn btn-primary text-white" type="submit">Send</button>
+                  <button class="btn btn-blue text-white" type="submit">Send</button>
               </div>
             </div> 
           </form>

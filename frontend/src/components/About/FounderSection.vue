@@ -3,7 +3,7 @@
         <hr class="featurette-divider top-spacer bottom-spacer">
         <div class="row">
             <div class="col-lg-6 text-center">
-                <img src="@/assets/the_man.jpg" alt="Image of one of our spoons" class="bd-placeholder-img rounded-circle" width="140" height="140">
+                <img src="@/assets/the_man.jpg" alt="Image of Fred Blam" class="bd-placeholder-img rounded-circle" width="140" height="140">
                 <h2>Fred Blam</h2>
                 <h5>Founder & CEO of RapidAir</h5>
                 <p>
@@ -39,7 +39,7 @@
             </div>
 
             <div class="col-lg-6 text-center">
-                <img src="@/assets/jennifer.jpg" alt="Image of one of our spoons" class="bd-placeholder-img rounded-circle" width="140" height="140">
+                <img src="@/assets/jennifer.jpg" alt="Image of jenifer" class="bd-placeholder-img rounded-circle" width="140" height="140">
                 <h2>Jennifer Right</h2>
                 <h5>Co-Founder & COO of RapidAir</h5>
                 <p>

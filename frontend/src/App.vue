@@ -123,4 +123,8 @@
     margin-left: 45%;
     margin-right: 55%;
 }
+.btn-blue {
+  color: black;
+  background-color: #007bff;
+}
 </style>

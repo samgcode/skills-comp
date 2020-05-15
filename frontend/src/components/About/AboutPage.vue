@@ -4,7 +4,7 @@
         <section class="jumbotron text-center light-jumbotron">
           <div class="container">
             <h1><u>About RapidAir</u></h1>
-            <router-link :to="{ name: 'Store' }" class="btn btn-primary">Store page</router-link>
+            <router-link :to="{ name: 'Store' }" class="btn btn-blue">Store page</router-link>
             <router-link :to="{ name: 'Contact' }" class="btn btn-secondary">Contact us</router-link>
           </div>
         </section>

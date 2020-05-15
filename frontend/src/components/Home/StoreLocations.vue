@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#LocationModal">
+         <button type="button" class="btn btn-blue" data-toggle="modal" data-target="#LocationModal">
             {{ btnText }}
         </button>
 
