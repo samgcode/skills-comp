@@ -1,15 +1,31 @@
 <template>
     <div class="row">
         <div class="col-md-4" v-for="item in items" :key="item.id">
-           <div class="card mb-4 shadow-sm product-card" :id="item.id">
-                <img id="product-image" :src="''+getImage(item.imagename)" alt="Image of one of our spoons" class="bd-placeholder-img" width="100%" height="300">
+           <div class="card mb-4 shadow-sm product-card" :class="{'sale' : item.onsale}" :id="item.id">
+                <div class="containter">
+                    <h5 class="sale-text col-sm-12" v-if="item.onsale">On sale!</h5>
+                    <img id="product-image" :src="''+getImage(item.imagename)" :alt="'Image of our ' + item.name" class="bd-placeholder-img" width="100%" height="300">
+                </div>
                 <div class="card-body">
                     <h4>{{ item.name }}</h4>
-                    <p>{{ item.description }}</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" @click="getReviews(item.id)">
-                        See some reviews
-                    </button>
-
+                    <div class="row">
+                        <p class="lead price" v-if="item.onsale"><s>${{ item.price }}</s></p>
+                        <p class="lead price">${{ item.saleprice }}</p>
+                    </div>
+                    <div class="row">
+                        <StarRating 
+                            class="left-spacer"
+                            :increment="0.5"
+                            :rating="item.average"
+                            :show-rating="true"
+                            :round-start-rating="true"
+                            :read-only="true"
+                            :star-size="20"
+                        />
+                        <button type="button" class="btn btn-blue left-spacer" data-toggle="modal" data-target="#reviewModal" @click="getReviews(item.id)">
+                            Reviews
+                        </button>
+                    </div>
                     <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLable" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -20,7 +36,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <div class="loading col-lg-8">
+                            <div class="loading col-sm-12">
                                 <OrbitLoader :loading="loading"/>
                             </div>
                             <ErrorDisplay :errorData="errorData" :class="{ 'd-none' : !errorOccured }"/>
@@ -49,10 +65,10 @@
 import ReviewList from './Reviews/ReviewList';
 import ErrorDisplay from '../Error/ErrorDisplay';
 import OrbitLoader from '../Loading/OrbitLoader';
-import baseURL from '../../urlConfig';
-import ReviewService from '../../services/reviewService'
+import serviceLocator from '../../services/serviceLocator';
+import StarRating from 'vue-star-rating';
 
-const reviewService = new ReviewService();
+const reviewService = serviceLocator.services.reviewService;
 
 export default {
     name: 'itemList',
@@ -70,7 +86,8 @@ export default {
     components: {
         ReviewList,
         OrbitLoader,
-        ErrorDisplay
+        ErrorDisplay,
+        StarRating
     },
     methods: {
         getImage: function(imageName) {
@@ -87,13 +104,15 @@ export default {
                 }
             })
             try {
-                this.reviewsList = await reviewService.getReviewByItemId(itemId);
+                this.reviewsList = await reviewService.getReviewsByItemId(itemId);
+                this.loading = false;
             } catch(err) {
                 this.loading = false;
                 this.errorOccured = true;
                 this.errorData = {
                     message: 'Error occured while trying to fetch reviews',
                 }
+                console.log(err);
             }
             this.loading = false;
             if(!this.reviewsList[0] && !this.errorOccured) {
@@ -110,5 +129,20 @@ export default {
     margin-bottom: 1em;
     width: 105%;
     height: 97%;
+}
+.price {
+    margin-left: 0.6em;
+}
+.sale {
+    border: solid 3px #7DFF31;
+}
+.sale-text {
+    color: #7DFF31;
+    background-color: rgba(125, 125, 125, 0.7);
+    padding-top: 0.5em;
+    padding-bottom: 0.4em;
+}
+.left-spacer {
+    margin-left: 0.8em;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="main-app" class="container">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-      <router-link :to="{ name: 'Home' }" class="navbar-brand">Bio-spoons</router-link>
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-primary">
+      <router-link :to="{ name: 'Home' }" class="navbar-brand">Rapid Air</router-link>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -21,6 +21,11 @@
             <router-link :to="{ name: 'About' }" class="router-nav-link link-small">About us</router-link>
           </li>
         </ul>
+        <ul class="navbar-nav ml-auto">
+          <div class="logo">
+            <img src="@/assets/logo.png" class="d-block logo" height="40" alt="logo">
+          </div>
+        </ul>
       </div>
     </nav>
 
@@ -31,7 +36,7 @@
       <div class="bottom-spacer">
         <span>
           If you would like to know more about 
-          <router-link :to="{ name: 'About' }" ><u>our company,</u></router-link>
+          <router-link :to="{ name: 'About' }"><u>our company,</u></router-link>
              or want to recive aditional information, email us at
           <router-link :to="{ name: 'Contact' }" ><u>the contact page.</u></router-link>
         </span>
@@ -48,13 +53,11 @@
 
 <style scoped>
 .navbar {
-  height: 6%;
-  font-size: 150%;
+  font-size: 120%;
 }
 .navbar-brand {
   color: #7DFF31;
   font-size: 160%;
-  padding-bottom: 0.4em;
 }
 .navbar-brand:focus {
   color: #7DFF31;
@@ -62,7 +65,7 @@
 .router-nav-link {
   padding-left: 0.2em;
   padding-right: 0.2em;
-  color: #3CBF11;
+  color: black;
 }
 .router-link-exact-active.link-small {
   color: #7DFF31;
@@ -82,24 +85,33 @@
   color: white;
 }
 .dark-jumbotron {
-    background-color: #3CBF11;
+    background-color: #008cff;
     color: #fff;
 }
 .light-jumbotron {
     background-color: #7DFF31;
     color: #000;
 }
+.light-bg {
+  background-color: #7DFF31;
+}
 .top-spacer {
     margin-top: 6em;
 }
 .top-spacer-md {
-    margin-top: 4em;
+    margin-top: 3.8em;
 }
 .top-spacer-sm {
     margin-top: 2em;
 }
 .bottom-spacer {
     margin-bottom: 5em;
+}
+.bottom-spacer-md {
+    margin-bottom: 3.5em;
+}
+.bottom-spacer-sm {
+    margin-bottom: 2em;
 }
 .text-white {
     color: white;
@@ -110,5 +122,12 @@
 .center-page {
     margin-left: 45%;
     margin-right: 55%;
+}
+.btn-blue {
+  color: white;
+  background-color: #006ce0;
+}
+.btn:hover {
+  color: #7DFF31;
 }
 </style>

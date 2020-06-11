@@ -1,2 +1,9 @@
-- change docker file
-- make star rating use css colors
+- use media tags for smaller screens
+- get the highest reated review or just random and display on the home page
+- change all requires to imports
+- carousel not cycling
+
+AT THE END || IMPORTANT
+- UPOAD BY 3PM
+- MAKE SURE THE CORRECT VERSION IS UPLOADED
+- UPLOAD CODE

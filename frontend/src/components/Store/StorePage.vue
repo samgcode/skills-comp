@@ -1,11 +1,11 @@
 <template>
-    <div class="container top-spacer small">
+    <div class="container top-spacer-md">
       <div class="jumbotron light-jumbotron">
         <div class="container">
-          <h2>Bio-spoons</h2>
-          <h4>Products</h4>
+          <h2>Rapid Air</h2>
+          <h5>Products</h5>
           <div class="text-center">
-            <router-link :to="{ name: 'AddReview' }" class="lead btn btn-primary">Write a review</router-link>
+            <router-link :to="{ name: 'AddReview' }" class="lead btn btn-blue">Write a review</router-link>
           </div>
         </div>
       </div>
@@ -15,7 +15,7 @@
           <div class="card mb-4 shadow-sm">
             <div class="card-body">
               <h4>A little about us</h4>
-              <p>We are dedicated to fast delivery, and high quality spoons</p>
+              <p>We are dedicated to fast delivery, and high quality air</p>
             </div>
           </div>
         </div>
@@ -35,9 +35,9 @@
   import ItemList from './ItemList';
   import ErrorDisplay from '../Error/ErrorDisplay';
   import OrbitLoader from '../Loading/OrbitLoader';
-  import ItemService from '../../services/itemService';
+  import serviceLocator from '../../services/serviceLocator';
   
-  const itemService = new ItemService();
+  const itemService = serviceLocator.services.itemService;
 
   export default {
     name: 'Store',

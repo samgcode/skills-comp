@@ -3,71 +3,45 @@
       <div class="title-card">
         <section class="jumbotron text-center light-jumbotron">
           <div class="container">
-            <h1><u>Bio-spoons</u></h1>
-            <p class="lead">Saveing the environment, one spoon at a time.</p>
-            <router-link :to="{ name: 'Store' }" class="btn btn-primary">Store page</router-link>
+            <h1><u>About RapidAir</u></h1>
+            <router-link :to="{ name: 'Store' }" class="btn btn-blue">Store page</router-link>
             <router-link :to="{ name: 'Contact' }" class="btn btn-secondary">Contact us</router-link>
           </div>
         </section>
       </div>
 
       <div class="container marketing">
-        <div class="row">
-          <div class="col-lg-4 text-center">
-            <img src="@/assets/SPOON.jpg" alt="Image of one of our spoons" class="bd-placeholder-img rounded-circle" width="140" height="140">
-            <h2>Environmental stuff</h2>
-            <p>Some stuff about stuff thats environmental</p>
-          </div>
+        <section class="text-center">
+           <h4 class="text-center"><u>How will this product benefit me?</u></h4>
+           <p>
+             Our highest priority is the health and well being of families. Fresh air plays a vital role in the physical and emotional wellness of people at all ages, and 
+             every role in the household can benefit from breathing cleaner. The struggle has been that clean air hasn’t been easily affordable or accessible. Rapid 
+             Air exists to support the health of families in a convenient and cost-effective way. We offer pure mountain air in an easy to use can that offers dozens 
+             of clean breaths for use by your entire family.
+           </p>
+        </section>
+          
+        <BenifitSection />
 
-          <div class="col-lg-4 text-center">
-            <img src="@/assets/usbSpoon.jpg" alt="Image of one of our spoons" class="bd-placeholder-img rounded-circle" width="140" height="140">
-            <h2>Energy efficient</h2>
-            <p>Some stuff about stuff thats energy efficient</p>
-          </div>
-
-          <div class="col-lg-4 text-center">
-            <img src="@/assets/rainbowSpoons.jpg" alt="Image of one of our spoons" class="bd-placeholder-img rounded-circle" width="140" height="140">
-            <h2>They come in many colors</h2>
-            <p>Some stuff about the many colors</p>
-          </div>
-        </div>
-
-        <hr class="featurette-divider top-spacer bottom-spacer">
-        <div class="row">
-          <div class="row featurette">
-            <div class="col-md-7">
-              <h1 class="featurette-heading"><u>The history of bio-spoons</u></h1>
-              <p class="lead">Bio-spoons, first opened its doors in late 2018, and the rest is history.</p>
-            </div>
-            <div class="col-md-5">
-              <img src="@/assets/manySpoons.jpg" alt="Image of one of our spoons" 
-              class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
-            </div>
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-        <div class="row">
-          <div class="row featurette">
-            <div class="col-md-5">
-              <img src="@/assets/rainbowSpoons.jpg" alt="Image of one of our spoons" 
-              class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
-            </div>
-            <div class="col-md-7">
-              <h1 class="featurette-heading"><u>See some of our reviews</u></h1>
-              <p class="lead">"This is a very good company would recomend yes yes"</p>
-              <h6>-Jeff</h6>
-            </div>
-          </div>
-        </div>
+        <HistorySection />
       </div>      
     </div>
 </template>
 
 <script>
+  import BenifitSection from './BenifitSection';
+  import HistorySection from './HistorySection';
+
   export default {
     name: 'About',  
+    components: {
+      BenifitSection,
+      HistorySection
+    }
   }
+/*
+
+*/
 </script>
 
 <style scoped>

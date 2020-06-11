@@ -3,7 +3,7 @@
         <div class="jumbotron light-jumbotron">
             <div class="container">
             <h2><u>Write a review</u></h2>
-            <h5>Review one of Bio-spoons products</h5>
+            <h5>Review one of Rapid Air products</h5>
             </div>
         </div>
         <form @submit.prevent="requestAdd()" @change="valid">
@@ -72,7 +72,7 @@
             <div class="form-row row">
                 <div class="container">
                     <div class="text-center">
-                        <button class="btn btn-primary text-white" type="submit">{{ submitText }}</button>
+                        <button class="btn btn-blue text-white" type="submit" v-if="!loading">{{ submitText }}</button>
                         <SyncLoader :loading="loading" class="top-spacer-sm"/>
                     </div>
                 </div>    
@@ -89,7 +89,9 @@
     import StarRating from 'vue-star-rating';
     import SyncLoader from'../Loading/SyncLoad';
     import ErrorDisplay from '../Error/ErrorDisplay';
-    import baseURL from '../../urlConfig';
+    import serviceLocator from '../../services/serviceLocator';
+    
+    const reviewService = serviceLocator.services.reviewService;
 
     extend('required', {
       ...required,
@@ -103,7 +105,7 @@
             return {
                 formdata: {
                     rating: 0,
-                    product: '5eb6058853d71432ef34d1c9',
+                    product: '5ebe185e3a273b12f6c742b5',
                     hasSubmitted: false
                 },
                 validationErrors: [],
@@ -118,40 +120,33 @@
             ValidationProvider,
             StarRating,
             SyncLoader,
-            ErrorDisplay
+            ErrorDisplay,
         },
         methods: {
-            requestAdd: function() {
+            requestAdd: async function() {
                 this.hasSubmitted = true;
                 this.errorOccured = false;
                 if(this.valid()) {
                     this.loading = true;
-                    //create a new http request
-                    let xhr = new XMLHttpRequest();
-                    
-                    xhr.open('POST', `http://${baseURL}/reviews`);
-                    
-                    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                    xhr.send(
-                        `username=${this.formdata.username}
-                        &rating=${this.formdata.rating}
-                        &review=${this.formdata.review}
-                        &item=${this.formdata.product}`
-                    );
-                    xhr.onload = () => {
-                        if(xhr.status != 201) {
-                            this.loading = false;
-                            this.errorOccured = true;
-                            this.submitText = 'Try again';
-                            this.errorData = {
-                                message: 'Error occured while trying send the review to the server',
-                            }
-                        } else {
-                            this.loading = false;
-                            window.location.replace('http://localhost:8080/#/Store');
+                    try {
+                        await reviewService.addReview(
+                            this.formdata.username, 
+                            this.formdata.rating, 
+                            this.formdata.review, 
+                            this.formdata.product
+                        );
+                        this.loading = false;
+                        this.$router.push({
+                            name: 'Store'
+                        });
+                    } catch(err) {
+                        this.loading = false;
+                        this.errorOccured = true;
+                        this.submitText = 'Try again';
+                        this.errorData = {
+                            message: 'Error occured while trying send the review to the server',
                         }
-                    };
-                    console.log('xhr:', xhr);
+                    }
                 }
             },
             valid: function() {
