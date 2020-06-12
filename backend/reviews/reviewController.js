@@ -1,6 +1,9 @@
+const reviews = require('./reviewData.json');
+
 class ReviewController {
     constructor(serviceLocator) {
         this._reviewsRepository = serviceLocator.repositories.reviewsRepo;
+        this._itemsRepository = serviceLocator.repositories.itemsRepo;
     }
 
     async getReviews(req, res, next) {
@@ -34,6 +37,20 @@ class ReviewController {
                 next(new Error('Error occured'));
             }
         }, 2000);
+    }
+
+    async populate() {
+        const databaseReviews = await this._reviewsRepository.getReviews();
+        if(!databaseReviews || databaseReviews.length <= 0) {
+            console.log('populating reviews')
+            const items = await this._itemsRepository.getItems();
+            const data = reviews;
+            data.forEach((review) => {
+                const itemIndex = Math.floor(Math.random() * items.length);
+                review.product = items[itemIndex]._id.toString();
+                this._reviewsRepository.addReview(review.username, review.rating, review.review, review.product);
+            });
+        }
     }
 }
 

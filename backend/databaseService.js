@@ -8,7 +8,9 @@ exports.intializeDatabase = function(dbURL, serviceLocator) {
     connectWithAutoRetry(mongoDB, db);
 
     const itemController = serviceLocator.controllers.itemController;
+    const reviewController = serviceLocator.controllers.reviewController;
     itemController.populate();
+    reviewController.populate();
 }
 
 function connectWithAutoRetry(uri, connection) {
