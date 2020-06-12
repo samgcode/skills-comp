@@ -1,4 +1,7 @@
-import reviewData from './populationData/reviews.json';
+import axios from 'axios';
+import URL from '../urlConfig';
+
+const baseURL = URL.baseURL;
 
 class ReviewService {
     constructor(serviceLocator) {
@@ -6,12 +9,13 @@ class ReviewService {
     }
 
     async getReviews() {
-        const response = await this._collection.find().asArray();
+        const response = await axios.get(`http://${baseURL}/reviews`);
         return response;
     }
 
     async getReviewsByItemId(itemId) {
-        const response = await this._collection.find({product: itemId}).asArray();
+        const response = await axios.get(`http://${baseURL}/reviews/${itemId}`);
+        console.log(response.data);
         return response;
     }
 
@@ -27,7 +31,7 @@ class ReviewService {
 
     async _getItemsRatingAverage(items) {
         const itemsRatingAverage = await Promise.all(items.map(async (item) => {
-            const itemId = item._id.toString();
+            const itemId = item.id.toString();
             const reviews = await this.getReviewsByItemId(itemId);
             let reviewAverage = 0;
             if(reviews.length >= 1) {
