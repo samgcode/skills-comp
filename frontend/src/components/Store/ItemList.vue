@@ -104,7 +104,8 @@ export default {
                 }
             })
             try {
-                this.reviewsList = await reviewService.getReviewsByItemId(itemId);
+                const response = await reviewService.getReviewsByItemId(itemId);
+                this.reviewsList = response.data;
                 this.loading = false;
             } catch(err) {
                 this.loading = false;

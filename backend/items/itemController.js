@@ -3,15 +3,23 @@ const itemData = require('./itemData.json');
 class ItemController {	
     constructor(serviceLocator) {	
         this._itemsRepository = serviceLocator.repositories.itemsRepo;	
+        this._reviewController = serviceLocator.controllers.reviewController;	
     }	
 
     async getItems(req, res, next) {	
         setTimeout(async() => {	
             try {	
-                const data = await this._itemsRepository.getItems();	
-                let convertedItems = data.map((item) => {	
-                    return this._convertItem(item);	
-                });	
+                const items = await this._itemsRepository.getItems();
+                const itemsRatingAverage = await this._reviewController._getItemsRatingAverage(items);
+                console.log(itemsRatingAverage);
+                const convertedItems = items.map((item) => {
+                    const itemId = item._id.toString();
+                    const ratingAverage = itemsRatingAverage.find((itemRatingAverage) => {
+                        return itemRatingAverage.id === itemId;
+                    });
+                    const convertedItem = this._convertItem(item, ratingAverage);
+                    return convertedItem;
+                });
                 return res.status(200).json(convertedItems);	
             } catch(err) {	
                 next(new Error('Error occured'));	
@@ -54,13 +62,14 @@ class ItemController {
         }	
     }	
 
-    _convertItem(item) {	
+    _convertItem(item, average) {
         return {	
             name: item.name,	
-            image: item.image,	
+            imagename: item.image,	
             onsale: item.onsale,	
             price: item.price,	
             saleprice: item.saleprice,	
+            average: average.average,
             id: item._id	
         };	
     }	

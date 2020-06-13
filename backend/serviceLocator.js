@@ -17,8 +17,8 @@ let reviewsRepository = new ReviewsRepositoryMO();
 serviceLocator.repositories['itemsRepo'] = itemsRepository;
 serviceLocator.repositories['reviewsRepo'] = reviewsRepository;
 
-serviceLocator.controllers['itemController'] = new ItemController(serviceLocator);
 serviceLocator.controllers['reviewController'] = new ReviewController(serviceLocator);
+serviceLocator.controllers['itemController'] = new ItemController(serviceLocator);
 
 let dev_db_url = '/';
 if(isDocker()) {

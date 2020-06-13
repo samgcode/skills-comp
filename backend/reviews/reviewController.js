@@ -52,6 +52,25 @@ class ReviewController {
             });
         }
     }
+
+    async _getItemsRatingAverage(items) {
+        const itemsRatingAverage = await Promise.all(items.map(async (item) => {
+            const itemId = item._id.toString();
+            const reviews = await this._reviewsRepository.getReviewsByItem(itemId);
+            let reviewAverage = 0;
+            if(reviews.length >= 1) {
+                reviews.forEach((review) => {
+                    reviewAverage += review.rating;
+                })
+                reviewAverage = reviewAverage / reviews.length;
+            }
+            return {
+                id: itemId,
+                average: reviewAverage,
+            }
+        }));
+        return itemsRatingAverage;
+    }
 }
 
 module.exports = ReviewController;
