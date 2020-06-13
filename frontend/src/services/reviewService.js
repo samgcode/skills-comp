@@ -18,14 +18,19 @@ class ReviewService {
         return response;
     }
 
-    async addReview(username, rating, review, product) {
-        const newReview = {
+    async addReview(username, rating, review, item) {
+        // const newReview = {
+        //     username,
+        //     rating,
+        //     review,
+        //     product
+        // }
+        await axios.post(`http://${baseURL}/reviews`, {
             username,
             rating,
             review,
-            product
-        }
-        await this._collection.insertOne(newReview);
+            item
+        });
     }
 }
 

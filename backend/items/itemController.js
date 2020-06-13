@@ -11,7 +11,6 @@ class ItemController {
             try {	
                 const items = await this._itemsRepository.getItems();
                 const itemsRatingAverage = await this._reviewController._getItemsRatingAverage(items);
-                console.log(itemsRatingAverage);
                 const convertedItems = items.map((item) => {
                     const itemId = item._id.toString();
                     const ratingAverage = itemsRatingAverage.find((itemRatingAverage) => {
