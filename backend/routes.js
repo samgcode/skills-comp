@@ -7,8 +7,8 @@ const router = express.Router();
 const reviewController = serviceLocator.controllers.reviewController;
 const itemController = serviceLocator.controllers.itemController;
 
-router.get('/', function (res) {
-    return res.send({ error: true, message: 'The api seems to be up and running! go to /reviews or /items to see more.' })
+router.get('/', function (req, res) {
+    return res.status(200).json({ error: true, message: 'The api seems to be up and running! go to /reviews or /items to see more.' })
 });
 
 router.get('/reviews', reviewController.getReviews.bind(reviewController));
