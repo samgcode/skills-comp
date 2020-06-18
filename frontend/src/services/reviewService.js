@@ -14,17 +14,11 @@ class ReviewService {
     }
 
     async getReviewsByItemId(itemId) {
-        const response = await axios.get(`http://${baseURL}/reviews/${itemId}`);
+        const response = await axios.get(`http://${baseURL}/reviews?itemId=${itemId}`);
         return response;
     }
 
     async addReview(username, rating, review, item) {
-        // const newReview = {
-        //     username,
-        //     rating,
-        //     review,
-        //     product
-        // }
         await axios.post(`http://${baseURL}/reviews`, {
             username,
             rating,
