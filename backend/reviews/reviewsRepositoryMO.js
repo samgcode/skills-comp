@@ -12,6 +12,13 @@ class ReviewsRepositoryMO {
         return reviews;
     };
 
+    async getReview(id) {
+        const review = await Review.findById(id, function (review) {
+            return review;
+        });
+        return review;
+    };
+
     async getReviewsByItem(itemId) {
         const reviews = await Review.find({'item': itemId}, function (reviews) {
             return reviews;

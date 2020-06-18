@@ -12,7 +12,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/reviews', reviewController.getReviews.bind(reviewController));
-router.get('/reviews/:id', reviewController.getReviewsByItem.bind(reviewController));
+router.get('/reviews/:id', reviewController.getReview.bind(reviewController));
 router.post('/reviews', reviewController.addReview.bind(reviewController));
 
 router.get('/items', itemController.getItems.bind(itemController));

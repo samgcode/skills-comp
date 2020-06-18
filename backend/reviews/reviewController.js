@@ -8,18 +8,33 @@ class ReviewController {
 
     async getReviews(req, res, next) {
         try {
-            const data = await this._reviewsRepository.getReviews();
-            return res.status(200).json(data);
+            if(req.query.itemId) {
+                this.getReviewsByItem(req, res, next)
+            } else {
+                const data = await this._reviewsRepository.getReviews();
+                return res.status(200).json(data);
+            }
         } catch(err) {
             console.log(err);
             next(new Error('Error occured'));
         }
     }
 
+    async getReview(req, res, next) {
+        try {	
+            const id = req.params.id;	
+            const data = await this._reviewsRepository.getReview(id);	
+            return res.status(200).json(data);	
+        } catch(err) {	
+            console.log(err);
+            next(new Error('Error occured'));	
+        }
+    }
+
     async getReviewsByItem(req, res, next) {
         setTimeout(async() => {
             try {
-                const id = req.params.id;
+                const id = req.query.itemId;
                 const data = await this._reviewsRepository.getReviewsByItem(id);
                 return res.status(200).json(data);
             } catch(err) {
