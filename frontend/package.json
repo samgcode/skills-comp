@@ -9,7 +9,6 @@
     "build": "node build/build.js",
     "clean": "rm -rf node_modules package-lock.json",
     "deploy": "node ./node_modules/vue-gh-pages/index.js"
-
   },
   "dependencies": {
     "axios": "^0.19.2",
