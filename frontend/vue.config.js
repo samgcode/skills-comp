@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '/skills-comp/frontend/'
+    publicPath: '/skills-comp/'
 }
