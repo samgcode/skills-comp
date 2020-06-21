@@ -4,6 +4,8 @@ A project for the Alberta skills web design competition.
 Built with vue.js and compiled using webpack.
 It is a simple 5 page web app that connects to a mongo atlas database using the stitch API.
 
+# The project is now available here: http://skills-comp.s3-website-us-east-1.amazonaws.com/
+
 # To run
 Build with webpack:
 1: download the code from: https://github.com/samgcode/skills-comp/tree/skills-branch
