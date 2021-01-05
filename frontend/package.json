@@ -11,7 +11,7 @@
     "deploy": "node ./node_modules/vue-gh-pages/index.js"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "jquery": "^3.4.1",
     "module": "^1.2.5",
     "mongodb-stitch-browser-sdk": "^4.8.0",
